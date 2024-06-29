@@ -1,0 +1,193 @@
+<!DOCTYPE HTML>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>ZCappuccino's BLOG</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="../assets/css/main.css" />
+		<link rel="stylesheet" href="../assets/css/styles.css">		
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+
+							<!-- Header -->
+								<header id="header">
+									<a href="../index.html" class="logo" >&nbsp;<i class="fas fa-home"></i></a>
+									<ul class="icons">
+										<li><a href="https://github.com/ZCappuccino" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+										<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+										<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+										<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+										<li><a href="#" class="icon solid fa-envelope"><span class="label">E-mail</span></a></li>
+									</ul>
+								</header>
+
+							<!-- Content -->
+								<section>
+									<header class="main">
+										<h1 style="text-align: center;">GLiNER: Generalist Model for Named Entity Recognition using Bidirectional Transformer</h1><br>
+										<p style="text-align: right;">完成时间：2023-12-07</p>
+									</header>
+
+									<h4 style="font-family: 'Microsoft YaHei', sans-serif;">来自：ACL 2023</h4>
+									<p>题目：《GLiNER：使用双向转换器进行命名实体识别的通用模型》（zero-shot NER）<br>
+									代码地址：<a href="https://github.com/urchade/GLiNER">https://github.com/urchade/GLiNER</a></p>
+									
+									<hr class="major" />
+									<p>存在的问题：<br>
+1.&nbsp;&nbsp;&nbsp;&nbsp;使用自回归语言模型，逐词生成，使效率变慢<br>
+2.&nbsp;&nbsp;&nbsp;&nbsp;参数过多，在计算量受限的场景中使用会有限制<br>
+3.&nbsp;&nbsp;&nbsp;&nbsp;NER的任务是在几个解码步骤中完成的，没法并行执行多个实体类型的预测</p>
+									<!-- <hr class="major" /> -->
+									
+									<hr style="border-top: 1px dashed #aaa">
+									<p>不依赖大型自回归模型，将NER任务视为实体类型嵌入与潜在空间中的文本跨度表示进行匹配，而不是作为生成任务。既解决了自回归模型的可扩展性问题，并且允许双向的上下文处理，从而能够实现更丰富的表示</p>
+									<span class="image main"><img src="../images/16.png" alt="" /></span>
+									<!-- <hr style="border-top: 1px dashed #aaa"> -->
+									<!-- <h4 style="font-weight: bold;color: black;font-family: 'Microsoft YaHei', sans-serif;"">主要方法：</h4> -->
+									<p>使用实体类型prompt（每个实体被一个学习到的标记 [ENT] 分隔开） + 文本作为输入，通过BiLM，输出每个token的表示，然后将表示传递到FFN中，同时将输入的token表示传递到span representation层，来计算每个span的表示。最后计算实体表示和span表示之间的匹配分数（使用点积和sigmoid激活函数）</p>
+									
+								</section>
+
+						</div>
+					</div>
+
+				<!-- Sidebar -->
+					<div id="sidebar">
+						<div class="inner">
+
+							<!-- Search -->
+								<section id="search" class="alt">
+									<form method="post" action="#">
+										<input type="text" name="query" id="query" placeholder="Search" />
+									</form>
+								</section>
+
+							<!-- Menu -->
+								<nav id="menu">
+									<header class="major">
+										<h2>Menu</h2>
+									</header>
+									<ul>
+										<li><a href="../index.html">Homepage</a></li>
+										<!-- <li><a href="generic.html">Generic</a></li> -->
+										<li>
+											<span class="opener">Algorithm</span>
+											<ul>
+												<li><a href="../algorithm/array.html">数组</a></li>
+												<li><a href="../algorithm/hashtable.html">哈希表</a></li>
+												<li><a href="../algorithm/string.html">字符串</a></li>
+												<li><a href="../algorithm/dualpointer.html">双指针问题</a></li>
+											</ul>
+										</li>
+										
+										<li>
+											<span class="opener">NLP Algorithm</span>
+											<ul>
+												<li><a class="no-wrap" href="../NLP/bilstm.html" style="text-transform: capitalize;">关于BiLSTM-CRF</a></li>
+												
+												<!-- <li><a href="#">Ipsum Adipiscing</a></li> -->
+												
+											</ul>
+										</li>
+										<!-- <li><a href="#">Etiam Dolore</a></li>
+										<li><a href="#">Adipiscing</a></li> -->
+										<li>
+											<span class="opener">Records</span>
+											<ul>
+												<li><a class="no-wrap" href="../records/reading3.html" style="text-transform: capitalize;">报错解决记录-算法篇（持续更新）</a></li>
+												<li><a class="no-wrap" href="../records/reading2.html" style="text-transform: capitalize;">Doccano工具安装+使用</a></li>
+												<li><a class="no-wrap" href="../records/reading1.html" style="text-transform: capitalize;">代码阅读《Text-to-Table: A New Way of Information Extraction》</a></li>
+												<!-- <li><a href="#">Ipsum Adipiscing</a></li> -->
+											</ul>
+										</li>
+										
+										<li>
+											<span class="opener">Paper Notes</span>
+											<ul>
+												<li><span class="opener">ACL</span>
+													<ul>
+														<!-- <li><a class="no-wrap" href="papernotes/.html" style="text-transform: capitalize;"></a></li> -->
+														<li><a class="no-wrap" href="../papernotes/classner.html" style="text-transform: capitalize;">Learning "O" Helps for Learning More: Handling the Unlabeled Entity Problem for Class-incremental NER</a></li>
+														<li><a class="no-wrap" href="../papernotes/gliner.html" style="text-transform: capitalize;">GLiNER: Generalist Model for Named Entity Recognition using Bidirectional Transformer</a></li>
+														<li><a class="no-wrap" href="../papernotes/hero.html" style="text-transform: capitalize;">Hero-Gang Neural Model For Named Entity Recognition</a></li>
+														<li><a class="no-wrap" href="../papernotes/dabert.html" style="text-transform: capitalize;">DABERT: Dual Attention Enhanced BERT for Semantic Matching</a></li>
+														<li><a class="no-wrap" href="../papernotes/spangraph.html" style="text-transform: capitalize;">Nested Named Entity Recognition with Span-level Graphs</a></li>
+														<li><a class="no-wrap" href="../papernotes/enrel.html" style="text-transform: capitalize;">Explicitly Capturing Relations between Entity Mentions via Graph Neural Networks for Domain-specific Named Entity Recognition</a></li>
+														<li><a class="no-wrap" href="../papernotes/lilt.html" style="text-transform: capitalize;">LiLT: A Simple yet Effective Language-Independent Layout Transformer for Structured Document Understanding</a></li>
+													</ul></li>
+													
+												<li><span class="opener">EMNLP & NAACL</span>
+													<ul>
+														<li><a class="no-wrap" href="../papernotes/graphbase.html" style="text-transform: capitalize;">Graph Convolution for Multimodal Information Extraction from Visually Rich Documents</a></li>
+														<!-- <li><a class="no-wrap" href="#">Ipsum Adipiscing</a></li> -->
+													</ul></li>
+													
+												<li><span class="opener">CVPR & ECCV & ICCV</span>
+													<ul>
+														<li><a class="no-wrap" href="../papernotes/mae.html" style="text-transform: capitalize;">Masked Autoencoders Are Scalable Vision Learners</a></li>
+														<li><a class="no-wrap" href="../papernotes/setr.html" style="text-transform: capitalize;">Rethinking Semantic Segmentation from a Sequence-to-Sequence Perspective with Transformers</a></li>
+														<li><a class="no-wrap" href="../papernotes/hmer.html" style="text-transform: capitalize;">When Counting Meets HMER: Counting-Aware Network for Handwritten Mathematical Expression Recognition</a></li>
+													</ul></li>
+													
+												<li><span class="opener">Other</span>
+													<ul>
+														<li><a class="no-wrap" href="../papernotes/rifre.html" style="text-transform: capitalize;">Representation iterative fusion based on heterogeneous graph neural network for joint entity and relation extraction</a></li>
+														<li><a class="no-wrap" href="../papernotes/graphdoc.html" style="text-transform: capitalize;">Graph Neural Networks and Representation Embedding for Table Extraction in PDF Documents</a></li>
+														<li><a class="no-wrap" href="../papernotes/bros.html" style="text-transform: capitalize;">BROS: A Pre-trained Language Model Focusing on Text and Layout for Better Key Information Extraction from Documents</a></li>
+														<li><a class="no-wrap" href="../papernotes/superalloy.html" style="text-transform: capitalize;">Automated pipeline for superalloy data by text mining</a></li>
+														<li><a class="no-wrap" href="../papernotes/polymer.html" style="text-transform: capitalize;">Automated knowledge extraction from polymer literature using natural language processing</a></li>
+													</ul></li>
+											</ul>
+										</li>
+										
+										
+									</ul>
+								</nav>
+							
+
+							<!-- Section -->
+								<section>
+									<header class="major">
+										<h2>Contact</h2>
+									</header>
+									<p>Welcome to contact me through the following ways: E-mail and GitHub personal homepage. If you have any questions or want to discuss the topic, please feel free to contact me!</p>
+									<ul class="contact">
+										<li class="icon solid fa-envelope"><a href="#">yilin__zhang@163.com</a></li>
+										<li class="icon brands fa-github"><a href="https://github.com/ZCappuccino">Github-HomePage</a></li>
+										
+									</ul>
+								</section>
+
+							<!-- Footer -->
+								<footer id="footer">
+									<p class="copyright">&copy; Untitled. All rights reserved. Demo Images: <a href="https://unsplash.com">Unsplash</a>. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+								</footer>
+
+						</div>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="../assets/js/jquery.min.js"></script>
+			<script src="../assets/js/browser.min.js"></script>
+			<script src="../assets/js/breakpoints.min.js"></script>
+			<script src="../assets/js/util.js"></script>
+			<script src="../assets/js/main.js"></script>
+			<script src="../assets/js/childlabel.js"></script>
+			
+
+	</body>
+</html>

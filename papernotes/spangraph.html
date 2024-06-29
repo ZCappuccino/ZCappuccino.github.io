@@ -1,0 +1,201 @@
+<!DOCTYPE HTML>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>ZCappuccino's BLOG</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="../assets/css/main.css" />
+		<link rel="stylesheet" href="../assets/css/styles.css">		
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+
+							<!-- Header -->
+								<header id="header">
+									<a href="../index.html" class="logo" >&nbsp;<i class="fas fa-home"></i></a>
+									<ul class="icons">
+										<li><a href="https://github.com/ZCappuccino" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+										<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+										<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+										<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+										<li><a href="#" class="icon solid fa-envelope"><span class="label">E-mail</span></a></li>
+									</ul>
+								</header>
+
+							<!-- Content -->
+								<section>
+									<header class="main">
+										<h1 style="text-align: center;">Nested Named Entity Recognition with Span-level Graphs</h1><br>
+										<p style="text-align: right;">完成时间：2023-11-25</p>
+									</header>
+
+									<h4 style="font-family: 'Microsoft YaHei', sans-serif;">来自：ACL 2022</h4>
+									<p>题目：《具有span级图的嵌套命名实体识别》<br>
+									来自：<a href="https://zhuanlan.zhihu.com/p/569232453">https://zhuanlan.zhihu.com/p/569232453</a></p>
+									
+									<hr class="major" />
+									<h3 style="font-weight: bold;color: black;font-family: 'Microsoft YaHei', sans-serif;">具体概述</h3>
+									<h4 style="font-weight: bold;color: black;font-family: 'Microsoft YaHei', sans-serif;">1.&nbsp;&nbsp;&nbsp;目标</h4>
+																	
+									<p>解决嵌套NER中存在正负样本大量重叠时基于span-based、以及大多数实体在进行推理时从未出现在训练集等情况</p>
+									<hr style="border-top: 1px dashed #aaa">
+									<h4 style="font-weight: bold;color: black;font-family: 'Microsoft YaHei', sans-serif;">2.&nbsp;&nbsp;&nbsp;创新点</h4>
+																	
+									<p>
+									（1）首先在嵌套NER中引入基于检索的跨度级别图来建模候选跨度和当前句子之外实体之间的词汇相关性。<br>
+									（2）与GCNs进行消息传递并进行多任务学习，以有效地从候选跨度的实体邻居中提取丰富的信息。<br>
+									（3）在三个常见的嵌套NER数据集( ACE2004、ACE 2005、GENIA)上进行实验。实证结果和广泛的分析表明，我们的方法在所有三个基准上都优于强基线，并且在长和低频跨度上具有特殊的优势。
+									</p>
+									<hr style="border-top: 1px dashed #aaa">
+									<h4 style="font-weight: bold;color: black;font-family: 'Microsoft YaHei', sans-serif;">3.&nbsp;&nbsp;&nbsp;方法概述</h4>
+									
+									<span class="image main"><img src="../images/18.png" alt="" /></span>
+									
+									<p style="text-indent: 2em;">作者根据n-gram特征，构建了基于检索的图来改进span表示。该方法中使用了两个span级别图：实体-实体图 和 span-实体图 。如果将每个实体提及或原始span视为多个相邻标记的span，则这两个图都对span之间的关系进行建模。</p>
+									<p style="text-indent: 2em;">对于初始span和实体提及，作者使用了char embeddings, word embeddings 和 pre-trained LM 。句子和实体提及都被视为标记序列并分别编码。首先，char embeddings嵌入输入双向LSTM中，以捕获单词的正字法和形态学特征。然后，预训练的语言模型（如BERT）用于上下文化表示。这些表示是最后一层中的平均BPE嵌入。最后，将char隐藏状态，上下文化嵌入和词嵌入连接起来，输入另一个双向LSMT（Word-Char BiLSTM），用于词的编码表示。对于span级别的表示，作者使用最大池化来对span内的单词进行编码表示。</p>
+																		
+									
+								</section>
+
+						</div>
+					</div>
+
+				<!-- Sidebar -->
+					<div id="sidebar">
+						<div class="inner">
+
+							<!-- Search -->
+								<section id="search" class="alt">
+									<form method="post" action="#">
+										<input type="text" name="query" id="query" placeholder="Search" />
+									</form>
+								</section>
+
+							<!-- Menu -->
+								<nav id="menu">
+									<header class="major">
+										<h2>Menu</h2>
+									</header>
+									<ul>
+										<li><a href="../index.html">Homepage</a></li>
+										<!-- <li><a href="generic.html">Generic</a></li> -->
+										<li>
+											<span class="opener">Algorithm</span>
+											<ul>
+												<li><a href="../algorithm/array.html">数组</a></li>
+												<li><a href="../algorithm/hashtable.html">哈希表</a></li>
+												<li><a href="../algorithm/string.html">字符串</a></li>
+												<li><a href="../algorithm/dualpointer.html">双指针问题</a></li>
+											</ul>
+										</li>
+										
+										<li>
+											<span class="opener">NLP Algorithm</span>
+											<ul>
+												<li><a class="no-wrap" href="../NLP/bilstm.html" style="text-transform: capitalize;">关于BiLSTM-CRF</a></li>
+												
+												<!-- <li><a href="#">Ipsum Adipiscing</a></li> -->
+												
+											</ul>
+										</li>
+										<!-- <li><a href="#">Etiam Dolore</a></li>
+										<li><a href="#">Adipiscing</a></li> -->
+										<li>
+											<span class="opener">Records</span>
+											<ul>
+												<li><a class="no-wrap" href="../records/reading3.html" style="text-transform: capitalize;">报错解决记录-算法篇（持续更新）</a></li>
+												<li><a class="no-wrap" href="../records/reading2.html" style="text-transform: capitalize;">Doccano工具安装+使用</a></li>
+												<li><a class="no-wrap" href="../records/reading1.html" style="text-transform: capitalize;">代码阅读《Text-to-Table: A New Way of Information Extraction》</a></li>
+												<!-- <li><a href="#">Ipsum Adipiscing</a></li> -->
+											</ul>
+										</li>
+										
+										<li>
+											<span class="opener">Paper Notes</span>
+											<ul>
+												<li><span class="opener">ACL</span>
+													<ul>
+														<!-- <li><a class="no-wrap" href="papernotes/.html" style="text-transform: capitalize;"></a></li> -->
+														<li><a class="no-wrap" href="../papernotes/classner.html" style="text-transform: capitalize;">Learning "O" Helps for Learning More: Handling the Unlabeled Entity Problem for Class-incremental NER</a></li>
+														<li><a class="no-wrap" href="../papernotes/gliner.html" style="text-transform: capitalize;">GLiNER: Generalist Model for Named Entity Recognition using Bidirectional Transformer</a></li>
+														<li><a class="no-wrap" href="../papernotes/hero.html" style="text-transform: capitalize;">Hero-Gang Neural Model For Named Entity Recognition</a></li>
+														<li><a class="no-wrap" href="../papernotes/dabert.html" style="text-transform: capitalize;">DABERT: Dual Attention Enhanced BERT for Semantic Matching</a></li>
+														<li><a class="no-wrap" href="../papernotes/spangraph.html" style="text-transform: capitalize;">Nested Named Entity Recognition with Span-level Graphs</a></li>
+														<li><a class="no-wrap" href="../papernotes/enrel.html" style="text-transform: capitalize;">Explicitly Capturing Relations between Entity Mentions via Graph Neural Networks for Domain-specific Named Entity Recognition</a></li>
+														<li><a class="no-wrap" href="../papernotes/lilt.html" style="text-transform: capitalize;">LiLT: A Simple yet Effective Language-Independent Layout Transformer for Structured Document Understanding</a></li>
+													</ul></li>
+													
+												<li><span class="opener">EMNLP & NAACL</span>
+													<ul>
+														<li><a class="no-wrap" href="../papernotes/graphbase.html" style="text-transform: capitalize;">Graph Convolution for Multimodal Information Extraction from Visually Rich Documents</a></li>
+														<!-- <li><a class="no-wrap" href="#">Ipsum Adipiscing</a></li> -->
+													</ul></li>
+													
+												<li><span class="opener">CVPR & ECCV & ICCV</span>
+													<ul>
+														<li><a class="no-wrap" href="../papernotes/mae.html" style="text-transform: capitalize;">Masked Autoencoders Are Scalable Vision Learners</a></li>
+														<li><a class="no-wrap" href="../papernotes/setr.html" style="text-transform: capitalize;">Rethinking Semantic Segmentation from a Sequence-to-Sequence Perspective with Transformers</a></li>
+														<li><a class="no-wrap" href="../papernotes/hmer.html" style="text-transform: capitalize;">When Counting Meets HMER: Counting-Aware Network for Handwritten Mathematical Expression Recognition</a></li>
+													</ul></li>
+													
+												<li><span class="opener">Other</span>
+													<ul>
+														<li><a class="no-wrap" href="../papernotes/rifre.html" style="text-transform: capitalize;">Representation iterative fusion based on heterogeneous graph neural network for joint entity and relation extraction</a></li>
+														<li><a class="no-wrap" href="../papernotes/graphdoc.html" style="text-transform: capitalize;">Graph Neural Networks and Representation Embedding for Table Extraction in PDF Documents</a></li>
+														<li><a class="no-wrap" href="../papernotes/bros.html" style="text-transform: capitalize;">BROS: A Pre-trained Language Model Focusing on Text and Layout for Better Key Information Extraction from Documents</a></li>
+														<li><a class="no-wrap" href="../papernotes/superalloy.html" style="text-transform: capitalize;">Automated pipeline for superalloy data by text mining</a></li>
+														<li><a class="no-wrap" href="../papernotes/polymer.html" style="text-transform: capitalize;">Automated knowledge extraction from polymer literature using natural language processing</a></li>
+													</ul></li>
+											</ul>
+										</li>
+										
+										
+									</ul>
+								</nav>
+							
+
+							<!-- Section -->
+								<section>
+									<header class="major">
+										<h2>Contact</h2>
+									</header>
+									<p>Welcome to contact me through the following ways: E-mail and GitHub personal homepage. If you have any questions or want to discuss the topic, please feel free to contact me!</p>
+									<ul class="contact">
+										<li class="icon solid fa-envelope"><a href="#">yilin__zhang@163.com</a></li>
+										<li class="icon brands fa-github"><a href="https://github.com/ZCappuccino">Github-HomePage</a></li>
+										
+									</ul>
+								</section>
+
+							<!-- Footer -->
+								<footer id="footer">
+									<p class="copyright">&copy; Untitled. All rights reserved. Demo Images: <a href="https://unsplash.com">Unsplash</a>. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+								</footer>
+
+						</div>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="../assets/js/jquery.min.js"></script>
+			<script src="../assets/js/browser.min.js"></script>
+			<script src="../assets/js/breakpoints.min.js"></script>
+			<script src="../assets/js/util.js"></script>
+			<script src="../assets/js/main.js"></script>
+			<script src="../assets/js/childlabel.js"></script>
+			
+
+	</body>
+</html>

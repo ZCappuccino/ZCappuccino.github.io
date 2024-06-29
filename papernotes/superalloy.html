@@ -1,0 +1,230 @@
+<!DOCTYPE HTML>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>ZCappuccino's BLOG</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="../assets/css/main.css" />
+		<link rel="stylesheet" href="../assets/css/styles.css">		
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+
+							<!-- Header -->
+								<header id="header">
+									<a href="../index.html" class="logo" >&nbsp;<i class="fas fa-home"></i></a>
+									<ul class="icons">
+										<li><a href="https://github.com/ZCappuccino" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+										<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+										<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+										<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+										<li><a href="#" class="icon solid fa-envelope"><span class="label">E-mail</span></a></li>
+									</ul>
+								</header>
+
+							<!-- Content -->
+								<section>
+									<header class="main">
+										<h1 style="text-align: center;">Automated pipeline for superalloy data by text mining</h1><br>
+										<p style="text-align: right;">完成时间：2023-04-04</p>
+									</header>
+
+									<h4 style="font-family: 'Microsoft YaHei', sans-serif;">来自：npj（SCI 1区）</h4>
+									<p>题目：《通过文本挖掘实现提取高温合金数据的自动化方法》<br />代码地址： <a href="https://github.com/MGEdata/SuperalloyDigger">https://github.com/MGEdata/SuperalloyDigger</a><br />期刊 & 年份：npj Computational Materials (2022)</p>
+									<p style="font-weight: bold; color:black; font-family: 'Microsoft YaHei', sans-serif;">文献中包括大量可靠的数据，这篇论文主要是通过从一万多篇文献中提取两千多条的成分和性能数据，进行对高温合金的预测。</p>
+									
+									<hr class="major" />
+
+									<h2 style="font-weight: bold; font-family: 'Microsoft YaHei', sans-serif;">一、Motivation & Contribution</h2>
+									<p>	1.&nbsp;&nbsp;&nbsp;&nbsp;提出了一个自动化的NLP方法，将高温合金的化学成分和性能数据捕获到单个数据集中，然后使用从文献中的14425篇期刊文章中提取数据对高温合金进行分析。<br>
+	2.&nbsp;&nbsp;&nbsp;&nbsp;针对小型语料库，开发了一种基于规则的NER方法和一种启发式文本多关系提取距离算法，该方法无需标记样本。<br>
+	3.&nbsp;&nbsp;&nbsp;&nbsp;对于表处理需求，开发了一种通用的表解析和关系提取算法。<br>
+	4.&nbsp;&nbsp;&nbsp;&nbsp;为了衡量提取数据的预测性，我们建立了一个数据驱动的 ML 模型来预测和比较 15 种高温合金的 γ 溶剂温度。（预测的相对误差在2.27%）</p>
+									
+									<hr class="major" />
+									
+									<h2 style="font-weight: bold; font-family: 'Microsoft YaHei', sans-serif;">二、Methodology Review</h2>
+									<span class="image main"><img src="../images/6.png" alt="" /></span>
+									<h4 style="font-weight: bold; font-family: 'Microsoft YaHei', sans-serif;">1. 流程</h4>
+									<p>
+									（1）科学文献下载和预处理：从HTML、XML和TXT文本中，对原始的语料进行预处理<br />
+									（2）表格解析：将表的完整标题和正文转化为结构化的形式，然后分类哪些表包含需要抽取的化学成分和目标属性信息<br />
+									（3）文本分类：确定哪些句子中包含待抽取的目标属性信息<br />
+									（4）NER：从文本和表格中识别合金实体、属性指定符和属性值，然后进行关系抽取<br />
+									（5）表格、文本关系抽取：给出了元素内容和属性的具体元组关系，以及相互依赖关系的解析<br />
+									（6）依赖关系解析<br />
+									（7）将提取的包含物品数字对象标识符（DOI）、合金命名实体、化学元素、内容、属性说明符、属性值的元组实体自动编译成高度结构化的格式，形成材料数据库。
+									</p><hr style="border-top: 1px dashed #aaa">
+									<h4 style="font-weight: bold; font-family: 'Microsoft YaHei', sans-serif;">2. NER-->生成一个6元组</h4>
+									<p>
+									（1）6元组由文章DOI、合金命名实体、化学元素、内容、属性说明符和属性值组成<br />
+									（2）合金命名实体通常以元素成分(例如Co - 9Al - 9.8 W和8Al1W2Mo)、高温合金名称(例如, ERBOCo - 0和U720Li)或代名词(例如,该合金)的形式描述。化学元素可以根据元素周期表进行识别，其组成以at . %或wt . %的形式表示。属性描述符是指目标属性名称，如γ′溶剂温度或密度<br />
+									（3）通过正则表达式，来对高温合金的书写形式进行表示。</p>
+									
+									<span class="image main"><img src="../images/7.png" alt="" /></span><hr style="border-top: 1px dashed #aaa">
+									<h4 style="font-weight: bold; font-family: 'Microsoft YaHei', sans-serif;">3. 文本关系抽取-->4元组</h4>
+									<p>
+									基于距离的算法 --> 无需标记样本来处理多重关系抽取<br />
+									最短距离算法<br />
+									顺序匹配算法<br /></p><hr style="border-top: 1px dashed #aaa">
+									<h4 style="font-weight: bold; font-family: 'Microsoft YaHei', sans-serif;">4. 表关系抽取</h4>
+									<span class="image main"><img src="../images/8.png" alt="" /></span>
+									<p>
+										（1）表方向( "按行"或"按列")首先通过估计表体中目标信息的行或列位置来检测，例如化学元素<br />
+										（2）绿色单元格中的合金命名实体和橙色单元格中的元素分别通过对应序列中每个表单元格的行和列索引进行连接，最后写成四元组<br />
+										（3）表解析将完整的表信息，包括表标题和正文，转化为嵌套的表单元格列表的结构格式，然后分类哪个表包含待提取的化学成分和目标属性信息<br />
+										（4）以成分提取为例，在表关系提取时，首先通过估计表体中化学元素的行或列位置来检测表方向( "按行"或"按列")。然后检查表标题，看是否存在合金命名实体	</p>
+									<hr style="border-top: 1px dashed #aaa">
+									<h4 style="font-weight: bold; font-family: 'Microsoft YaHei', sans-serif;">5. 数据相互依赖性关系</h4>
+									<p>（1）相互依赖性解析旨在解决特定材料的化学成分和属性数据片段的关联。文本和表格关系抽取后，化学成分元组从表格中获取，属性元组从文本和表格中获取<br />（2）采用分治策略</p>
+									
+									<hr class="major" />
+									
+									<h2 style="font-weight: bold; font-family: 'Microsoft YaHei', sans-serif;">三、Discussion</h2>
+									<p>合金命名实体的F1 score达到92.07%<br />使用启发式多关系抽取算法来克服语料标签有限的情况</p>
+									
+								</section>
+
+						</div>
+					</div>
+
+				<!-- Sidebar -->
+					<div id="sidebar">
+						<div class="inner">
+
+							<!-- Search -->
+								<section id="search" class="alt">
+									<form method="post" action="#">
+										<input type="text" name="query" id="query" placeholder="Search" />
+									</form>
+								</section>
+
+							<!-- Menu -->
+								<nav id="menu">
+									<header class="major">
+										<h2>Menu</h2>
+									</header>
+									<ul>
+										<li><a href="../index.html">Homepage</a></li>
+										<!-- <li><a href="generic.html">Generic</a></li> -->
+										<li>
+											<span class="opener">Algorithm</span>
+											<ul>
+												<li><a href="../algorithm/array.html">数组</a></li>
+												<li><a href="../algorithm/hashtable.html">哈希表</a></li>
+												<li><a href="../algorithm/string.html">字符串</a></li>
+												<li><a href="../algorithm/dualpointer.html">双指针问题</a></li>
+											</ul>
+										</li>
+										
+										<li>
+											<span class="opener">NLP Algorithm</span>
+											<ul>
+												<li><a class="no-wrap" href="../NLP/bilstm.html" style="text-transform: capitalize;">关于BiLSTM-CRF</a></li>
+												
+												<!-- <li><a href="#">Ipsum Adipiscing</a></li> -->
+												
+											</ul>
+										</li>
+										<!-- <li><a href="#">Etiam Dolore</a></li>
+										<li><a href="#">Adipiscing</a></li> -->
+										<li>
+											<span class="opener">Records</span>
+											<ul>
+												<li><a class="no-wrap" href="../records/reading3.html" style="text-transform: capitalize;">报错解决记录-算法篇（持续更新）</a></li>
+												<li><a class="no-wrap" href="../records/reading2.html" style="text-transform: capitalize;">Doccano工具安装+使用</a></li>
+												<li><a class="no-wrap" href="../records/reading1.html" style="text-transform: capitalize;">代码阅读《Text-to-Table: A New Way of Information Extraction》</a></li>
+												<!-- <li><a href="#">Ipsum Adipiscing</a></li> -->
+											</ul>
+										</li>
+										
+										<li>
+											<span class="opener">Paper Notes</span>
+											<ul>
+												<li><span class="opener">ACL</span>
+													<ul>
+														<!-- <li><a class="no-wrap" href="papernotes/.html" style="text-transform: capitalize;"></a></li> -->
+														<li><a class="no-wrap" href="../papernotes/classner.html" style="text-transform: capitalize;">Learning "O" Helps for Learning More: Handling the Unlabeled Entity Problem for Class-incremental NER</a></li>
+														<li><a class="no-wrap" href="../papernotes/gliner.html" style="text-transform: capitalize;">GLiNER: Generalist Model for Named Entity Recognition using Bidirectional Transformer</a></li>
+														<li><a class="no-wrap" href="../papernotes/hero.html" style="text-transform: capitalize;">Hero-Gang Neural Model For Named Entity Recognition</a></li>
+														<li><a class="no-wrap" href="../papernotes/dabert.html" style="text-transform: capitalize;">DABERT: Dual Attention Enhanced BERT for Semantic Matching</a></li>
+														<li><a class="no-wrap" href="../papernotes/spangraph.html" style="text-transform: capitalize;">Nested Named Entity Recognition with Span-level Graphs</a></li>
+														<li><a class="no-wrap" href="../papernotes/enrel.html" style="text-transform: capitalize;">Explicitly Capturing Relations between Entity Mentions via Graph Neural Networks for Domain-specific Named Entity Recognition</a></li>
+														<li><a class="no-wrap" href="../papernotes/lilt.html" style="text-transform: capitalize;">LiLT: A Simple yet Effective Language-Independent Layout Transformer for Structured Document Understanding</a></li>
+													</ul></li>
+													
+												<li><span class="opener">EMNLP & NAACL</span>
+													<ul>
+														<li><a class="no-wrap" href="../papernotes/graphbase.html" style="text-transform: capitalize;">Graph Convolution for Multimodal Information Extraction from Visually Rich Documents</a></li>
+														<!-- <li><a class="no-wrap" href="#">Ipsum Adipiscing</a></li> -->
+													</ul></li>
+													
+												<li><span class="opener">CVPR & ECCV & ICCV</span>
+													<ul>
+														<li><a class="no-wrap" href="../papernotes/mae.html" style="text-transform: capitalize;">Masked Autoencoders Are Scalable Vision Learners</a></li>
+														<li><a class="no-wrap" href="../papernotes/setr.html" style="text-transform: capitalize;">Rethinking Semantic Segmentation from a Sequence-to-Sequence Perspective with Transformers</a></li>
+														<li><a class="no-wrap" href="../papernotes/hmer.html" style="text-transform: capitalize;">When Counting Meets HMER: Counting-Aware Network for Handwritten Mathematical Expression Recognition</a></li>
+													</ul></li>
+													
+												<li><span class="opener">Other</span>
+													<ul>
+														<li><a class="no-wrap" href="../papernotes/rifre.html" style="text-transform: capitalize;">Representation iterative fusion based on heterogeneous graph neural network for joint entity and relation extraction</a></li>
+														<li><a class="no-wrap" href="../papernotes/graphdoc.html" style="text-transform: capitalize;">Graph Neural Networks and Representation Embedding for Table Extraction in PDF Documents</a></li>
+														<li><a class="no-wrap" href="../papernotes/bros.html" style="text-transform: capitalize;">BROS: A Pre-trained Language Model Focusing on Text and Layout for Better Key Information Extraction from Documents</a></li>
+														<li><a class="no-wrap" href="../papernotes/superalloy.html" style="text-transform: capitalize;">Automated pipeline for superalloy data by text mining</a></li>
+														<li><a class="no-wrap" href="../papernotes/polymer.html" style="text-transform: capitalize;">Automated knowledge extraction from polymer literature using natural language processing</a></li>
+													</ul></li>
+											</ul>
+										</li>
+										
+										
+									</ul>
+								</nav>
+							
+
+							<!-- Section -->
+								<section>
+									<header class="major">
+										<h2>Contact</h2>
+									</header>
+									<p>Welcome to contact me through the following ways: E-mail and GitHub personal homepage. If you have any questions or want to discuss the topic, please feel free to contact me!</p>
+									<ul class="contact">
+										<li class="icon solid fa-envelope"><a href="#">yilin__zhang@163.com</a></li>
+										<li class="icon brands fa-github"><a href="https://github.com/ZCappuccino">Github-HomePage</a></li>
+										<!-- <li class="icon solid fa-home">1234 Somewhere Road #8254<br />
+										Nashville, TN 00000-0000</li> -->
+									</ul>
+								</section>
+
+							<!-- Footer -->
+								<footer id="footer">
+									<p class="copyright">&copy; Untitled. All rights reserved. Demo Images: <a href="https://unsplash.com">Unsplash</a>. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+								</footer>
+
+						</div>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="../assets/js/jquery.min.js"></script>
+			<script src="../assets/js/browser.min.js"></script>
+			<script src="../assets/js/breakpoints.min.js"></script>
+			<script src="../assets/js/util.js"></script>
+			<script src="../assets/js/main.js"></script>
+			<script src="../assets/js/childlabel.js"></script>
+			
+
+	</body>
+</html>

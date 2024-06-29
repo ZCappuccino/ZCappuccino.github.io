@@ -1,0 +1,213 @@
+<!DOCTYPE HTML>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>ZCappuccino's BLOG</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="../assets/css/main.css" />
+		<link rel="stylesheet" href="../assets/css/styles.css">		
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+
+							<!-- Header -->
+								<header id="header">
+									<a href="../index.html" class="logo" >&nbsp;<i class="fas fa-home"></i></a>
+									<ul class="icons">
+										<li><a href="https://github.com/ZCappuccino" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+										<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+										<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+										<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+										<li><a href="#" class="icon solid fa-envelope"><span class="label">E-mail</span></a></li>
+									</ul>
+								</header>
+
+							<!-- Content -->
+								<section>
+									<header class="main">
+										<h1 style="text-align: center;">Graph Convolution for Multimodal Information Extraction from Visually Rich Documents</h1><br>
+										<p style="text-align: right;">完成时间：2023-04-02</p>
+									</header>
+
+									<h4 style="font-family: 'Microsoft YaHei', sans-serif;">来自：NAACL 2019</h4>
+									<p>题目：《利用图卷积网络从富文档中提取多模态信息》<br />代码未开源，论文地址：<a href="https://arxiv.org/abs/1903.11279">https://arxiv.org/abs/1903.11279</a></p>
+									
+									<hr class="major" />
+
+									<p>提出了一种基于图卷积的方法来结合VRD中呈现的文本和视觉信息。图卷积生成的图嵌入概括了文档中文本段的上下文，并进一步结合文本嵌入使用标准的BiLSTM - CRF模型进行实体抽取。<br><br>
+									<span style="font-weight: bold;color: black;">创新点：<br>利用图卷积网络整合文档的文本语义信息和视觉语义信息；这里的视觉语义信息，主要指文档版面以及文本相对位置，而非图像信息</span></p>
+									
+									<!-- <hr class="major" /> -->
+
+									<h2 style="font-weight: bold; font-family: 'Microsoft YaHei', sans-serif;">一、Motivation</h2>
+									<p>在VRDs中，视觉和布局信息对于文档理解至关重要，这类文档中的文本无法序列化为一维序列而不丢失信息。经典的信息抽取模型如BiLSTM - CRF通常针对文本序列进行操作，并没有融入视觉特征。</p>
+									<hr class="major" />
+									
+									<h2 style="font-weight: bold; font-family: 'Microsoft YaHei', sans-serif;">二、Contribution</h2>
+									<p>本文提出了一种从VRD中提取IE的新方法：利用图卷积计算文档中每个文本段的图嵌入。图嵌入表示当前文本段的上下文，其中卷积操作结合了上下文的文本和视觉特征。然后将图嵌入和文本嵌入结合，输入到一个标准的BiLSTM中进行信息提取。</p>
+									<hr class="major" />
+									
+									<h2 style="font-weight: bold; font-family: 'Microsoft YaHei', sans-serif;">三、Methodology</h2>
+									<h4 style="font-weight: bold; font-family: 'Microsoft YaHei', sans-serif;">（一）、文档建模</h4>
+									<p>将每个文档建模为一个文本段图，其中每个文本段由段的位置和段内的文本组成。图由表示文本片段的节点和表示两个节点之间的相对形状和距离等视觉依赖关系的边组成，使用内部的OCR系统生成文本片段。</p>
+									<span class="image main"><img src="../images/39.png" alt="" /></span>
+									<hr style="border-top: 1px dashed #aaa">
+									<h4 style="font-weight: bold; font-family: 'Microsoft YaHei', sans-serif;">（二）、特征提取</h4>
+									<p>使用单层的BiLSTM计算嵌入，从段内文本内容中提取特征；另外，使用边缘嵌入来编码两个片段之间的视觉距离、源节点的形状和目的节点的相对大小等信息。<br><br>
+									即：节点嵌入编码文本特征，而边嵌入主要表示视觉特征。</p>
+									<hr style="border-top: 1px dashed #aaa">
+									<h4 style="font-weight: bold; font-family: 'Microsoft YaHei', sans-serif;">（三）、图卷积方法</h4>
+									<span class="image main"><img src="../images/40.png" alt="" /></span>
+									<p>	1. 使用三元组的优点：首先，它将视觉特征直接融合到近邻表示中。此外，当前节点的信息被跨邻居复制。因此，邻居特征可以潜在地学习给定当前节点的位置 <br>
+									2. 图卷积是基于自注意力机制定义的，其思想是通过关注每个节点的邻居来计算每个节点的输出隐藏表示 </p>
+									<hr style="border-top: 1px dashed #aaa">
+									<h4 style="font-weight: bold; font-family: 'Microsoft YaHei', sans-serif;">（四）、BiLSTM-CRF方法</h4>
+									<span class="image main"><img src="../images/41.png" alt="" /></span>
+									<hr class="major" />
+									<h2 style="font-weight: bold; font-family: 'Microsoft YaHei', sans-serif;">四、Experiment</h2>
+									<span class="image main"><img src="../images/42.png" alt="" /></span>
+									
+								</section>
+
+						</div>
+					</div>
+
+				<!-- Sidebar -->
+					<div id="sidebar">
+						<div class="inner">
+
+							<!-- Search -->
+								<section id="search" class="alt">
+									<form method="post" action="#">
+										<input type="text" name="query" id="query" placeholder="Search" />
+									</form>
+								</section>
+
+							<!-- Menu -->
+								<nav id="menu">
+									<header class="major">
+										<h2>Menu</h2>
+									</header>
+									<ul>
+										<li><a href="../index.html">Homepage</a></li>
+										<!-- <li><a href="generic.html">Generic</a></li> -->
+										<li>
+											<span class="opener">Algorithm</span>
+											<ul>
+												<li><a href="../algorithm/array.html">数组</a></li>
+												<li><a href="../algorithm/hashtable.html">哈希表</a></li>
+												<li><a href="../algorithm/string.html">字符串</a></li>
+												<li><a href="../algorithm/dualpointer.html">双指针问题</a></li>
+											</ul>
+										</li>
+										
+										<li>
+											<span class="opener">NLP Algorithm</span>
+											<ul>
+												<li><a class="no-wrap" href="../NLP/bilstm.html" style="text-transform: capitalize;">关于BiLSTM-CRF</a></li>
+												
+												<!-- <li><a href="#">Ipsum Adipiscing</a></li> -->
+												
+											</ul>
+										</li>
+										<!-- <li><a href="#">Etiam Dolore</a></li>
+										<li><a href="#">Adipiscing</a></li> -->
+										<li>
+											<span class="opener">Records</span>
+											<ul>
+												<li><a class="no-wrap" href="../records/reading3.html" style="text-transform: capitalize;">报错解决记录-算法篇（持续更新）</a></li>
+												<li><a class="no-wrap" href="../records/reading2.html" style="text-transform: capitalize;">Doccano工具安装+使用</a></li>
+												<li><a class="no-wrap" href="../records/reading1.html" style="text-transform: capitalize;">代码阅读《Text-to-Table: A New Way of Information Extraction》</a></li>
+												<!-- <li><a href="#">Ipsum Adipiscing</a></li> -->
+											</ul>
+										</li>
+										
+										<li>
+											<span class="opener">Paper Notes</span>
+											<ul>
+												<li><span class="opener">ACL</span>
+													<ul>
+														<!-- <li><a class="no-wrap" href="papernotes/.html" style="text-transform: capitalize;"></a></li> -->
+														<li><a class="no-wrap" href="../papernotes/classner.html" style="text-transform: capitalize;">Learning "O" Helps for Learning More: Handling the Unlabeled Entity Problem for Class-incremental NER</a></li>
+														<li><a class="no-wrap" href="../papernotes/gliner.html" style="text-transform: capitalize;">GLiNER: Generalist Model for Named Entity Recognition using Bidirectional Transformer</a></li>
+														<li><a class="no-wrap" href="../papernotes/hero.html" style="text-transform: capitalize;">Hero-Gang Neural Model For Named Entity Recognition</a></li>
+														<li><a class="no-wrap" href="../papernotes/dabert.html" style="text-transform: capitalize;">DABERT: Dual Attention Enhanced BERT for Semantic Matching</a></li>
+														<li><a class="no-wrap" href="../papernotes/spangraph.html" style="text-transform: capitalize;">Nested Named Entity Recognition with Span-level Graphs</a></li>
+														<li><a class="no-wrap" href="../papernotes/enrel.html" style="text-transform: capitalize;">Explicitly Capturing Relations between Entity Mentions via Graph Neural Networks for Domain-specific Named Entity Recognition</a></li>
+														<li><a class="no-wrap" href="../papernotes/lilt.html" style="text-transform: capitalize;">LiLT: A Simple yet Effective Language-Independent Layout Transformer for Structured Document Understanding</a></li>
+													</ul></li>
+													
+												<li><span class="opener">EMNLP & NAACL</span>
+													<ul>
+														<li><a class="no-wrap" href="../papernotes/graphbase.html" style="text-transform: capitalize;">Graph Convolution for Multimodal Information Extraction from Visually Rich Documents</a></li>
+														<!-- <li><a class="no-wrap" href="#">Ipsum Adipiscing</a></li> -->
+													</ul></li>
+													
+												<li><span class="opener">CVPR & ECCV & ICCV</span>
+													<ul>
+														<li><a class="no-wrap" href="../papernotes/mae.html" style="text-transform: capitalize;">Masked Autoencoders Are Scalable Vision Learners</a></li>
+														<li><a class="no-wrap" href="../papernotes/setr.html" style="text-transform: capitalize;">Rethinking Semantic Segmentation from a Sequence-to-Sequence Perspective with Transformers</a></li>
+														<li><a class="no-wrap" href="../papernotes/hmer.html" style="text-transform: capitalize;">When Counting Meets HMER: Counting-Aware Network for Handwritten Mathematical Expression Recognition</a></li>
+													</ul></li>
+													
+												<li><span class="opener">Other</span>
+													<ul>
+														<li><a class="no-wrap" href="../papernotes/rifre.html" style="text-transform: capitalize;">Representation iterative fusion based on heterogeneous graph neural network for joint entity and relation extraction</a></li>
+														<li><a class="no-wrap" href="../papernotes/graphdoc.html" style="text-transform: capitalize;">Graph Neural Networks and Representation Embedding for Table Extraction in PDF Documents</a></li>
+														<li><a class="no-wrap" href="../papernotes/bros.html" style="text-transform: capitalize;">BROS: A Pre-trained Language Model Focusing on Text and Layout for Better Key Information Extraction from Documents</a></li>
+														<li><a class="no-wrap" href="../papernotes/superalloy.html" style="text-transform: capitalize;">Automated pipeline for superalloy data by text mining</a></li>
+														<li><a class="no-wrap" href="../papernotes/polymer.html" style="text-transform: capitalize;">Automated knowledge extraction from polymer literature using natural language processing</a></li>
+													</ul></li>
+											</ul>
+										</li>
+										
+										
+									</ul>
+								</nav>
+							
+
+							<!-- Section -->
+								<section>
+									<header class="major">
+										<h2>Contact</h2>
+									</header>
+									<p>Welcome to contact me through the following ways: E-mail and GitHub personal homepage. If you have any questions or want to discuss the topic, please feel free to contact me!</p>
+									<ul class="contact">
+										<li class="icon solid fa-envelope"><a href="#">yilin__zhang@163.com</a></li>
+										<li class="icon brands fa-github"><a href="https://github.com/ZCappuccino">Github-HomePage</a></li>
+										
+									</ul>
+								</section>
+
+							<!-- Footer -->
+								<footer id="footer">
+									<p class="copyright">&copy; Untitled. All rights reserved. Demo Images: <a href="https://unsplash.com">Unsplash</a>. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+								</footer>
+
+						</div>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="../assets/js/jquery.min.js"></script>
+			<script src="../assets/js/browser.min.js"></script>
+			<script src="../assets/js/breakpoints.min.js"></script>
+			<script src="../assets/js/util.js"></script>
+			<script src="../assets/js/main.js"></script>
+			<script src="../assets/js/childlabel.js"></script>
+			
+
+	</body>
+</html>

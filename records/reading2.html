@@ -1,0 +1,230 @@
+<!DOCTYPE HTML>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>ZCappuccino's BLOG</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="../assets/css/main.css" />
+		<link rel="stylesheet" href="../assets/css/styles.css">		
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+
+							<!-- Header -->
+								<header id="header">
+									<a href="../index.html" class="logo" >&nbsp;<i class="fas fa-home"></i></a>
+									<ul class="icons">
+										<li><a href="https://github.com/ZCappuccino" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+										<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+										<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+										<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+										<li><a href="#" class="icon solid fa-envelope"><span class="label">E-mail</span></a></li>
+									</ul>
+								</header>
+
+							<!-- Content -->
+								<section>
+									<header class="main">
+										<h1 style="text-align: center;">Doccano工具安装 + 使用</h1><br>
+										<p style="text-align: right;">完成时间：2023-12-15</p>
+									</header>
+
+									<br>
+									<h2 style="font-weight: bold; font-family: 'Microsoft YaHei', sans-serif;">一、安装Doccano</h2>
+									<p>
+									1.&nbsp;&nbsp;&nbsp;下载Anaconda，点击Next至安装完成（最好不要安装到C盘）<br>
+									2.&nbsp;&nbsp;&nbsp;打开Anaconda Prompt，如果前面有base字样就是安装成功了</p>
+									<span class="image main"><img src="../images/25.png" alt="" /></span>
+									<p>
+									3.&nbsp;&nbsp;&nbsp;在命令行中创建一个新的环境，输入：<span style="color: black;font-weight: bold;"> conda create -n XXX python=XX </span>（注意这里XXX表示环境名称，XX表示python的版本号，比如我要创建一个环境名为doccano且python版本为3.8的新环境：<span style="color: black;font-weight: bold;"> conda create -n doccano python=3.8 </span>）<br>
+									4.&nbsp;&nbsp;&nbsp;创建好以后激活新环境：<span style="color: black;font-weight: bold;"> conda activate XXX </span>（这里XXX仍然是你的环境名，要和创建时一致）</p>
+									<span class="image main"><img src="../images/26.png" alt="" /></span>
+									<!-- <hr style="border-top: 1px dashed #aaa"> -->
+									<p>
+									5.&nbsp;&nbsp;&nbsp;进入新的环境后，输入<span style="color: black;font-weight: bold;">pip install doccano </span>安装Doccano标注工具，安装后可以通过<span style="color: black;font-weight: bold;"> pip list </span>查看安装列表中是否有Doccano确定是否安装成功<br>
+									6.&nbsp;&nbsp;&nbsp;安装好后可以通过以下命令在命令行中初始化数据库，并创建用户：<br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# 初始化数据库<br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: black;font-weight: bold;">doccano init</span><br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# 创建一个用户：admin和pass改成你特定的账号和密码<br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: black;font-weight: bold;">doccano createuser --username <u>admin</u> --password <u>pass</u></span><br>									
+									7.&nbsp;&nbsp;&nbsp;创建用户后就可以开启服务，我们先在一个命令行中运行如下命令：<br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# 启动webserver，port后是端口号<br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: black;font-weight: bold;">doccano webserver --port 8000</span><br />
+									8.&nbsp;&nbsp;&nbsp;然后打开另一个终端或命令行，输入以下命令启动任务队列：<br />
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# 启动任务队列<br />
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: black;font-weight: bold;">doccano task</span><br />
+									9.&nbsp;&nbsp;&nbsp;最后在浏览器中访问地址http://127.0.0.1:8000就可以打开Doccano工具进行标注了。Doccano初始界面：<br>
+									<span class="image main"><img src="../images/27.png" alt="" /></span>
+									</p>
+									<hr class="major" />
+									<h2 style="font-weight: bold; font-family: 'Microsoft YaHei', sans-serif;">二、使用Doccano</h2>
+									<p>
+									1.&nbsp;&nbsp;&nbsp;输入创建用户时的用户名和密码后进入界面：<br>
+									<span class="image main"><img src="../images/28.png" alt="" /></span>
+									2.&nbsp;&nbsp;&nbsp;创建一个标注任务。点击Create，进入到如下界面：<br>
+									<span class="image main"><img src="../images/29.png" alt="" /></span>
+									3.&nbsp;&nbsp;&nbsp;选择序列标注（Sequence Labeling）任务进行实体标注，并填好项目名称等：<br>
+									<span class="image main"><img src="../images/30.png" alt="" /></span>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;然后进入项目主界面：<br>
+									<span class="image main"><img src="../images/31.png" alt="" /></span>									
+									4.&nbsp;&nbsp;&nbsp;导入数据，点击Dataset选择导入数据，填好要导入的数据的格式，然后将数据拖到Drop files here处导入：<br>
+									<span class="image main"><img src="../images/32.png" alt="" /></span>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;导入成功的界面如下：<br>
+									<span class="image main"><img src="../images/33.png" alt="" /></span>
+									5.&nbsp;&nbsp;&nbsp;设置标签，在Labels一栏点击Actions，Create Label手动设置或者Import Labels从文件导入（这里选手动创建标签）：：<br>
+									<span class="image main"><img src="../images/34.png" alt="" /></span>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;设置完成：<br>
+									<span class="image main"><img src="../images/35.png" alt="" /></span>
+									6.&nbsp;&nbsp;&nbsp;点左侧Start Annotation开始标注，直接用鼠标选取文本即可标注实体：<br>
+									<span class="image main"><img src="../images/36.png" alt="" /></span>
+									7.&nbsp;&nbsp;&nbsp;标注好后导出数据，在Datasets一栏点击Actions → Export Dataset导出已标注的数据：<br>
+									<span class="image main"><img src="../images/37.png" alt="" /></span>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;填好导出的格式，点Export：<br>
+									<span class="image main"><img src="../images/38.png" alt="" /></span>
+									
+									</p>
+									
+								</section>
+
+						</div>
+					</div>
+
+				<!-- Sidebar -->
+					<div id="sidebar">
+						<div class="inner">
+
+							<!-- Search -->
+								<section id="search" class="alt">
+									<form method="post" action="#">
+										<input type="text" name="query" id="query" placeholder="Search" />
+									</form>
+								</section>
+
+							<!-- Menu -->
+								<nav id="menu">
+									<header class="major">
+										<h2>Menu</h2>
+									</header>
+									<ul>
+										<li><a href="../index.html">Homepage</a></li>
+										<!-- <li><a href="generic.html">Generic</a></li> -->
+										<li>
+											<span class="opener">Algorithm</span>
+											<ul>
+												<li><a href="../algorithm/array.html">数组</a></li>
+												<li><a href="../algorithm/hashtable.html">哈希表</a></li>
+												<li><a href="../algorithm/string.html">字符串</a></li>
+												<li><a href="../algorithm/dualpointer.html">双指针问题</a></li>
+											</ul>
+										</li>
+										
+										<li>
+											<span class="opener">NLP Algorithm</span>
+											<ul>
+												<li><a class="no-wrap" href="../NLP/bilstm.html" style="text-transform: capitalize;">关于BiLSTM-CRF</a></li>
+												
+												<!-- <li><a href="#">Ipsum Adipiscing</a></li> -->
+												
+											</ul>
+										</li>
+										<!-- <li><a href="#">Etiam Dolore</a></li>
+										<li><a href="#">Adipiscing</a></li> -->
+										<li>
+											<span class="opener">Records</span>
+											<ul>
+												<li><a class="no-wrap" href="../records/reading3.html" style="text-transform: capitalize;">报错解决记录-算法篇（持续更新）</a></li>
+												<li><a class="no-wrap" href="../records/reading2.html" style="text-transform: capitalize;">Doccano工具安装+使用</a></li>
+												<li><a class="no-wrap" href="../records/reading1.html" style="text-transform: capitalize;">代码阅读《Text-to-Table: A New Way of Information Extraction》</a></li>
+												<!-- <li><a href="#">Ipsum Adipiscing</a></li> -->
+											</ul>
+										</li>
+										
+										<li>
+											<span class="opener">Paper Notes</span>
+											<ul>
+												<li><span class="opener">ACL</span>
+													<ul>
+														<!-- <li><a class="no-wrap" href="papernotes/.html" style="text-transform: capitalize;"></a></li> -->
+														<li><a class="no-wrap" href="../papernotes/classner.html" style="text-transform: capitalize;">Learning "O" Helps for Learning More: Handling the Unlabeled Entity Problem for Class-incremental NER</a></li>
+														<li><a class="no-wrap" href="../papernotes/gliner.html" style="text-transform: capitalize;">GLiNER: Generalist Model for Named Entity Recognition using Bidirectional Transformer</a></li>
+														<li><a class="no-wrap" href="../papernotes/hero.html" style="text-transform: capitalize;">Hero-Gang Neural Model For Named Entity Recognition</a></li>
+														<li><a class="no-wrap" href="../papernotes/dabert.html" style="text-transform: capitalize;">DABERT: Dual Attention Enhanced BERT for Semantic Matching</a></li>
+														<li><a class="no-wrap" href="../papernotes/spangraph.html" style="text-transform: capitalize;">Nested Named Entity Recognition with Span-level Graphs</a></li>
+														<li><a class="no-wrap" href="../papernotes/enrel.html" style="text-transform: capitalize;">Explicitly Capturing Relations between Entity Mentions via Graph Neural Networks for Domain-specific Named Entity Recognition</a></li>
+														<li><a class="no-wrap" href="../papernotes/lilt.html" style="text-transform: capitalize;">LiLT: A Simple yet Effective Language-Independent Layout Transformer for Structured Document Understanding</a></li>
+													</ul></li>
+													
+												<li><span class="opener">EMNLP & NAACL</span>
+													<ul>
+														<li><a class="no-wrap" href="../papernotes/graphbase.html" style="text-transform: capitalize;">Graph Convolution for Multimodal Information Extraction from Visually Rich Documents</a></li>
+														<!-- <li><a class="no-wrap" href="#">Ipsum Adipiscing</a></li> -->
+													</ul></li>
+													
+												<li><span class="opener">CVPR & ECCV & ICCV</span>
+													<ul>
+														<li><a class="no-wrap" href="../papernotes/mae.html" style="text-transform: capitalize;">Masked Autoencoders Are Scalable Vision Learners</a></li>
+														<li><a class="no-wrap" href="../papernotes/setr.html" style="text-transform: capitalize;">Rethinking Semantic Segmentation from a Sequence-to-Sequence Perspective with Transformers</a></li>
+														<li><a class="no-wrap" href="../papernotes/hmer.html" style="text-transform: capitalize;">When Counting Meets HMER: Counting-Aware Network for Handwritten Mathematical Expression Recognition</a></li>
+													</ul></li>
+													
+												<li><span class="opener">Other</span>
+													<ul>
+														<li><a class="no-wrap" href="../papernotes/rifre.html" style="text-transform: capitalize;">Representation iterative fusion based on heterogeneous graph neural network for joint entity and relation extraction</a></li>
+														<li><a class="no-wrap" href="../papernotes/graphdoc.html" style="text-transform: capitalize;">Graph Neural Networks and Representation Embedding for Table Extraction in PDF Documents</a></li>
+														<li><a class="no-wrap" href="../papernotes/bros.html" style="text-transform: capitalize;">BROS: A Pre-trained Language Model Focusing on Text and Layout for Better Key Information Extraction from Documents</a></li>
+														<li><a class="no-wrap" href="../papernotes/superalloy.html" style="text-transform: capitalize;">Automated pipeline for superalloy data by text mining</a></li>
+														<li><a class="no-wrap" href="../papernotes/polymer.html" style="text-transform: capitalize;">Automated knowledge extraction from polymer literature using natural language processing</a></li>
+													</ul></li>
+											</ul>
+										</li>
+										
+										
+									</ul>
+								</nav>
+							
+
+							<!-- Section -->
+								<section>
+									<header class="major">
+										<h2>Contact</h2>
+									</header>
+									<p>Welcome to contact me through the following ways: E-mail and GitHub personal homepage. If you have any questions or want to discuss the topic, please feel free to contact me!</p>
+									<ul class="contact">
+										<li class="icon solid fa-envelope"><a href="#">yilin__zhang@163.com</a></li>
+										<li class="icon brands fa-github"><a href="https://github.com/ZCappuccino">Github-HomePage</a></li>
+										
+									</ul>
+								</section>
+
+							<!-- Footer -->
+								<footer id="footer">
+									<p class="copyright">&copy; Untitled. All rights reserved. Demo Images: <a href="https://unsplash.com">Unsplash</a>. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+								</footer>
+
+						</div>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="../assets/js/jquery.min.js"></script>
+			<script src="../assets/js/browser.min.js"></script>
+			<script src="../assets/js/breakpoints.min.js"></script>
+			<script src="../assets/js/util.js"></script>
+			<script src="../assets/js/main.js"></script>
+			<script src="../assets/js/childlabel.js"></script>
+			
+
+	</body>
+</html>

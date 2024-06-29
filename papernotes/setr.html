@@ -1,0 +1,223 @@
+<!DOCTYPE HTML>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>ZCappuccino's BLOG</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="../assets/css/main.css" />
+		<link rel="stylesheet" href="../assets/css/styles.css">
+				
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+
+							<!-- Header -->
+								<header id="header">
+									<a href="../index.html" class="logo" >&nbsp;<i class="fas fa-home"></i></a>
+									<ul class="icons">
+										<li><a href="https://github.com/ZCappuccino" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+										<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+										<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+										<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+										<li><a href="#" class="icon solid fa-envelope"><span class="label">E-mail</span></a></li>
+									</ul>
+								</header>
+
+							<!-- Content -->
+								<section>
+									<header class="main">
+										<h1 style="text-align: center;">Rethinking Semantic Segmentation from a Sequence-to-Sequence Perspective with Transformers</h1><br>
+										<p style="text-align: right;">完成时间：2022-11-29</p>
+									</header>
+
+									<h4 style="font-family: 'Microsoft YaHei', sans-serif;">来自：CVPR 2021</h4>
+									<p>题目：《Rethinking Semantic Segmentation from a Sequence-to-Sequence Perspective with Transformers》<br>用Transformer从序列到序列的角度重新思考语义分割</p>
+									<p style="font-weight: bold;">[ CVPR2021，Semantic Segmentation ]</p>
+									
+									<hr class="major" />
+
+									<h2 style="font-weight: bold; font-family: 'Microsoft YaHei', sans-serif;">Abstract</h2>
+									<p>1.使用Transformer，将输入的图像作为一组序列的patch进行编码，然后从Transformer的每一层中获取全局上下文。<br>
+2. SEgmentation TRansformer (SETR)<br>
+将语义分割任务视为一个Sequence-to-Sequence的预测任务，使用没有卷积和下采样过程的Transformer将一张输入的图像作为一组patch进行编码，通过Transformer中每一层所建模的全局上下文，Encoder即可接上一个简单的decoder，从而组合为一个强大的语义分割模型，该模型称为SETR。<br>
+3.实验表明提升：（数据集）ADE20K（50.28%mIoU）、Pascal Context（55.83%mIoU）、Cityscapes</p>
+									
+									<hr class="major" />
+
+									<h2 style="font-weight: bold; font-family: 'Microsoft YaHei', sans-serif;">一、总体介绍</h2>
+									<span class="image main"><img src="../images/4.png" alt="" /></span>
+									<h4 style="font-family: 'Microsoft YaHei', sans-serif;">1. 基于FCN的模型：一个标准的FCN分割模具有Encoder-Decoder架构</h4>
+									<p>（1）Encoder：由大量卷积层堆叠而成，作用是提取更丰富的语义特征，通过降低特征图的分辨率来实现更大的感受野<br>
+（2）Decoder：对Encoder提取到的特征进行分类（通过上采样到原始的输入分辨率）<br>
+（3）结构的优缺点：具有一定的泛化能力，跨空间共享参数可以降低模型的复杂度；但CNNs难以学习长距离依赖关系<br></p>
+									
+									<h4 style="font-family: 'Microsoft YaHei', sans-serif;">2. 解决方法</h4>
+									<p>（1）直接修改卷积操作：大卷积核、空洞卷积、图像/特征金字塔等；<br>
+（2）引入注意力模块，对feature map中各个像素建模全局上下文信息。<br>
+上述两种方式的结构仍然属于Encoder-Decoder的FCN，没有本质上的结构变化。<br>
+Transformer 的一个特性便是能够保持输入和输出的空间分辨率不变，同时还能够有效的捕获全局的上下文信息。因此，作者这里便采用了类似ViT的结构来进行特征提取同时结合Decoder来恢复分辨率。<br></p>
+									<h4 style="font-family: 'Microsoft YaHei', sans-serif;">3. 本文工作：提出SETR（SEgmentation TRansformer）</h4>
+									<p>（1）使用仅包含transformer的Encoder，替代原来的堆叠卷积进行特征提取的方式，这种方式称之为 SEgmentation TRansformer (SETR)。<br/>
+									（2）SETR的Encoder通过学习patch embedding将一副图片视为一个包含了一组image patches的序列，并利用全局自注意力对这个序列进行学习。<br />
+	（3）具体来说：<br>
+		a.&nbsp;&nbsp;&nbsp;&nbsp;首先，将图像分解成一个由固定大小的patch组成的网格，形成一系列的patches；<br />
+		b.&nbsp;&nbsp;&nbsp;&nbsp;然后，对每个patch拉直后使用一个线性embedding层进行学习，即可获得一个特征嵌入向量的序列，并将该序列作为transformers的输入；<br />
+		c.&nbsp;&nbsp;&nbsp;&nbsp;接着，经过transformers Encoder之后，得到学习后的高度抽象feature maps；<br />
+		d.&nbsp;&nbsp;&nbsp;&nbsp;最后，使用一个简单的decoder获得原始分辨率大小的分割map。</p>
+									<h4 style="font-weight: bold; font-family: 'Microsoft YaHei', sans-serif;"><u>SETR的整个过程中，很关键的一点就是没有下采样过程，这和传统基于卷积的backbone进行特征提取的方式是不同的！</u></h4>
+									
+									<hr class="major" />
+									<!-- <span class="image main"><img src="images/3.png" alt="" /></span> -->
+									
+
+									<h2 style="font-weight: bold; font-family: 'Microsoft YaHei', sans-serif;">二、创新点</h2>
+									<p>1.&nbsp;&nbsp;&nbsp;&nbsp;对语义分割任务重新进行了定义，将其视为Sequence-to-Sequence的问题，这是除了基于Encoder-decoder结构的FCN模型的另一个选择；<br />
+2.&nbsp;&nbsp;&nbsp;&nbsp;使用纯Transformer作为Encoder，对序列化的图片进行特征表示；<br>
+3.&nbsp;&nbsp;&nbsp;&nbsp;设计了三种decoder，来对自注意力进行深入研究。</p>
+																		
+																											
+								</section>
+
+						</div>
+					</div>
+
+				<!-- Sidebar -->
+					<div id="sidebar">
+						<div class="inner">
+
+							<!-- Search -->
+								<section id="search" class="alt">
+									<form method="post" action="#">
+										<input type="text" name="query" id="query" placeholder="Search" />
+									</form>
+								</section>
+
+							<!-- Menu -->
+								<nav id="menu">
+									<header class="major">
+										<h2>Menu</h2>
+									</header>
+									<ul>
+										<li><a href="../index.html">Homepage</a></li>
+										<!-- <li><a href="generic.html">Generic</a></li> -->
+										<li>
+											<span class="opener">Algorithm</span>
+											<ul>
+												<li><a href="../algorithm/array.html">数组</a></li>
+												<li><a href="../algorithm/hashtable.html">哈希表</a></li>
+												<li><a href="../algorithm/string.html">字符串</a></li>
+												<li><a href="../algorithm/dualpointer.html">双指针问题</a></li>
+											</ul>
+										</li>
+										
+										<li>
+											<span class="opener">NLP Algorithm</span>
+											<ul>
+												<li><a class="no-wrap" href="../NLP/bilstm.html" style="text-transform: capitalize;">关于BiLSTM-CRF</a></li>
+												
+												<!-- <li><a href="#">Ipsum Adipiscing</a></li> -->
+												
+											</ul>
+										</li>
+										<!-- <li><a href="#">Etiam Dolore</a></li>
+										<li><a href="#">Adipiscing</a></li> -->
+										<li>
+											<span class="opener">Records</span>
+											<ul>
+												<li><a class="no-wrap" href="../records/reading3.html" style="text-transform: capitalize;">报错解决记录-算法篇（持续更新）</a></li>
+												<li><a class="no-wrap" href="../records/reading2.html" style="text-transform: capitalize;">Doccano工具安装+使用</a></li>
+												<li><a class="no-wrap" href="../records/reading1.html" style="text-transform: capitalize;">代码阅读《Text-to-Table: A New Way of Information Extraction》</a></li>
+												<!-- <li><a href="#">Ipsum Adipiscing</a></li> -->
+											</ul>
+										</li>
+										
+										<li>
+											<span class="opener">Paper Notes</span>
+											<ul>
+												<li><span class="opener">ACL</span>
+													<ul>
+														<!-- <li><a class="no-wrap" href="papernotes/.html" style="text-transform: capitalize;"></a></li> -->
+														<li><a class="no-wrap" href="../papernotes/classner.html" style="text-transform: capitalize;">Learning "O" Helps for Learning More: Handling the Unlabeled Entity Problem for Class-incremental NER</a></li>
+														<li><a class="no-wrap" href="../papernotes/gliner.html" style="text-transform: capitalize;">GLiNER: Generalist Model for Named Entity Recognition using Bidirectional Transformer</a></li>
+														<li><a class="no-wrap" href="../papernotes/hero.html" style="text-transform: capitalize;">Hero-Gang Neural Model For Named Entity Recognition</a></li>
+														<li><a class="no-wrap" href="../papernotes/dabert.html" style="text-transform: capitalize;">DABERT: Dual Attention Enhanced BERT for Semantic Matching</a></li>
+														<li><a class="no-wrap" href="../papernotes/spangraph.html" style="text-transform: capitalize;">Nested Named Entity Recognition with Span-level Graphs</a></li>
+														<li><a class="no-wrap" href="../papernotes/enrel.html" style="text-transform: capitalize;">Explicitly Capturing Relations between Entity Mentions via Graph Neural Networks for Domain-specific Named Entity Recognition</a></li>
+														<li><a class="no-wrap" href="../papernotes/lilt.html" style="text-transform: capitalize;">LiLT: A Simple yet Effective Language-Independent Layout Transformer for Structured Document Understanding</a></li>
+													</ul></li>
+													
+												<li><span class="opener">EMNLP & NAACL</span>
+													<ul>
+														<li><a class="no-wrap" href="../papernotes/graphbase.html" style="text-transform: capitalize;">Graph Convolution for Multimodal Information Extraction from Visually Rich Documents</a></li>
+														<!-- <li><a class="no-wrap" href="#">Ipsum Adipiscing</a></li> -->
+													</ul></li>
+													
+												<li><span class="opener">CVPR & ECCV & ICCV</span>
+													<ul>
+														<li><a class="no-wrap" href="../papernotes/mae.html" style="text-transform: capitalize;">Masked Autoencoders Are Scalable Vision Learners</a></li>
+														<li><a class="no-wrap" href="../papernotes/setr.html" style="text-transform: capitalize;">Rethinking Semantic Segmentation from a Sequence-to-Sequence Perspective with Transformers</a></li>
+														<li><a class="no-wrap" href="../papernotes/hmer.html" style="text-transform: capitalize;">When Counting Meets HMER: Counting-Aware Network for Handwritten Mathematical Expression Recognition</a></li>
+													</ul></li>
+													
+												<li><span class="opener">Other</span>
+													<ul>
+														<li><a class="no-wrap" href="../papernotes/rifre.html" style="text-transform: capitalize;">Representation iterative fusion based on heterogeneous graph neural network for joint entity and relation extraction</a></li>
+														<li><a class="no-wrap" href="../papernotes/graphdoc.html" style="text-transform: capitalize;">Graph Neural Networks and Representation Embedding for Table Extraction in PDF Documents</a></li>
+														<li><a class="no-wrap" href="../papernotes/bros.html" style="text-transform: capitalize;">BROS: A Pre-trained Language Model Focusing on Text and Layout for Better Key Information Extraction from Documents</a></li>
+														<li><a class="no-wrap" href="../papernotes/superalloy.html" style="text-transform: capitalize;">Automated pipeline for superalloy data by text mining</a></li>
+														<li><a class="no-wrap" href="../papernotes/polymer.html" style="text-transform: capitalize;">Automated knowledge extraction from polymer literature using natural language processing</a></li>
+													</ul></li>
+											</ul>
+										</li>
+										
+										
+									</ul>
+								</nav>
+							
+
+							<!-- Section -->
+								<section>
+									<header class="major">
+										<h2>Contact</h2>
+									</header>
+									<p>Welcome to contact me through the following ways: E-mail and GitHub personal homepage. If you have any questions or want to discuss the topic, please feel free to contact me!</p>
+									<ul class="contact">
+										<li class="icon solid fa-envelope"><a href="#">yilin__zhang@163.com</a></li>
+										<li class="icon brands fa-github"><a href="https://github.com/ZCappuccino">Github-HomePage</a></li>
+										<!-- <li class="icon solid fa-home">1234 Somewhere Road #8254<br />
+										Nashville, TN 00000-0000</li> -->
+									</ul>
+								</section>
+
+							<!-- Footer -->
+								<footer id="footer">
+									<p class="copyright">&copy; Untitled. All rights reserved. Demo Images: <a href="https://unsplash.com">Unsplash</a>. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+								</footer>
+
+						</div>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="../assets/js/jquery.min.js"></script>
+			<script src="../assets/js/browser.min.js"></script>
+			<script src="../assets/js/breakpoints.min.js"></script>
+			<script src="../assets/js/util.js"></script>
+			<script src="../assets/js/main.js"></script>
+			<script src="../assets/js/childlabel.js"></script>
+			
+
+	</body>
+</html>

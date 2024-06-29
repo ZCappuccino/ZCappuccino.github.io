@@ -1,0 +1,31 @@
+/* styles.css */
+
+.no-wrap {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; /* 添加省略号 */
+  width: 100%; /* 确保宽度在父容器内 */
+  display: block; /* 确保 width 属性生效 */
+}
+
+.scroll {
+  white-space: nowrap;
+  overflow-x: scroll; /* 只在水平轴上显示滚动条 */
+  width: 100%; /* 确保宽度在父容器内 */
+  display: block; /* 确保 width 属性生效 */
+}
+
+.responsive {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+  display: block;
+  font-size: 1em; /* 默认字体大小 */
+}
+
+@media (max-width: 600px) {
+  .responsive {
+    font-size: 0.8em; /* 在小屏幕上缩小字体 */
+  }
+}

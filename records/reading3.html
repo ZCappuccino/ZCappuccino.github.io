@@ -1,0 +1,256 @@
+<!DOCTYPE HTML>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>ZCappuccino's BLOG</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="../assets/css/main.css" />
+		<link rel="stylesheet" href="../assets/css/styles.css">		
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+
+							<!-- Header -->
+								<header id="header">
+									<a href="../index.html" class="logo" >&nbsp;<i class="fas fa-home"></i></a>
+									<ul class="icons">
+										<li><a href="https://github.com/ZCappuccino" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+										<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+										<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+										<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+										<li><a href="#" class="icon solid fa-envelope"><span class="label">E-mail</span></a></li>
+									</ul>
+								</header>
+
+							<!-- Content -->
+								<section>
+									<header class="main">
+										<h1 style="text-align: center;">报错解决记录-算法篇<br>（持续更新）</h1><br>
+										<p style="text-align: right;">完成时间：2024-03-29</p>
+									</header>
+
+									<br>
+									<p>1.	<span style="font-weight: bold;color:black;">StopIteration: Caught StopIteration in replica 0 on device 0.</span><br>
+									原因：使用预训练模型时，原预训练是多卡训练调用时使用单卡，出现问题</p>
+									<hr style="border-top: 1px dashed #aaa">
+									
+									<p>2.	<span style="font-weight: bold;color:black;">OSError: We couldn't connect to 'https://huggingface.co' to load this file, couldn't find it in the cached files and it looks like bert-base-cased is not the path to a directory containing a file named config.json. Checkout your internet connection or see how to run the library in offline mode at 'https://huggingface.co/docs/transformers/installation#offline-mode'.</span><br>
+									出现这个问题即无法使用huggingface在线下载预训练BERT<br>
+									解决：可以将预训练BERT down下来，进行离线加载和使用</p>
+									<hr style="border-top: 1px dashed #aaa">
+									
+									<p>3.	<span style="font-weight: bold;color:black;">NVIDIA GeForce RTX 3090 with CUDA capability sm_86 is not compatible with the current PyTorch installation.The current PyTorch install supports CUDA capabilities sm_37 sm_50 sm_60 sm_70.<br>
+									If you want to use the NVIDIA GeForce RTX 3090 GPU with PyTorch, please check the instructions at https://pytorch.org/get-started/locally/<br>
+									RuntimeError: CUDA error: no kernel image is available for execution on the device</span><br>
+									出现这个问题表示目前安装的torch和cuda的版本与目前GPU不匹配（即版本问题）<br>
+									解决：重新安装合适的版本：cuda11.1  torch1.8.1</p>
+									<span class="image main"><img src="../images/43.png" alt="" /></span>
+									<hr style="border-top: 1px dashed #aaa">
+									
+									<p>4.	Anaconda导入导出环境：<br>
+									（1）导出：conda env export > E:\Learning\FormulaRecognition\environment.yaml<br>
+									（2）导入：conda env create -f environment.yaml<br></p>
+									<hr style="border-top: 1px dashed #aaa">
+									<p>5.	<span style="font-weight: bold;color:black;">将代码中.git文件夹删除以后，报错日志“Invalid VCS root mapping: The directory E:\Learning\FormulaRecognition is registered as a Git root, but no Git repositories were found there.”</span></p>
+									<p>解决：（如下图所示）</p>
+									<span class="image main"><img src="../images/44.png" alt="" /></span>
+									<hr style="border-top: 1px dashed #aaa">
+									
+									<p>6.	<span style="font-weight: bold;color:black;">ImportError: cannot import name 'OrderedDict' from 'typing' (D:\Anaconda\Anaconda3\envs\latexocr\lib\typing.py)</span><br>
+									已解决：<br>
+									（1）	pip install typing_extensions<br>
+									（2）	修改上文提及的maxvit.py文件，不从typing中导入OrderedDict模块，而是从typing_extensions中导入，即可解决问题。</p>
+									<span class="image main"><img src="../images/45.png" alt="" /></span>
+									<hr style="border-top: 1px dashed #aaa">
+									
+									<p>7.	<span style="font-weight: bold;color:black;">ImportError: urllib3 v2.0 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'OpenSSL 1.1.0h  27 Mar 2018'.</span><br>
+									已解决：<br>
+									如果不升级OpenSSL，可以通过降低urlib3的版本来解决冲突使用以下命令来降低urlib3的版本:pip install urllib3==1.25.11</p>
+									<hr style="border-top: 1px dashed #aaa">
+									
+									<p>8.	<span style="font-weight: bold;color:black;">WARNING: There was an error checking the latest version of pip.</span><br>
+									已解决：<br>
+									如果不升级OpenSSL，可以通过降低urlib3的版本来解决冲突使用以下命令来降低urlib3的版本:pip install urllib3==1.25.11</p>
+									<hr style="border-top: 1px dashed #aaa">
+									
+									<p>9.	<span style="font-weight: bold;color:black;">出现如图所示的情况：</span></p>
+									<span class="image main"><img src="../images/46.png" alt="" /></span>
+									<p>已解决：关闭VPN，连接稳定WiFi即可解决</p>
+									<hr style="border-top: 1px dashed #aaa">
+									
+									<p>10.	<span style="font-weight: bold;color:black;">pyinstaller打包：最常见的是运行打包软件以后出现找不到模块的情况(具体如图)：</span></p>
+									<span class="image main"><img src="../images/47.png" alt="" /></span>
+									<p>解决方法：<br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在需要打包的py文件中加上import charset_normalizer，然后把环境(比如D:\Anaconda\Anaconda3\envs\latexocr\Lib\site-packages)中的charset_normalizer文件夹放到dist文件下，并把环境中带有.dist-info的文件夹放到dist下</p>
+									<span class="image main"><img src="../images/48.png" alt="" /><img src="../images/49.png" alt="" /></span>
+									<hr style="border-top: 1px dashed #aaa">
+									
+									<p>11.	<span style="font-weight: bold;color:black;">数据问题1：UnicodeDecodeError: 'gbk' codec can't decode byte 0x93 in position 2980: illegal multibyte sequence</span><br>
+									已解决：增加encoding='utf-8'<br>
+									代码示例：<br>
+									(1)	with open('file.txt', encoding='utf-8') as f:<br>
+									(2)	# 处理文件内容</p>
+									<hr style="border-top: 1px dashed #aaa">
+									
+									<p>12.	<span style="font-weight: bold;color:black;">数据问题2：TypeError: cannot unpack non-iterable NoneType object</span><br>
+									已解决：<br>
+									数据中存在空行和空格，或者存在字段缺失的情况，需要编写python脚本查看是否存在空行空格和字段缺失的情况，如果存在就去掉。</p>
+									<hr style="border-top: 1px dashed #aaa">
+									
+									<p>13.	<span style="font-weight: bold;color:black;">关于导入的问题：出现“non-default parameter follows default parameter”这样的错误</span><br>
+									已解决：需要在实例化时保证参数的顺序正确<br>
+									在函数或类的构造函数中，没有默认值的参数（non-default parameter）跟在了有默认值的参数（default parameter）之后。在Python的函数定义中，所有带有默认值的参数必须位于没有默认值的参数之后。</p>
+									<hr style="border-top: 1px dashed #aaa">
+									
+									<p>14.	查看CUDA情况：<br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-weight: bold;color:black;">nvidia-smi</span></p>
+									<hr style="border-top: 1px dashed #aaa">
+									
+									<p>15.	<span style="font-weight: bold;color:black;">出现IndexError：</span><br>
+									写一个异常处理，因为是索引错误，一般是数据集的问题，没有处理好，或者数据某一条出现超过最大索引的情况</p>
+									<hr style="border-top: 1px dashed #aaa">
+									
+								</section>
+
+						</div>
+					</div>
+
+				<!-- Sidebar -->
+					<div id="sidebar">
+						<div class="inner">
+
+							<!-- Search -->
+								<section id="search" class="alt">
+									<form method="post" action="#">
+										<input type="text" name="query" id="query" placeholder="Search" />
+									</form>
+								</section>
+
+							<!-- Menu -->
+								<nav id="menu">
+									<header class="major">
+										<h2>Menu</h2>
+									</header>
+									<ul>
+										<li><a href="../index.html">Homepage</a></li>
+										<!-- <li><a href="generic.html">Generic</a></li> -->
+										<li>
+											<span class="opener">Algorithm</span>
+											<ul>
+												<li><a href="../algorithm/array.html">数组</a></li>
+												<li><a href="../algorithm/hashtable.html">哈希表</a></li>
+												<li><a href="../algorithm/string.html">字符串</a></li>
+												<li><a href="../algorithm/dualpointer.html">双指针问题</a></li>
+											</ul>
+										</li>
+										
+										<li>
+											<span class="opener">NLP Algorithm</span>
+											<ul>
+												<li><a class="no-wrap" href="../NLP/bilstm.html" style="text-transform: capitalize;">关于BiLSTM-CRF</a></li>
+												
+												<!-- <li><a href="#">Ipsum Adipiscing</a></li> -->
+												
+											</ul>
+										</li>
+										<!-- <li><a href="#">Etiam Dolore</a></li>
+										<li><a href="#">Adipiscing</a></li> -->
+										<li>
+											<span class="opener">Records</span>
+											<ul>
+												<li><a class="no-wrap" href="../records/reading3.html" style="text-transform: capitalize;">报错解决记录-算法篇（持续更新）</a></li>
+												<li><a class="no-wrap" href="../records/reading2.html" style="text-transform: capitalize;">Doccano工具安装+使用</a></li>
+												<li><a class="no-wrap" href="../records/reading1.html" style="text-transform: capitalize;">代码阅读《Text-to-Table: A New Way of Information Extraction》</a></li>
+												<!-- <li><a href="#">Ipsum Adipiscing</a></li> -->
+											</ul>
+										</li>
+										
+										<li>
+											<span class="opener">Paper Notes</span>
+											<ul>
+												<li><span class="opener">ACL</span>
+													<ul>
+														<!-- <li><a class="no-wrap" href="papernotes/.html" style="text-transform: capitalize;"></a></li> -->
+														<li><a class="no-wrap" href="../papernotes/classner.html" style="text-transform: capitalize;">Learning "O" Helps for Learning More: Handling the Unlabeled Entity Problem for Class-incremental NER</a></li>
+														<li><a class="no-wrap" href="../papernotes/gliner.html" style="text-transform: capitalize;">GLiNER: Generalist Model for Named Entity Recognition using Bidirectional Transformer</a></li>
+														<li><a class="no-wrap" href="../papernotes/hero.html" style="text-transform: capitalize;">Hero-Gang Neural Model For Named Entity Recognition</a></li>
+														<li><a class="no-wrap" href="../papernotes/dabert.html" style="text-transform: capitalize;">DABERT: Dual Attention Enhanced BERT for Semantic Matching</a></li>
+														<li><a class="no-wrap" href="../papernotes/spangraph.html" style="text-transform: capitalize;">Nested Named Entity Recognition with Span-level Graphs</a></li>
+														<li><a class="no-wrap" href="../papernotes/enrel.html" style="text-transform: capitalize;">Explicitly Capturing Relations between Entity Mentions via Graph Neural Networks for Domain-specific Named Entity Recognition</a></li>
+														<li><a class="no-wrap" href="../papernotes/lilt.html" style="text-transform: capitalize;">LiLT: A Simple yet Effective Language-Independent Layout Transformer for Structured Document Understanding</a></li>
+													</ul></li>
+													
+												<li><span class="opener">EMNLP & NAACL</span>
+													<ul>
+														<li><a class="no-wrap" href="../papernotes/graphbase.html" style="text-transform: capitalize;">Graph Convolution for Multimodal Information Extraction from Visually Rich Documents</a></li>
+														<!-- <li><a class="no-wrap" href="#">Ipsum Adipiscing</a></li> -->
+													</ul></li>
+													
+												<li><span class="opener">CVPR & ECCV & ICCV</span>
+													<ul>
+														<li><a class="no-wrap" href="../papernotes/mae.html" style="text-transform: capitalize;">Masked Autoencoders Are Scalable Vision Learners</a></li>
+														<li><a class="no-wrap" href="../papernotes/setr.html" style="text-transform: capitalize;">Rethinking Semantic Segmentation from a Sequence-to-Sequence Perspective with Transformers</a></li>
+														<li><a class="no-wrap" href="../papernotes/hmer.html" style="text-transform: capitalize;">When Counting Meets HMER: Counting-Aware Network for Handwritten Mathematical Expression Recognition</a></li>
+													</ul></li>
+													
+												<li><span class="opener">Other</span>
+													<ul>
+														<li><a class="no-wrap" href="../papernotes/rifre.html" style="text-transform: capitalize;">Representation iterative fusion based on heterogeneous graph neural network for joint entity and relation extraction</a></li>
+														<li><a class="no-wrap" href="../papernotes/graphdoc.html" style="text-transform: capitalize;">Graph Neural Networks and Representation Embedding for Table Extraction in PDF Documents</a></li>
+														<li><a class="no-wrap" href="../papernotes/bros.html" style="text-transform: capitalize;">BROS: A Pre-trained Language Model Focusing on Text and Layout for Better Key Information Extraction from Documents</a></li>
+														<li><a class="no-wrap" href="../papernotes/superalloy.html" style="text-transform: capitalize;">Automated pipeline for superalloy data by text mining</a></li>
+														<li><a class="no-wrap" href="../papernotes/polymer.html" style="text-transform: capitalize;">Automated knowledge extraction from polymer literature using natural language processing</a></li>
+													</ul></li>
+											</ul>
+										</li>
+										
+										
+									</ul>
+								</nav>
+							
+
+							<!-- Section -->
+								<section>
+									<header class="major">
+										<h2>Contact</h2>
+									</header>
+									<p>Welcome to contact me through the following ways: E-mail and GitHub personal homepage. If you have any questions or want to discuss the topic, please feel free to contact me!</p>
+									<ul class="contact">
+										<li class="icon solid fa-envelope"><a href="#">yilin__zhang@163.com</a></li>
+										<li class="icon brands fa-github"><a href="https://github.com/ZCappuccino">Github-HomePage</a></li>
+										
+									</ul>
+								</section>
+
+							<!-- Footer -->
+								<footer id="footer">
+									<p class="copyright">&copy; Untitled. All rights reserved. Demo Images: <a href="https://unsplash.com">Unsplash</a>. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+								</footer>
+
+						</div>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="../assets/js/jquery.min.js"></script>
+			<script src="../assets/js/browser.min.js"></script>
+			<script src="../assets/js/breakpoints.min.js"></script>
+			<script src="../assets/js/util.js"></script>
+			<script src="../assets/js/main.js"></script>
+			<script src="../assets/js/childlabel.js"></script>
+			
+
+	</body>
+</html>
