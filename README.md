@@ -1,2 +1,0 @@
-# ZCappuccino.github.io
-myblog

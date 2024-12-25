@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Categories on ZCappuccino</title>
+        <link>https://example.com/categories/</link>
+        <description>Recent content in Categories on ZCappuccino</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <copyright>ZCappuccino</copyright>
+        <lastBuildDate>Wed, 25 Dec 2024 21:35:05 +0800</lastBuildDate><atom:link href="https://example.com/categories/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>报错解决</title>
+        <link>https://example.com/categories/%E6%8A%A5%E9%94%99%E8%A7%A3%E5%86%B3/</link>
+        <pubDate>Wed, 25 Dec 2024 21:35:05 +0800</pubDate>
+        
+        <guid>https://example.com/categories/%E6%8A%A5%E9%94%99%E8%A7%A3%E5%86%B3/</guid>
+        <description>&lt;img src="https://example.com/categories/%E6%8A%A5%E9%94%99%E8%A7%A3%E5%86%B3/VCG41N1434992952.jpg" alt="Featured image of post 报错解决" /&gt;</description>
+        </item>
+        <item>
+        <title>技术</title>
+        <link>https://example.com/categories/%E6%8A%80%E6%9C%AF/</link>
+        <pubDate>Wed, 25 Dec 2024 21:35:05 +0800</pubDate>
+        
+        <guid>https://example.com/categories/%E6%8A%80%E6%9C%AF/</guid>
+        <description>&lt;img src="https://example.com/categories/%E6%8A%80%E6%9C%AF/VCG41N2135971457.jpg" alt="Featured image of post 技术" /&gt;</description>
+        </item>
+        <item>
+        <title>算法</title>
+        <link>https://example.com/categories/%E7%AE%97%E6%B3%95/</link>
+        <pubDate>Tue, 11 Jun 2024 23:32:11 +0800</pubDate>
+        
+        <guid>https://example.com/categories/%E7%AE%97%E6%B3%95/</guid>
+        <description>&lt;img src="https://example.com/categories/%E7%AE%97%E6%B3%95/VCG211368561879.jpg" alt="Featured image of post 算法" /&gt;</description>
+        </item>
+        <item>
+        <title>序列标注</title>
+        <link>https://example.com/categories/%E5%BA%8F%E5%88%97%E6%A0%87%E6%B3%A8/</link>
+        <pubDate>Fri, 15 Dec 2023 23:27:15 +0800</pubDate>
+        
+        <guid>https://example.com/categories/%E5%BA%8F%E5%88%97%E6%A0%87%E6%B3%A8/</guid>
+        <description>&lt;img src="https://example.com/categories/%E5%BA%8F%E5%88%97%E6%A0%87%E6%B3%A8/VCG41N1497678817.jpg" alt="Featured image of post 序列标注" /&gt;</description>
+        </item>
+        <item>
+        <title>NLP</title>
+        <link>https://example.com/categories/nlp/</link>
+        <pubDate>Thu, 14 Dec 2023 23:39:13 +0800</pubDate>
+        
+        <guid>https://example.com/categories/nlp/</guid>
+        <description>&lt;img src="https://example.com/categories/nlp/VCG41N1360919460.jpg" alt="Featured image of post NLP" /&gt;</description>
+        </item>
+        <item>
+        <title>文献阅读</title>
+        <link>https://example.com/categories/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/</link>
+        <pubDate>Thu, 14 Dec 2023 23:39:13 +0800</pubDate>
+        
+        <guid>https://example.com/categories/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/</guid>
+        <description>&lt;img src="https://example.com/categories/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/VCG211395155272.jpg" alt="Featured image of post 文献阅读" /&gt;</description>
+        </item>
+        <item>
+        <title>代码阅读</title>
+        <link>https://example.com/categories/%E4%BB%A3%E7%A0%81%E9%98%85%E8%AF%BB/</link>
+        <pubDate>Sun, 16 Apr 2023 20:37:46 +0800</pubDate>
+        
+        <guid>https://example.com/categories/%E4%BB%A3%E7%A0%81%E9%98%85%E8%AF%BB/</guid>
+        <description>&lt;img src="https://example.com/categories/%E4%BB%A3%E7%A0%81%E9%98%85%E8%AF%BB/VCG211488653937.jpg" alt="Featured image of post 代码阅读" /&gt;</description>
+        </item>
+        
+    </channel>
+</rss>

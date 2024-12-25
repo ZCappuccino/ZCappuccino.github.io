@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>算法 on ZCappuccino</title>
+        <link>https://example.com/categories/%E7%AE%97%E6%B3%95/</link>
+        <description>Recent content in 算法 on ZCappuccino</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <copyright>ZCappuccino</copyright>
+        <lastBuildDate>Tue, 11 Jun 2024 23:32:11 +0800</lastBuildDate><atom:link href="https://example.com/categories/%E7%AE%97%E6%B3%95/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>算法-哈希表</title>
+        <link>https://example.com/p/%E7%AE%97%E6%B3%95-%E5%93%88%E5%B8%8C%E8%A1%A8/</link>
+        <pubDate>Tue, 11 Jun 2024 23:32:11 +0800</pubDate>
+        
+        <guid>https://example.com/p/%E7%AE%97%E6%B3%95-%E5%93%88%E5%B8%8C%E8%A1%A8/</guid>
+        <description>&lt;img src="https://example.com/p/%E7%AE%97%E6%B3%95-%E5%93%88%E5%B8%8C%E8%A1%A8/VCG211376618862.jpg" alt="Featured image of post 算法-哈希表" /&gt;&lt;p&gt;&lt;img src=&#34;https://example.com/p/%E7%AE%97%E6%B3%95-%E5%93%88%E5%B8%8C%E8%A1%A8/pic14.jpg&#34;
+	width=&#34;820&#34;
+	height=&#34;324&#34;
+	srcset=&#34;https://example.com/p/%E7%AE%97%E6%B3%95-%E5%93%88%E5%B8%8C%E8%A1%A8/pic14_hu24353895569737269.jpg 480w, https://example.com/p/%E7%AE%97%E6%B3%95-%E5%93%88%E5%B8%8C%E8%A1%A8/pic14_hu18333079117592867070.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;253&#34;
+		data-flex-basis=&#34;607px&#34;
+	
+&gt;&lt;br&gt;
+图片来自代码随想录总结。（@&lt;a href=&#34;https://programmercarl.com/%E5%93%88%E5%B8%8C%E8%A1%A8%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80.html#%E5%93%88%E5%B8%8C%E8%A1%A8&#34;&gt;代码随想录-哈希表理论基础&lt;/a&gt;）&lt;/p&gt;
+&lt;h2 id=&#34;哈希表&#34;&gt;哈希表
+&lt;/h2&gt;&lt;p&gt;哈希表中关键码就是数组的索引下标，然后通过下标直接访问数组中的元素。&lt;br&gt;
+&lt;b&gt;哈希表一般用于解决的问题：快速判断一个元素是否出现集合里。&lt;/b&gt;&lt;/p&gt;
+&lt;h2 id=&#34;常见的三种哈希结构&#34;&gt;常见的三种哈希结构
+&lt;/h2&gt;&lt;p&gt;当我们想使用哈希法来解决问题的时候，我们一般会选择如下三种数据结构：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;数组&lt;/li&gt;
+&lt;li&gt;set（集合）&lt;/li&gt;
+&lt;li&gt;map(映射)
+&lt;br&gt;
+set 和 map 分别提供以下三种数据结构，其底层实现以及优劣如下所述。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;set&#34;&gt;set
+&lt;/h3&gt;&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;映射&lt;/th&gt;
+          &lt;th&gt;底层实现&lt;/th&gt;
+          &lt;th&gt;是否有序&lt;/th&gt;
+          &lt;th&gt;数值可重复&lt;/th&gt;
+          &lt;th&gt;数值可更改&lt;/th&gt;
+          &lt;th&gt;查询效率&lt;/th&gt;
+          &lt;th&gt;增删效率&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;std::set&lt;/td&gt;
+          &lt;td&gt;红黑树&lt;/td&gt;
+          &lt;td&gt;有序&lt;/td&gt;
+          &lt;td&gt;否&lt;/td&gt;
+          &lt;td&gt;否&lt;/td&gt;
+          &lt;td&gt;O(log n)&lt;/td&gt;
+          &lt;td&gt;O(log n)&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;std::multiset&lt;/td&gt;
+          &lt;td&gt;红黑树&lt;/td&gt;
+          &lt;td&gt;有序&lt;/td&gt;
+          &lt;td&gt;是&lt;/td&gt;
+          &lt;td&gt;否&lt;/td&gt;
+          &lt;td&gt;O(log n)&lt;/td&gt;
+          &lt;td&gt;O(log n)&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;std::unordered_set&lt;/td&gt;
+          &lt;td&gt;哈希表&lt;/td&gt;
+          &lt;td&gt;无序&lt;/td&gt;
+          &lt;td&gt;否&lt;/td&gt;
+          &lt;td&gt;否&lt;/td&gt;
+          &lt;td&gt;O(1)&lt;/td&gt;
+          &lt;td&gt;O(1)&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;std::unordered_set底层实现为哈希表，std::set 和std::multiset 的底层实现是红黑树，红黑树是一种平衡二叉搜索树，所以key值是有序的，但key不可以修改，改动key值会导致整棵树的错乱，所以只能删除和增加。&lt;/p&gt;
+&lt;h3 id=&#34;map&#34;&gt;map
+&lt;/h3&gt;&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;集合&lt;/th&gt;
+          &lt;th&gt;底层实现&lt;/th&gt;
+          &lt;th&gt;是否有序&lt;/th&gt;
+          &lt;th&gt;数值可重复&lt;/th&gt;
+          &lt;th&gt;数值可更改&lt;/th&gt;
+          &lt;th&gt;查询效率&lt;/th&gt;
+          &lt;th&gt;增删效率&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;std::map&lt;/td&gt;
+          &lt;td&gt;红黑树&lt;/td&gt;
+          &lt;td&gt;key有序&lt;/td&gt;
+          &lt;td&gt;key不可重复&lt;/td&gt;
+          &lt;td&gt;key不可修改&lt;/td&gt;
+          &lt;td&gt;O(log n)&lt;/td&gt;
+          &lt;td&gt;O(log n)&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;std::multimap&lt;/td&gt;
+          &lt;td&gt;红黑树&lt;/td&gt;
+          &lt;td&gt;key有序&lt;/td&gt;
+          &lt;td&gt;key可重复&lt;/td&gt;
+          &lt;td&gt;key不可修改&lt;/td&gt;
+          &lt;td&gt;O(log n)&lt;/td&gt;
+          &lt;td&gt;O(log n)&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;std::unordered_map&lt;/td&gt;
+          &lt;td&gt;哈希表&lt;/td&gt;
+          &lt;td&gt;key无序&lt;/td&gt;
+          &lt;td&gt;key不可重复&lt;/td&gt;
+          &lt;td&gt;key不可修改&lt;/td&gt;
+          &lt;td&gt;O(1)&lt;/td&gt;
+          &lt;td&gt;O(1)&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;std::unordered_map 底层实现为哈希表，std::map 和std::multimap 的底层实现是红黑树。同理，std::map 和std::multimap 的key也是有序的。&lt;br&gt;
+&lt;b&gt;&lt;u&gt;↑（这个问题也经常作为面试题，考察对语言容器底层的理解）。&lt;/u&gt;&lt;/b&gt;
+&lt;br&gt;&lt;br&gt;
+当我们要使用集合来解决哈希问题的时候，优先使用unordered_set，因为它的查询和增删效率是最优的，如果需要集合是有序的，那么就用set，如果要求不仅有序还要有重复数据的话，那么就用multiset。
+&lt;br&gt;
+那么再来看一下map ，在map 是一个key value 的数据结构，map中，对key是有限制，对value没有限制的，因为key的存储方式使用红黑树实现的。
+&lt;br&gt;&lt;br&gt;
+其他语言例如：java里的HashMap ，TreeMap 都是一样的原理。可以灵活贯通
+&lt;br&gt;
+虽然std::set和std::multiset 的底层实现基于红黑树而非哈希表，它们通过红黑树来索引和存储数据。不过给我们的使用方式，还是哈希法的使用方式，即依靠键（key）来访问值（value）。所以使用这些数据结构来解决映射问题的方法，我们依然称之为哈希法。std::map也是一样的道理。&lt;/p&gt;
+&lt;h2 id=&#34;总结&#34;&gt;总结
+&lt;/h2&gt;&lt;p&gt;总结一下，当我们遇到了要快速判断一个元素是否出现集合里的时候，就要考虑哈希法。
+&lt;br&gt;
+但是哈希法也是牺牲了空间换取了时间，因为我们要使用额外的数组，set或者是map来存放数据，才能实现快速的查找。&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>算法-数组</title>
+        <link>https://example.com/p/%E7%AE%97%E6%B3%95-%E6%95%B0%E7%BB%84/</link>
+        <pubDate>Fri, 24 May 2024 23:53:21 +0800</pubDate>
+        
+        <guid>https://example.com/p/%E7%AE%97%E6%B3%95-%E6%95%B0%E7%BB%84/</guid>
+        <description>&lt;img src="https://example.com/p/%E7%AE%97%E6%B3%95-%E6%95%B0%E7%BB%84/VCG211424736516.jpg" alt="Featured image of post 算法-数组" /&gt;&lt;p&gt;&lt;img src=&#34;https://example.com/p/%E7%AE%97%E6%B3%95-%E6%95%B0%E7%BB%84/pic11.png&#34;
+	width=&#34;1690&#34;
+	height=&#34;663&#34;
+	srcset=&#34;https://example.com/p/%E7%AE%97%E6%B3%95-%E6%95%B0%E7%BB%84/pic11_hu7724719772564618631.png 480w, https://example.com/p/%E7%AE%97%E6%B3%95-%E6%95%B0%E7%BB%84/pic11_hu2034820092511034657.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;254&#34;
+		data-flex-basis=&#34;611px&#34;
+	
+&gt;&lt;br&gt;
+图片来自代码随想录总结。（@&lt;a href=&#34;https://programmercarl.com/%E6%95%B0%E7%BB%84%E6%80%BB%E7%BB%93%E7%AF%87.html#%E6%95%B0%E7%BB%84%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80&#34;&gt;代码随想录-数组总结&lt;/a&gt;）&lt;/p&gt;
+&lt;h2 id=&#34;二分法&#34;&gt;二分法
+&lt;/h2&gt;&lt;p&gt;适用条件：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;无重复元素；&lt;/li&gt;
+&lt;li&gt;有序数组&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;双指针&#34;&gt;双指针
+&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;需要注意两个指针的作用，它们分别指向什么&lt;/li&gt;
+&lt;li&gt;对于27，fast快指针指向的是新数组的元素，而slow慢指针指向的是新数组元素对应的下标，283同上&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;26-删除有序数组中的重复项&#34;&gt;26 删除有序数组中的重复项
+&lt;/h2&gt;&lt;p&gt;因为是递增序列，说明相同项在一起，并且前后是从大到小排列的&lt;br&gt;
+删除重复项，需要定义两个指针p和q&amp;ndash;&amp;gt; 这里q指向第二个位置，p指向第一个位置&lt;br&gt;
+比较nums[p]是否与nums[q]相等——for循环：如果相等，q后移一位；如果不相等，那么nums[q]需要赋值给nums[p+1]，p后移一位；&lt;br&gt;
+最终返回唯一元素的个数，由于已经删除重复元素，所以数组长度就是最终的唯一元素个数&lt;br&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;class Solution{
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    public int removeDuplicates(int[] nums){
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        int p=0,q=1;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        for(q=1;q &amp;lt; nums.length;q++){
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            if(nums[p]!=nums[q]){
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		nums[p+1]=nums[q];
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		p++;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	    }
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	}
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	return p+1;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description>
+        </item>
+        
+    </channel>
+</rss>

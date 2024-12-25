@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="论文来源：ACL 2022">
+<title>Hero-Gang Neural Model For Named Entity Recognition</title>
+
+<link rel='canonical' href='https://example.com/p/hero-gang-neural-model-for-named-entity-recognition/'>
+
+<link rel="stylesheet" href="/scss/style.min.0aa16c2ba53be56de63d57b907dbef5fa2ebeaf0ac61bcceac1269a339804863.css"><meta property='og:title' content="Hero-Gang Neural Model For Named Entity Recognition">
+<meta property='og:description' content="论文来源：ACL 2022">
+<meta property='og:url' content='https://example.com/p/hero-gang-neural-model-for-named-entity-recognition/'>
+<meta property='og:site_name' content='ZCappuccino'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2023-11-30T23:56:39&#43;08:00'/><meta property='article:modified_time' content='2023-11-30T23:56:39&#43;08:00'/><meta property='og:image' content='https://example.com/p/hero-gang-neural-model-for-named-entity-recognition/VCG211440693101.jpg' />
+<meta name="twitter:title" content="Hero-Gang Neural Model For Named Entity Recognition">
+<meta name="twitter:description" content="论文来源：ACL 2022"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://example.com/p/hero-gang-neural-model-for-named-entity-recognition/VCG211440693101.jpg' />
+    <link rel="shortcut icon" href="/favicon.ico" />
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu17044302858654180113.png" width="300"
+                            height="295" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">❄️</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">ZCappuccino</a></h1>
+            <h2 class="site-description">Coding My Life✨</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://gitee.com/ZCappuccino'
+                        target="_blank"
+                        title="Gitee"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-gitlab"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M21 14l-9 7l-9 -7l3 -11l3 7h6l3 -7z" /></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/ZCappuccino'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://twitter.com'
+                        target="_blank"
+                        title="Twitter"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E9%93%BE%E6%8E%A5/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>链接</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" width="24" height="24" stroke-width="2"> <path d="M14.828 14.828a4 4 0 1 0 -5.656 -5.656a4 4 0 0 0 5.656 5.656z"></path> <path d="M6.343 17.657l-1.414 1.414"></path> <path d="M6.343 6.343l-1.414 -1.414"></path> <path d="M17.657 6.343l1.414 -1.414"></path> <path d="M17.657 17.657l1.414 1.414"></path> <path d="M4 12h-2"></path> <path d="M12 4v-2"></path> <path d="M20 12h2"></path> <path d="M12 20v2"></path> </svg> 
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" width="24" height="24" stroke-width="2"> <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z"></path> <path d="M17 4a2 2 0 0 0 2 2a2 2 0 0 0 -2 2a2 2 0 0 0 -2 -2a2 2 0 0 0 2 -2"></path> <path d="M19 11h2m-1 -1v2"></path> </svg> 
+                        
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#具体概述">具体概述</a></li>
+    <li><a href="#方法">方法</a>
+      <ol>
+        <li><a href="#hero-模块">Hero 模块：</a></li>
+        <li><a href="#gang模块">Gang模块：</a></li>
+        <li><a href="#muti-windows-attention">Muti-windows Attention：</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/hero-gang-neural-model-for-named-entity-recognition/">
+                <img src="/p/hero-gang-neural-model-for-named-entity-recognition/VCG211440693101_hu4552749983957711352.jpg"
+                        srcset="/p/hero-gang-neural-model-for-named-entity-recognition/VCG211440693101_hu4552749983957711352.jpg 800w, /p/hero-gang-neural-model-for-named-entity-recognition/VCG211440693101_hu3232829784778234201.jpg 1600w"
+                        width="800" 
+                        height="534" 
+                        loading="lazy"
+                        alt="Featured image of post Hero-Gang Neural Model For Named Entity Recognition" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/" style="background-color: #1E90FF; color: #fff;">
+                文献阅读
+            </a>
+        
+            <a href="/categories/nlp/" style="background-color: #FA8072; color: #fff;">
+                NLP
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/hero-gang-neural-model-for-named-entity-recognition/">Hero-Gang Neural Model For Named Entity Recognition</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            论文来源：ACL 2022
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2023-11-30 23:56</time>
+            </div>
+        
+
+        
+    </footer>
+    
+
+    
+	
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>双模块Hero-Gang model</p>
+<h2 id="具体概述">具体概述
+</h2><ol>
+<li>命名实体识别（NER）是NLP中一项基础而重要的任务，旨在从自由文本中识别命名实体（NEs）。近年来，由于Transformer模型中应用的多头注意力机制可以有效地捕获更长的上下文信息，基于Transformer的模型已成为主流方法，并在该任务中取得了显著的性能。不幸的是，尽管这些模型可以捕获有效的全局上下文信息，但它们在局部特征和位置信息提取方面仍然受到限制，这在NER中至关重要。为了解决这一局限性，我们提出了一种新的Hero-Gang神经结构（HGN），包括Hero和Gang模块，以利用全局和局部信息来促进NER。</li>
+<li>具体来说，Hero 模块由基于 Transformer 的编码器组成，以保持自注意力机制的优势，而 Gang 模块则利用多窗口循环模块在 Hero 模块的指导下提取局部特征和位置信息。然后，所提出的多窗口注意力有效地结合了全局信息和多个局部特征来预测实体标签。在几个基准数据集上的实验结果验证了所提模型的有效性。</li>
+</ol>
+<h2 id="方法">方法
+</h2><p><img src="/p/hero-gang-neural-model-for-named-entity-recognition/17.png"
+	width="1839"
+	height="710"
+	srcset="/p/hero-gang-neural-model-for-named-entity-recognition/17_hu8464161276402777211.png 480w, /p/hero-gang-neural-model-for-named-entity-recognition/17_hu16676292123468102744.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="259"
+		data-flex-basis="621px"
+	
+></p>
+<h3 id="hero-模块">Hero 模块：
+</h3><p>muti-head self-Attention 使用的就是基于Transformer的序列Encoder，比如说BERT、BioBERT等；然后将特征输入到Gang模块，提取局部上下文特征及其对应的位置信息</p>
+<h3 id="gang模块">Gang模块：
+</h3><ol>
+<li>LSTM、GRU、RNN从序列中提取局部和相对位置信息（RS&ndash;循环结构）</li>
+<li>为了强调单个单词的局部特征，保证不受到长距离的影响&mdash;&gt;构造可一个固定长度的滑动窗口，生成较短的子序列，这样更容易被RS建模</li>
+<li>利用多个不同窗口大小的滑动窗口，来提取更丰富的局部特征</li>
+</ol>
+<h3 id="muti-windows-attention">Muti-windows Attention：
+</h3><ol>
+<li>应用多窗口注意力，将来自Hero模块的全局上下文信息和来自Gang模块的局部特征进行结合</li>
+<li>提出两种注意力：MLP-Attention、DOT-Attention</li>
+</ol>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+	<section>
+	    页面浏览量<span id="busuanzi_value_page_pv">Loading</span>
+	</section>
+	
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/p/learning-o-helps-for-learning-more-handling-the-unlabeled-entity-problem-for-class-incremental-ner/">
+        
+        
+            <div class="article-image">
+                <img src="/p/learning-o-helps-for-learning-more-handling-the-unlabeled-entity-problem-for-class-incremental-ner/VCG211385587308.42c82a460e228b939fa081b4a4567880_hu7320886683820901798.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post Learning &#34;O&#34; Helps for Learning More: Handling the Unlabeled Entity Problem for Class-incremental NER"
+                        
+                        data-hash="md5-QsgqRg4ii5OfoIG0pFZ4gA==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Learning &#34;O&#34; Helps for Learning More: Handling the Unlabeled Entity Problem for Class-incremental NER</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/gliner-generalist-model-for-named-entity-recognition-using-bidirectional-transformer/">
+        
+        
+            <div class="article-image">
+                <img src="/p/gliner-generalist-model-for-named-entity-recognition-using-bidirectional-transformer/VCG41N1525576843.3e62955ec189334b30019e43a8e72926_hu6597602770073577672.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post GLiNER: Generalist Model for Named Entity Recognition using Bidirectional Transformer"
+                        
+                        data-hash="md5-PmKVXsGJM0swAZ5DqOcpJg==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">GLiNER: Generalist Model for Named Entity Recognition using Bidirectional Transformer</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/dabert-dual-attention-enhanced-bert-for-semantic-matching/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="https://picsum.photos/800/600.webp?random=847d5f0a" loading="lazy" data-key="" data-hash="https://picsum.photos/800/600.webp?random=847d5f0a"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">DABERT: Dual Attention Enhanced BERT for Semantic Matching</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/nested-named-entity-recognition-with-span-level-graphs/">
+        
+        
+            <div class="article-image">
+                <img src="/p/nested-named-entity-recognition-with-span-level-graphs/VCG211357088085.98ac125fd90f3f46a6cbf54f38cb113b_hu9665862104193302165.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post Nested Named Entity Recognition with Span-level Graphs"
+                        
+                        data-hash="md5-mKwSX9kPP0amy/VPOMsROw==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Nested Named Entity Recognition with Span-level Graphs</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/representation-iterative-fusion-based-on-heterogeneous-graph-neural-network-for-joint-entity-and-relation-extraction/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="https://picsum.photos/800/600.webp?random=f7a0aaba" loading="lazy" data-key="" data-hash="https://picsum.photos/800/600.webp?random=f7a0aaba"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Representation iterative fusion based on heterogeneous graph neural network for joint entity and relation extraction</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <script src="https://utteranc.es/client.js" 
+        repo="ZCappuccino/BlogComment"
+        issue-term="title"
+        
+        crossorigin="anonymous"
+        async
+        >
+</script>
+
+<style>
+    .utterances {
+        max-width: unset;
+    }
+</style>
+
+<script>
+    let utterancesLoaded = false;
+
+    function setUtterancesTheme(theme) {
+        let utterances = document.querySelector('.utterances iframe');
+        if (utterances) {
+            utterances.contentWindow.postMessage(
+                {
+                    type: 'set-theme',
+                    theme: `github-${theme}`
+                },
+                'https://utteranc.es'
+            );
+        }
+    }
+
+    addEventListener('message', event => {
+        if (event.origin !== 'https://utteranc.es') return;
+
+        
+        utterancesLoaded = true;
+        setUtterancesTheme(document.documentElement.dataset.scheme)
+    });
+
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (!utterancesLoaded) return;
+        setUtterancesTheme(e.detail)
+    })
+</script>
+
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2022 - 
+        
+        2024 ZCappuccino
+    </section>
+    
+    <section class="powerby">
+        
+            明天一定会有好事发生哦⭐<br/>😎总访客数：<span id='busuanzi_value_site_uv' style='margin-right:10px'>Loading</span>🥰总访问量：<span id='busuanzi_value_site_pv' style='margin-right:10px'>Loading</span> <a href='https://cloud.umami.is/share/v86aupKiIGs8ZIY2/github.io' style='color:#707070' target='_blank'>👻数据统计</a><br/><span id='span_show_age'  style='margin-right:10px'/> <br/>
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.29.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js" defer></script><script type="text/javascript" src="/ts/custom.e9ab23fc8249cb1328504ef33f2e76227e5e981d08f5e7d690860849f29f9fc2.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+<script defer src="https://cn.vercount.one/js"></script>
+<script defer language="javascript">
+    var uptime_1 = "小站与你的快乐时光已经累积：";
+    var uptime_2 = " 天 ";
+    var uptime_3 = " 小时 ";
+    var uptime_4 = " 分 ";
+    var uptime_5 = " 秒！";
+
+    function show_date_time() {
+        window.setTimeout(show_date_time, 1e3);
+        BirthDay = new Date("8/4/2024 22:54:23");
+        today = new Date();
+        timeold = today.getTime() - BirthDay.getTime();
+        sectimeold = timeold / 1e3;
+        secondsold = Math.floor(sectimeold);
+        msPerDay = 24 * 60 * 60 * 1e3;
+        e_daysold = timeold / msPerDay;
+        daysold = Math.floor(e_daysold);
+        e_hrsold = (e_daysold - daysold) * 24;
+        hrsold = Math.floor(e_hrsold);
+        e_minsold = (e_hrsold - hrsold) * 60;
+        minsold = Math.floor((e_hrsold - hrsold) * 60);
+        seconds = Math.floor((e_minsold - minsold) * 60);
+        document.getElementById('span_show_age').innerHTML = uptime_1 + daysold + uptime_2 + hrsold + uptime_3 + minsold + uptime_4 + seconds + uptime_5;
+    }
+
+    show_date_time();
+</script>
+<script src=https://example.com/background/sakura.js></script>
+
+
+
+<script src="https://npm.elemecdn.com/nprogress@0.2.0/nprogress.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://npm.elemecdn.com/nprogress@0.2.0/nprogress.css" crossorigin="anonymous" />
+<script>
+    NProgress.start();
+    document.addEventListener("readystatechange", () => {
+        if (document.readyState === "interactive") NProgress.inc(0.8);
+        if (document.readyState === "complete") NProgress.done();
+    });
+</script>
+
+
+    </body>
+</html>

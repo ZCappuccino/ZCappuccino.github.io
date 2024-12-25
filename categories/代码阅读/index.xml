@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>代码阅读 on ZCappuccino</title>
+        <link>https://example.com/categories/%E4%BB%A3%E7%A0%81%E9%98%85%E8%AF%BB/</link>
+        <description>Recent content in 代码阅读 on ZCappuccino</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <copyright>ZCappuccino</copyright>
+        <lastBuildDate>Sun, 16 Apr 2023 20:37:46 +0800</lastBuildDate><atom:link href="https://example.com/categories/%E4%BB%A3%E7%A0%81%E9%98%85%E8%AF%BB/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>代码阅读《Text-to-Table: A New Way of Information Extraction</title>
+        <link>https://example.com/p/%E4%BB%A3%E7%A0%81%E9%98%85%E8%AF%BBtext-to-table-a-new-way-of-information-extraction/</link>
+        <pubDate>Sun, 16 Apr 2023 20:37:46 +0800</pubDate>
+        
+        <guid>https://example.com/p/%E4%BB%A3%E7%A0%81%E9%98%85%E8%AF%BBtext-to-table-a-new-way-of-information-extraction/</guid>
+        <description>&lt;img src="https://example.com/p/%E4%BB%A3%E7%A0%81%E9%98%85%E8%AF%BBtext-to-table-a-new-way-of-information-extraction/VCG211375786999.jpg" alt="Featured image of post 代码阅读《Text-to-Table: A New Way of Information Extraction" /&gt;&lt;p&gt;&lt;img src=&#34;https://example.com/p/%E4%BB%A3%E7%A0%81%E9%98%85%E8%AF%BBtext-to-table-a-new-way-of-information-extraction/24.jpg&#34;
+	width=&#34;1317&#34;
+	height=&#34;854&#34;
+	srcset=&#34;https://example.com/p/%E4%BB%A3%E7%A0%81%E9%98%85%E8%AF%BBtext-to-table-a-new-way-of-information-extraction/24_hu8883742009380889468.jpg 480w, https://example.com/p/%E4%BB%A3%E7%A0%81%E9%98%85%E8%AF%BBtext-to-table-a-new-way-of-information-extraction/24_hu8830115649994794633.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;154&#34;
+		data-flex-basis=&#34;370px&#34;
+	
+&gt;&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

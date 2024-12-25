@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>序列标注 on ZCappuccino</title>
+        <link>https://example.com/categories/%E5%BA%8F%E5%88%97%E6%A0%87%E6%B3%A8/</link>
+        <description>Recent content in 序列标注 on ZCappuccino</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <copyright>ZCappuccino</copyright>
+        <lastBuildDate>Fri, 15 Dec 2023 23:27:15 +0800</lastBuildDate><atom:link href="https://example.com/categories/%E5%BA%8F%E5%88%97%E6%A0%87%E6%B3%A8/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Doccano工具安装 &#43; 使用</title>
+        <link>https://example.com/p/doccano%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85--%E4%BD%BF%E7%94%A8/</link>
+        <pubDate>Fri, 15 Dec 2023 23:27:15 +0800</pubDate>
+        
+        <guid>https://example.com/p/doccano%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85--%E4%BD%BF%E7%94%A8/</guid>
+        <description>&lt;img src="https://example.com/p/doccano%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85--%E4%BD%BF%E7%94%A8/VCG211313809225.jpg" alt="Featured image of post Doccano工具安装 &#43; 使用" /&gt;&lt;h2 id=&#34;安装教程&#34;&gt;安装教程
+&lt;/h2&gt;&lt;p&gt;（✅这里是第一次安装时，整体的安装以及进入doccano界面的教程）&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;下载Anaconda，点击Next至安装完成（最好不要安装到C盘）&lt;/li&gt;
+&lt;li&gt;打开Anaconda Prompt，如果前面有base字样就是安装成功了
+&lt;img src=&#34;https://example.com/p/doccano%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85--%E4%BD%BF%E7%94%A8/25.png&#34;
+	width=&#34;1061&#34;
+	height=&#34;135&#34;
+	srcset=&#34;https://example.com/p/doccano%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85--%E4%BD%BF%E7%94%A8/25_hu13450442953949174020.png 480w, https://example.com/p/doccano%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85--%E4%BD%BF%E7%94%A8/25_hu16480522235904522265.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;25&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;785&#34;
+		data-flex-basis=&#34;1886px&#34;
+	
+&gt;&lt;/li&gt;
+&lt;li&gt;在命令行中创建一个新的环境，输入： conda create -n XXX python=XX （注意这里XXX表示环境名称，XX表示python的版本号，比如我要创建一个环境名为doccano且python版本为3.8的新环境： conda create -n doccano python=3.8 ）&lt;/li&gt;
+&lt;li&gt;创建好以后激活新环境： conda activate XXX （这里XXX仍然是你的环境名，要和创建时一致）
+&lt;img src=&#34;https://example.com/p/doccano%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85--%E4%BD%BF%E7%94%A8/26.png&#34;
+	width=&#34;793&#34;
+	height=&#34;218&#34;
+	srcset=&#34;https://example.com/p/doccano%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85--%E4%BD%BF%E7%94%A8/26_hu12289346121770200384.png 480w, https://example.com/p/doccano%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85--%E4%BD%BF%E7%94%A8/26_hu14178346348257811368.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;26&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;363&#34;
+		data-flex-basis=&#34;873px&#34;
+	
+&gt;&lt;/li&gt;
+&lt;li&gt;进入新的环境后，输入pip install doccano 安装Doccano标注工具，安装后可以通过 pip list 查看安装列表中是否有Doccano确定是否安装成功&lt;/li&gt;
+&lt;li&gt;安装好后可以通过以下命令在命令行中初始化数据库，并创建用户：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# 初始化数据库
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;doccano init
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# 创建一个用户：admin和pass改成你特定的账号和密码
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;doccano createuser --username admin --password pass
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ol start=&#34;7&#34;&gt;
+&lt;li&gt;创建用户后就可以开启服务，我们先在一个命令行中运行如下命令：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# 启动webserver，port后是端口号
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;doccano webserver --port 8000
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ol start=&#34;8&#34;&gt;
+&lt;li&gt;然后打开另一个终端或命令行，输入以下命令启动任务队列：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# 启动任务队列
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;doccano task
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ol start=&#34;9&#34;&gt;
+&lt;li&gt;最后在浏览器中访问地址 &lt;u&gt;http://127.0.0.1:8000&lt;/u&gt; 就可以打开Doccano工具进行标注了。Doccano初始界面：
+&lt;img src=&#34;https://example.com/p/doccano%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85--%E4%BD%BF%E7%94%A8/27.png&#34;
+	width=&#34;1269&#34;
+	height=&#34;744&#34;
+	srcset=&#34;https://example.com/p/doccano%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85--%E4%BD%BF%E7%94%A8/27_hu6929126823335485425.png 480w, https://example.com/p/doccano%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85--%E4%BD%BF%E7%94%A8/27_hu711066409166720429.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;27&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;170&#34;
+		data-flex-basis=&#34;409px&#34;
+	
+&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;使用教程&#34;&gt;使用教程
+&lt;/h2&gt;&lt;p&gt;（✅这里是在安装好之后，后续再打开doccano继续使用的教程）&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;激活环境：conda activate XXX （这里XXX仍然是你的环境名，要和创建时一致）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;conda activate doccano
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;进入相应的doccano环境之后，就可以开启服务，我们先在一个命令行中运行如下命令：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;doccano webserver --port 8000
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;然后打开另一个终端或命令行，先输入：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;conda activate doccano
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;进入doccano环境后，再输入以下命令启动任务队列：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;doccano task
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;最后在浏览器中访问地址 &lt;u&gt;http://127.0.0.1:8000&lt;/u&gt;  就可以打开Doccano工具进行标注了。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;doccano标注操作&#34;&gt;doccano标注操作
+&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;输入创建用户时的用户名和密码后进入界面：
+&lt;img src=&#34;https://example.com/p/doccano%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85--%E4%BD%BF%E7%94%A8/28.png&#34;
+	width=&#34;1143&#34;
+	height=&#34;285&#34;
+	srcset=&#34;https://example.com/p/doccano%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85--%E4%BD%BF%E7%94%A8/28_hu15272187948930789513.png 480w, https://example.com/p/doccano%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85--%E4%BD%BF%E7%94%A8/28_hu15769903166043529101.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;28&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;401&#34;
+		data-flex-basis=&#34;962px&#34;
+	
+&gt;&lt;/li&gt;
+&lt;li&gt;创建一个标注任务。点击Create，进入到如下界面：
+&lt;img src=&#34;https://example.com/p/doccano%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85--%E4%BD%BF%E7%94%A8/29.png&#34;
+	width=&#34;1099&#34;
+	height=&#34;642&#34;
+	srcset=&#34;https://example.com/p/doccano%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85--%E4%BD%BF%E7%94%A8/29_hu18094399364581437600.png 480w, https://example.com/p/doccano%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85--%E4%BD%BF%E7%94%A8/29_hu11074268148655233195.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;29&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;171&#34;
+		data-flex-basis=&#34;410px&#34;
+	
+&gt;&lt;/li&gt;
+&lt;li&gt;选择序列标注（Sequence Labeling）任务进行实体标注，并填好项目名称等：
+&lt;img src=&#34;https://example.com/p/doccano%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85--%E4%BD%BF%E7%94%A8/30.png&#34;
+	width=&#34;1114&#34;
+	height=&#34;623&#34;
+	srcset=&#34;https://example.com/p/doccano%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85--%E4%BD%BF%E7%94%A8/30_hu9456997147722726075.png 480w, https://example.com/p/doccano%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85--%E4%BD%BF%E7%94%A8/30_hu10224565297877333348.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;30&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;178&#34;
+		data-flex-basis=&#34;429px&#34;
+	
+&gt;&lt;br&gt;
+然后进入项目主界面：
+&lt;img src=&#34;https://example.com/p/doccano%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85--%E4%BD%BF%E7%94%A8/31.png&#34;
+	width=&#34;1123&#34;
+	height=&#34;375&#34;
+	srcset=&#34;https://example.com/p/doccano%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85--%E4%BD%BF%E7%94%A8/31_hu5884960023714726802.png 480w, https://example.com/p/doccano%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85--%E4%BD%BF%E7%94%A8/31_hu9045742444039670251.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;31&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;299&#34;
+		data-flex-basis=&#34;718px&#34;
+	
+&gt;&lt;/li&gt;
+&lt;li&gt;导入数据，点击Dataset选择导入数据，填好要导入的数据的格式，然后将数据拖到Drop files here处导入：
+&lt;img src=&#34;https://example.com/p/doccano%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85--%E4%BD%BF%E7%94%A8/32.png&#34;
+	width=&#34;1236&#34;
+	height=&#34;508&#34;
+	srcset=&#34;https://example.com/p/doccano%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85--%E4%BD%BF%E7%94%A8/32_hu15693862175531204623.png 480w, https://example.com/p/doccano%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85--%E4%BD%BF%E7%94%A8/32_hu1318032709345507549.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;32&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;243&#34;
+		data-flex-basis=&#34;583px&#34;
+	
+&gt;&lt;br&gt;
+导入成功的界面如下：
+&lt;img src=&#34;https://example.com/p/doccano%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85--%E4%BD%BF%E7%94%A8/33.png&#34;
+	width=&#34;1227&#34;
+	height=&#34;414&#34;
+	srcset=&#34;https://example.com/p/doccano%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85--%E4%BD%BF%E7%94%A8/33_hu10658250803579114343.png 480w, https://example.com/p/doccano%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85--%E4%BD%BF%E7%94%A8/33_hu3280691631776013242.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;33&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;296&#34;
+		data-flex-basis=&#34;711px&#34;
+	
+&gt;&lt;/li&gt;
+&lt;li&gt;设置标签，在Labels一栏点击Actions，Create Label手动设置或者Import Labels从文件导入（这里选手动创建标签）：
+&lt;img src=&#34;https://example.com/p/doccano%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85--%E4%BD%BF%E7%94%A8/34.png&#34;
+	width=&#34;1227&#34;
+	height=&#34;456&#34;
+	srcset=&#34;https://example.com/p/doccano%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85--%E4%BD%BF%E7%94%A8/34_hu10188015820643398043.png 480w, https://example.com/p/doccano%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85--%E4%BD%BF%E7%94%A8/34_hu16948808293285025151.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;34&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;269&#34;
+		data-flex-basis=&#34;645px&#34;
+	
+&gt;&lt;br&gt;
+设置完成：
+&lt;img src=&#34;https://example.com/p/doccano%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85--%E4%BD%BF%E7%94%A8/35.png&#34;
+	width=&#34;1228&#34;
+	height=&#34;425&#34;
+	srcset=&#34;https://example.com/p/doccano%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85--%E4%BD%BF%E7%94%A8/35_hu1315906837938368175.png 480w, https://example.com/p/doccano%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85--%E4%BD%BF%E7%94%A8/35_hu8128782427962619804.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;35&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;288&#34;
+		data-flex-basis=&#34;693px&#34;
+	
+&gt;&lt;/li&gt;
+&lt;li&gt;点左侧Start Annotation开始标注，直接用鼠标选取文本即可标注实体：
+&lt;img src=&#34;https://example.com/p/doccano%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85--%E4%BD%BF%E7%94%A8/36.png&#34;
+	width=&#34;1185&#34;
+	height=&#34;473&#34;
+	srcset=&#34;https://example.com/p/doccano%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85--%E4%BD%BF%E7%94%A8/36_hu14310309027946644081.png 480w, https://example.com/p/doccano%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85--%E4%BD%BF%E7%94%A8/36_hu6567955920749066993.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;36&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;250&#34;
+		data-flex-basis=&#34;601px&#34;
+	
+&gt;&lt;/li&gt;
+&lt;li&gt;标注好后导出数据，在Datasets一栏点击Actions → Export Dataset导出已标注的数据：
+&lt;img src=&#34;https://example.com/p/doccano%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85--%E4%BD%BF%E7%94%A8/37.png&#34;
+	width=&#34;1182&#34;
+	height=&#34;383&#34;
+	srcset=&#34;https://example.com/p/doccano%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85--%E4%BD%BF%E7%94%A8/37_hu17002765647989189843.png 480w, https://example.com/p/doccano%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85--%E4%BD%BF%E7%94%A8/37_hu9265819876222516946.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;37&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;308&#34;
+		data-flex-basis=&#34;740px&#34;
+	
+&gt;&lt;br&gt;
+填好导出的格式，点Export：
+&lt;img src=&#34;https://example.com/p/doccano%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85--%E4%BD%BF%E7%94%A8/38.png&#34;
+	width=&#34;1156&#34;
+	height=&#34;382&#34;
+	srcset=&#34;https://example.com/p/doccano%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85--%E4%BD%BF%E7%94%A8/38_hu53935363184742249.png 480w, https://example.com/p/doccano%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85--%E4%BD%BF%E7%94%A8/38_hu17655186423227561912.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;38&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;302&#34;
+		data-flex-basis=&#34;726px&#34;
+	
+&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

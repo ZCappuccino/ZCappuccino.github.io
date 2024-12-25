@@ -1,0 +1,1527 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>ZCappuccino</title>
+        <link>https://example.com/</link>
+        <description>Recent content on ZCappuccino</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <copyright>ZCappuccino</copyright>
+        <lastBuildDate>Wed, 25 Dec 2024 21:35:05 +0800</lastBuildDate><atom:link href="https://example.com/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>报错解决-git报错</title>
+        <link>https://example.com/p/%E6%8A%A5%E9%94%99%E8%A7%A3%E5%86%B3-git%E6%8A%A5%E9%94%99/</link>
+        <pubDate>Wed, 25 Dec 2024 21:35:05 +0800</pubDate>
+        
+        <guid>https://example.com/p/%E6%8A%A5%E9%94%99%E8%A7%A3%E5%86%B3-git%E6%8A%A5%E9%94%99/</guid>
+        <description>&lt;img src="https://example.com/p/%E6%8A%A5%E9%94%99%E8%A7%A3%E5%86%B3-git%E6%8A%A5%E9%94%99/VCG211427864656.jpg" alt="Featured image of post 报错解决-git报错" /&gt;&lt;h2 id=&#34;解决-git-报错-fatal-unable-to-access-httpsgithubcomgit-recv-failure-connection-was-reset&#34;&gt;解决 git 报错 &amp;ldquo;fatal: unable to access ‘https://github.com/&amp;hellip;/.git‘: Recv failure Connection was reset&amp;rdquo;
+&lt;/h2&gt;&lt;p&gt;在使用git进行代码管理的过程中，经常会遇到各种各样的问题，其中之一就是在执行git clone时出现 “fatal: unable to access ‘https://github.com/…/.git’: Recv failure Connection was reset” 的报错。这个问题通常是由网络连接问题或代理设置不正确导致的。可以通过设置系统代理的方式解决&lt;br&gt;
+具体解决方法如下：&lt;br&gt;&lt;/p&gt;
+&lt;h3 id=&#34;打开设置搜索代理设置并点击编辑&#34;&gt;打开设置，搜索代理设置，并点击编辑
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;https://example.com/p/%E6%8A%A5%E9%94%99%E8%A7%A3%E5%86%B3-git%E6%8A%A5%E9%94%99/gitbug1.png&#34;
+	width=&#34;1447&#34;
+	height=&#34;1059&#34;
+	srcset=&#34;https://example.com/p/%E6%8A%A5%E9%94%99%E8%A7%A3%E5%86%B3-git%E6%8A%A5%E9%94%99/gitbug1_hu16921911053739716330.png 480w, https://example.com/p/%E6%8A%A5%E9%94%99%E8%A7%A3%E5%86%B3-git%E6%8A%A5%E9%94%99/gitbug1_hu11074041846380402878.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;136&#34;
+		data-flex-basis=&#34;327px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;在代理服务器中将端口设置为7890&#34;&gt;在代理服务器中，将端口设置为7890
+&lt;/h3&gt;&lt;p&gt;7890这个端口通常是默认的，无需修改，并且这个端口不会影响正常上网，可以放心设置
+&lt;img src=&#34;https://example.com/p/%E6%8A%A5%E9%94%99%E8%A7%A3%E5%86%B3-git%E6%8A%A5%E9%94%99/gitbug2.png&#34;
+	width=&#34;1077&#34;
+	height=&#34;951&#34;
+	srcset=&#34;https://example.com/p/%E6%8A%A5%E9%94%99%E8%A7%A3%E5%86%B3-git%E6%8A%A5%E9%94%99/gitbug2_hu14762356748317864424.png 480w, https://example.com/p/%E6%8A%A5%E9%94%99%E8%A7%A3%E5%86%B3-git%E6%8A%A5%E9%94%99/gitbug2_hu10254093743468146564.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;113&#34;
+		data-flex-basis=&#34;271px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;在终端输入命令设置git使用本地代理&#34;&gt;在终端输入命令，设置git使用本地代理
+&lt;/h3&gt;&lt;p&gt;输入如下命令设置：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git config --global http.proxy http://127.0.0.1:7890
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;设置完成后可以通过以下命令检验是否设置成功&#34;&gt;设置完成后，可以通过以下命令检验是否设置成功
+&lt;/h3&gt;&lt;p&gt;输入如下命令检验：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git config --global -l
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;后面即可git clone成功~&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>算法-哈希表</title>
+        <link>https://example.com/p/%E7%AE%97%E6%B3%95-%E5%93%88%E5%B8%8C%E8%A1%A8/</link>
+        <pubDate>Tue, 11 Jun 2024 23:32:11 +0800</pubDate>
+        
+        <guid>https://example.com/p/%E7%AE%97%E6%B3%95-%E5%93%88%E5%B8%8C%E8%A1%A8/</guid>
+        <description>&lt;img src="https://example.com/p/%E7%AE%97%E6%B3%95-%E5%93%88%E5%B8%8C%E8%A1%A8/VCG211376618862.jpg" alt="Featured image of post 算法-哈希表" /&gt;&lt;p&gt;&lt;img src=&#34;https://example.com/p/%E7%AE%97%E6%B3%95-%E5%93%88%E5%B8%8C%E8%A1%A8/pic14.jpg&#34;
+	width=&#34;820&#34;
+	height=&#34;324&#34;
+	srcset=&#34;https://example.com/p/%E7%AE%97%E6%B3%95-%E5%93%88%E5%B8%8C%E8%A1%A8/pic14_hu24353895569737269.jpg 480w, https://example.com/p/%E7%AE%97%E6%B3%95-%E5%93%88%E5%B8%8C%E8%A1%A8/pic14_hu18333079117592867070.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;253&#34;
+		data-flex-basis=&#34;607px&#34;
+	
+&gt;&lt;br&gt;
+图片来自代码随想录总结。（@&lt;a href=&#34;https://programmercarl.com/%E5%93%88%E5%B8%8C%E8%A1%A8%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80.html#%E5%93%88%E5%B8%8C%E8%A1%A8&#34;&gt;代码随想录-哈希表理论基础&lt;/a&gt;）&lt;/p&gt;
+&lt;h2 id=&#34;哈希表&#34;&gt;哈希表
+&lt;/h2&gt;&lt;p&gt;哈希表中关键码就是数组的索引下标，然后通过下标直接访问数组中的元素。&lt;br&gt;
+&lt;b&gt;哈希表一般用于解决的问题：快速判断一个元素是否出现集合里。&lt;/b&gt;&lt;/p&gt;
+&lt;h2 id=&#34;常见的三种哈希结构&#34;&gt;常见的三种哈希结构
+&lt;/h2&gt;&lt;p&gt;当我们想使用哈希法来解决问题的时候，我们一般会选择如下三种数据结构：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;数组&lt;/li&gt;
+&lt;li&gt;set（集合）&lt;/li&gt;
+&lt;li&gt;map(映射)
+&lt;br&gt;
+set 和 map 分别提供以下三种数据结构，其底层实现以及优劣如下所述。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;set&#34;&gt;set
+&lt;/h3&gt;&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;映射&lt;/th&gt;
+          &lt;th&gt;底层实现&lt;/th&gt;
+          &lt;th&gt;是否有序&lt;/th&gt;
+          &lt;th&gt;数值可重复&lt;/th&gt;
+          &lt;th&gt;数值可更改&lt;/th&gt;
+          &lt;th&gt;查询效率&lt;/th&gt;
+          &lt;th&gt;增删效率&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;std::set&lt;/td&gt;
+          &lt;td&gt;红黑树&lt;/td&gt;
+          &lt;td&gt;有序&lt;/td&gt;
+          &lt;td&gt;否&lt;/td&gt;
+          &lt;td&gt;否&lt;/td&gt;
+          &lt;td&gt;O(log n)&lt;/td&gt;
+          &lt;td&gt;O(log n)&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;std::multiset&lt;/td&gt;
+          &lt;td&gt;红黑树&lt;/td&gt;
+          &lt;td&gt;有序&lt;/td&gt;
+          &lt;td&gt;是&lt;/td&gt;
+          &lt;td&gt;否&lt;/td&gt;
+          &lt;td&gt;O(log n)&lt;/td&gt;
+          &lt;td&gt;O(log n)&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;std::unordered_set&lt;/td&gt;
+          &lt;td&gt;哈希表&lt;/td&gt;
+          &lt;td&gt;无序&lt;/td&gt;
+          &lt;td&gt;否&lt;/td&gt;
+          &lt;td&gt;否&lt;/td&gt;
+          &lt;td&gt;O(1)&lt;/td&gt;
+          &lt;td&gt;O(1)&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;std::unordered_set底层实现为哈希表，std::set 和std::multiset 的底层实现是红黑树，红黑树是一种平衡二叉搜索树，所以key值是有序的，但key不可以修改，改动key值会导致整棵树的错乱，所以只能删除和增加。&lt;/p&gt;
+&lt;h3 id=&#34;map&#34;&gt;map
+&lt;/h3&gt;&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;集合&lt;/th&gt;
+          &lt;th&gt;底层实现&lt;/th&gt;
+          &lt;th&gt;是否有序&lt;/th&gt;
+          &lt;th&gt;数值可重复&lt;/th&gt;
+          &lt;th&gt;数值可更改&lt;/th&gt;
+          &lt;th&gt;查询效率&lt;/th&gt;
+          &lt;th&gt;增删效率&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;std::map&lt;/td&gt;
+          &lt;td&gt;红黑树&lt;/td&gt;
+          &lt;td&gt;key有序&lt;/td&gt;
+          &lt;td&gt;key不可重复&lt;/td&gt;
+          &lt;td&gt;key不可修改&lt;/td&gt;
+          &lt;td&gt;O(log n)&lt;/td&gt;
+          &lt;td&gt;O(log n)&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;std::multimap&lt;/td&gt;
+          &lt;td&gt;红黑树&lt;/td&gt;
+          &lt;td&gt;key有序&lt;/td&gt;
+          &lt;td&gt;key可重复&lt;/td&gt;
+          &lt;td&gt;key不可修改&lt;/td&gt;
+          &lt;td&gt;O(log n)&lt;/td&gt;
+          &lt;td&gt;O(log n)&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;std::unordered_map&lt;/td&gt;
+          &lt;td&gt;哈希表&lt;/td&gt;
+          &lt;td&gt;key无序&lt;/td&gt;
+          &lt;td&gt;key不可重复&lt;/td&gt;
+          &lt;td&gt;key不可修改&lt;/td&gt;
+          &lt;td&gt;O(1)&lt;/td&gt;
+          &lt;td&gt;O(1)&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;std::unordered_map 底层实现为哈希表，std::map 和std::multimap 的底层实现是红黑树。同理，std::map 和std::multimap 的key也是有序的。&lt;br&gt;
+&lt;b&gt;&lt;u&gt;↑（这个问题也经常作为面试题，考察对语言容器底层的理解）。&lt;/u&gt;&lt;/b&gt;
+&lt;br&gt;&lt;br&gt;
+当我们要使用集合来解决哈希问题的时候，优先使用unordered_set，因为它的查询和增删效率是最优的，如果需要集合是有序的，那么就用set，如果要求不仅有序还要有重复数据的话，那么就用multiset。
+&lt;br&gt;
+那么再来看一下map ，在map 是一个key value 的数据结构，map中，对key是有限制，对value没有限制的，因为key的存储方式使用红黑树实现的。
+&lt;br&gt;&lt;br&gt;
+其他语言例如：java里的HashMap ，TreeMap 都是一样的原理。可以灵活贯通
+&lt;br&gt;
+虽然std::set和std::multiset 的底层实现基于红黑树而非哈希表，它们通过红黑树来索引和存储数据。不过给我们的使用方式，还是哈希法的使用方式，即依靠键（key）来访问值（value）。所以使用这些数据结构来解决映射问题的方法，我们依然称之为哈希法。std::map也是一样的道理。&lt;/p&gt;
+&lt;h2 id=&#34;总结&#34;&gt;总结
+&lt;/h2&gt;&lt;p&gt;总结一下，当我们遇到了要快速判断一个元素是否出现集合里的时候，就要考虑哈希法。
+&lt;br&gt;
+但是哈希法也是牺牲了空间换取了时间，因为我们要使用额外的数组，set或者是map来存放数据，才能实现快速的查找。&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>算法-数组</title>
+        <link>https://example.com/p/%E7%AE%97%E6%B3%95-%E6%95%B0%E7%BB%84/</link>
+        <pubDate>Fri, 24 May 2024 23:53:21 +0800</pubDate>
+        
+        <guid>https://example.com/p/%E7%AE%97%E6%B3%95-%E6%95%B0%E7%BB%84/</guid>
+        <description>&lt;img src="https://example.com/p/%E7%AE%97%E6%B3%95-%E6%95%B0%E7%BB%84/VCG211424736516.jpg" alt="Featured image of post 算法-数组" /&gt;&lt;p&gt;&lt;img src=&#34;https://example.com/p/%E7%AE%97%E6%B3%95-%E6%95%B0%E7%BB%84/pic11.png&#34;
+	width=&#34;1690&#34;
+	height=&#34;663&#34;
+	srcset=&#34;https://example.com/p/%E7%AE%97%E6%B3%95-%E6%95%B0%E7%BB%84/pic11_hu7724719772564618631.png 480w, https://example.com/p/%E7%AE%97%E6%B3%95-%E6%95%B0%E7%BB%84/pic11_hu2034820092511034657.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;254&#34;
+		data-flex-basis=&#34;611px&#34;
+	
+&gt;&lt;br&gt;
+图片来自代码随想录总结。（@&lt;a href=&#34;https://programmercarl.com/%E6%95%B0%E7%BB%84%E6%80%BB%E7%BB%93%E7%AF%87.html#%E6%95%B0%E7%BB%84%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80&#34;&gt;代码随想录-数组总结&lt;/a&gt;）&lt;/p&gt;
+&lt;h2 id=&#34;二分法&#34;&gt;二分法
+&lt;/h2&gt;&lt;p&gt;适用条件：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;无重复元素；&lt;/li&gt;
+&lt;li&gt;有序数组&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;双指针&#34;&gt;双指针
+&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;需要注意两个指针的作用，它们分别指向什么&lt;/li&gt;
+&lt;li&gt;对于27，fast快指针指向的是新数组的元素，而slow慢指针指向的是新数组元素对应的下标，283同上&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;26-删除有序数组中的重复项&#34;&gt;26 删除有序数组中的重复项
+&lt;/h2&gt;&lt;p&gt;因为是递增序列，说明相同项在一起，并且前后是从大到小排列的&lt;br&gt;
+删除重复项，需要定义两个指针p和q&amp;ndash;&amp;gt; 这里q指向第二个位置，p指向第一个位置&lt;br&gt;
+比较nums[p]是否与nums[q]相等——for循环：如果相等，q后移一位；如果不相等，那么nums[q]需要赋值给nums[p+1]，p后移一位；&lt;br&gt;
+最终返回唯一元素的个数，由于已经删除重复元素，所以数组长度就是最终的唯一元素个数&lt;br&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;class Solution{
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    public int removeDuplicates(int[] nums){
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        int p=0,q=1;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        for(q=1;q &amp;lt; nums.length;q++){
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            if(nums[p]!=nums[q]){
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		nums[p+1]=nums[q];
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		p++;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	    }
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	}
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	return p+1;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description>
+        </item>
+        <item>
+        <title>报错解决记录-算法篇</title>
+        <link>https://example.com/p/%E6%8A%A5%E9%94%99%E8%A7%A3%E5%86%B3%E8%AE%B0%E5%BD%95-%E7%AE%97%E6%B3%95%E7%AF%87/</link>
+        <pubDate>Fri, 29 Mar 2024 20:55:11 +0800</pubDate>
+        
+        <guid>https://example.com/p/%E6%8A%A5%E9%94%99%E8%A7%A3%E5%86%B3%E8%AE%B0%E5%BD%95-%E7%AE%97%E6%B3%95%E7%AF%87/</guid>
+        <description>&lt;img src="https://example.com/p/%E6%8A%A5%E9%94%99%E8%A7%A3%E5%86%B3%E8%AE%B0%E5%BD%95-%E7%AE%97%E6%B3%95%E7%AF%87/VCG211384587309.jpg" alt="Featured image of post 报错解决记录-算法篇" /&gt;&lt;h2 id=&#34;报错以及对应解决方法&#34;&gt;报错以及对应解决方法
+&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;b&gt;StopIteration: Caught StopIteration in replica 0 on device 0.&lt;/b&gt;&lt;br&gt;
+原因：使用预训练模型时，原预训练是多卡训练调用时使用单卡，出现问题&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;b&gt;OSError: We couldn&amp;rsquo;t connect to &amp;lsquo;&lt;a class=&#34;link&#34; href=&#34;https://huggingface.co&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://huggingface.co&lt;/a&gt;&amp;rsquo; to load this file, couldn&amp;rsquo;t find it in the cached files and it looks like bert-base-cased is not the path to a directory containing a file named config.json. Checkout your internet connection or see how to run the library in offline mode at &amp;lsquo;&lt;a class=&#34;link&#34; href=&#34;https://huggingface.co/docs/transformers/installation#offline-mode%27&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://huggingface.co/docs/transformers/installation#offline-mode&#39;&lt;/a&gt;.&lt;/b&gt;&lt;br&gt;
+出现这个问题即无法使用huggingface在线下载预训练BERT&lt;br&gt;
+解决：可以将预训练BERT down下来，进行离线加载和使用&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;b&gt;NVIDIA GeForce RTX 3090 with CUDA capability sm_86 is not compatible with the current PyTorch installation.The current PyTorch install supports CUDA capabilities sm_37 sm_50 sm_60 sm_70.
+If you want to use the NVIDIA GeForce RTX 3090 GPU with PyTorch, please check the instructions at &lt;a class=&#34;link&#34; href=&#34;https://pytorch.org/get-started/locally/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://pytorch.org/get-started/locally/&lt;/a&gt;
+RuntimeError: CUDA error: no kernel image is available for execution on the device&lt;/b&gt;&lt;br&gt;
+出现这个问题表示目前安装的torch和cuda的版本与目前GPU不匹配（即版本问题）&lt;br&gt;
+解决：重新安装合适的版本：cuda11.1 torch1.8.1&lt;br&gt;
+&lt;img src=&#34;https://example.com/p/%E6%8A%A5%E9%94%99%E8%A7%A3%E5%86%B3%E8%AE%B0%E5%BD%95-%E7%AE%97%E6%B3%95%E7%AF%87/43.png&#34;
+	width=&#34;1046&#34;
+	height=&#34;324&#34;
+	srcset=&#34;https://example.com/p/%E6%8A%A5%E9%94%99%E8%A7%A3%E5%86%B3%E8%AE%B0%E5%BD%95-%E7%AE%97%E6%B3%95%E7%AF%87/43_hu13359233568921354043.png 480w, https://example.com/p/%E6%8A%A5%E9%94%99%E8%A7%A3%E5%86%B3%E8%AE%B0%E5%BD%95-%E7%AE%97%E6%B3%95%E7%AF%87/43_hu7125457594470480892.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;322&#34;
+		data-flex-basis=&#34;774px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;b&gt; Anaconda导入导出环境：&lt;/b&gt;&lt;br&gt;
+（1）导出：conda env export &amp;gt; E:\Learning\FormulaRecognition\environment.yaml &lt;br&gt;
+（2）导入：conda env create -f environment.yaml&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;b&gt;将代码中.git文件夹删除以后，报错日志“Invalid VCS root mapping: The directory E:\Learning\FormulaRecognition is registered as a Git root, but no Git repositories were found there.”&lt;/b&gt;&lt;br&gt;
+解决：（如下图所示）&lt;br&gt;
+&lt;img src=&#34;https://example.com/p/%E6%8A%A5%E9%94%99%E8%A7%A3%E5%86%B3%E8%AE%B0%E5%BD%95-%E7%AE%97%E6%B3%95%E7%AF%87/44.png&#34;
+	width=&#34;1491&#34;
+	height=&#34;516&#34;
+	srcset=&#34;https://example.com/p/%E6%8A%A5%E9%94%99%E8%A7%A3%E5%86%B3%E8%AE%B0%E5%BD%95-%E7%AE%97%E6%B3%95%E7%AF%87/44_hu5113100258302824193.png 480w, https://example.com/p/%E6%8A%A5%E9%94%99%E8%A7%A3%E5%86%B3%E8%AE%B0%E5%BD%95-%E7%AE%97%E6%B3%95%E7%AF%87/44_hu4714093632219136283.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;288&#34;
+		data-flex-basis=&#34;693px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;b&gt;ImportError: cannot import name &amp;lsquo;OrderedDict&amp;rsquo; from &amp;rsquo;typing&amp;rsquo; (D:\Anaconda\Anaconda3\envs\latexocr\lib\typing.py)&lt;/b&gt;&lt;br&gt;
+已解决：&lt;br&gt;
+（1） pip install typing_extensions&lt;br&gt;
+（2） 修改上文提及的maxvit.py文件，不从typing中导入OrderedDict模块，而是从typing_extensions中导入，即可解决问题。
+&lt;img src=&#34;https://example.com/p/%E6%8A%A5%E9%94%99%E8%A7%A3%E5%86%B3%E8%AE%B0%E5%BD%95-%E7%AE%97%E6%B3%95%E7%AF%87/45.png&#34;
+	width=&#34;1081&#34;
+	height=&#34;79&#34;
+	srcset=&#34;https://example.com/p/%E6%8A%A5%E9%94%99%E8%A7%A3%E5%86%B3%E8%AE%B0%E5%BD%95-%E7%AE%97%E6%B3%95%E7%AF%87/45_hu15711310976060161289.png 480w, https://example.com/p/%E6%8A%A5%E9%94%99%E8%A7%A3%E5%86%B3%E8%AE%B0%E5%BD%95-%E7%AE%97%E6%B3%95%E7%AF%87/45_hu1010055874891875407.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;1368&#34;
+		data-flex-basis=&#34;3284px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;b&gt;ImportError: urllib3 v2.0 only supports OpenSSL 1.1.1+, currently the &amp;lsquo;ssl&amp;rsquo; module is compiled with &amp;lsquo;OpenSSL 1.1.0h 27 Mar 2018&amp;rsquo;.&lt;/b&gt;&lt;br&gt;
+已解决：&lt;br&gt;
+如果不升级OpenSSL，可以通过降低urlib3的版本来解决冲突。使用以下命令来降低urlib3的版本：&lt;br&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;pip install urllib3==1.25.11
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;b&gt;WARNING: There was an error checking the latest version of pip.&lt;/b&gt;&lt;br&gt;
+已解决：&lt;br&gt;
+如果不升级OpenSSL，可以通过降低urlib3的版本来解决冲突。使用以下命令来降低urlib3的版本：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;pip install urllib3==1.25.11
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;b&gt;出现如图所示的情况&lt;/b&gt;&lt;br&gt;
+&lt;img src=&#34;https://example.com/p/%E6%8A%A5%E9%94%99%E8%A7%A3%E5%86%B3%E8%AE%B0%E5%BD%95-%E7%AE%97%E6%B3%95%E7%AF%87/46.png&#34;
+	width=&#34;668&#34;
+	height=&#34;170&#34;
+	srcset=&#34;https://example.com/p/%E6%8A%A5%E9%94%99%E8%A7%A3%E5%86%B3%E8%AE%B0%E5%BD%95-%E7%AE%97%E6%B3%95%E7%AF%87/46_hu2327144528226602913.png 480w, https://example.com/p/%E6%8A%A5%E9%94%99%E8%A7%A3%E5%86%B3%E8%AE%B0%E5%BD%95-%E7%AE%97%E6%B3%95%E7%AF%87/46_hu3020816145027792792.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;392&#34;
+		data-flex-basis=&#34;943px&#34;
+	
+&gt;
+&lt;br&gt;
+已解决：关闭VPN，连接稳定WiFi即可解决&lt;br&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;b&gt;pyinstaller打包：最常见的是运行打包软件以后出现找不到模块的情况(具体如图)：&lt;/b&gt;&lt;br&gt;
+&lt;img src=&#34;https://example.com/p/%E6%8A%A5%E9%94%99%E8%A7%A3%E5%86%B3%E8%AE%B0%E5%BD%95-%E7%AE%97%E6%B3%95%E7%AF%87/47.png&#34;
+	width=&#34;549&#34;
+	height=&#34;63&#34;
+	srcset=&#34;https://example.com/p/%E6%8A%A5%E9%94%99%E8%A7%A3%E5%86%B3%E8%AE%B0%E5%BD%95-%E7%AE%97%E6%B3%95%E7%AF%87/47_hu3222417135559693791.png 480w, https://example.com/p/%E6%8A%A5%E9%94%99%E8%A7%A3%E5%86%B3%E8%AE%B0%E5%BD%95-%E7%AE%97%E6%B3%95%E7%AF%87/47_hu2661014681369535736.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;871&#34;
+		data-flex-basis=&#34;2091px&#34;
+	
+&gt;
+&lt;br&gt;
+解决方法：&lt;br&gt;
+在需要打包的py文件中加上import charset_normalizer，然后把环境(比如D:\Anaconda\Anaconda3\envs\latexocr\Lib\site-packages)中的charset_normalizer文件夹放到dist文件下，并把环境中带有.dist-info的文件夹放到dist下（如下图所示）&lt;br&gt;
+&lt;img src=&#34;https://example.com/p/%E6%8A%A5%E9%94%99%E8%A7%A3%E5%86%B3%E8%AE%B0%E5%BD%95-%E7%AE%97%E6%B3%95%E7%AF%87/48.png&#34;
+	width=&#34;1018&#34;
+	height=&#34;132&#34;
+	srcset=&#34;https://example.com/p/%E6%8A%A5%E9%94%99%E8%A7%A3%E5%86%B3%E8%AE%B0%E5%BD%95-%E7%AE%97%E6%B3%95%E7%AF%87/48_hu16546540551370176459.png 480w, https://example.com/p/%E6%8A%A5%E9%94%99%E8%A7%A3%E5%86%B3%E8%AE%B0%E5%BD%95-%E7%AE%97%E6%B3%95%E7%AF%87/48_hu754881520731088957.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;771&#34;
+		data-flex-basis=&#34;1850px&#34;
+	
+&gt;
+&lt;img src=&#34;https://example.com/p/%E6%8A%A5%E9%94%99%E8%A7%A3%E5%86%B3%E8%AE%B0%E5%BD%95-%E7%AE%97%E6%B3%95%E7%AF%87/49.png&#34;
+	width=&#34;956&#34;
+	height=&#34;402&#34;
+	srcset=&#34;https://example.com/p/%E6%8A%A5%E9%94%99%E8%A7%A3%E5%86%B3%E8%AE%B0%E5%BD%95-%E7%AE%97%E6%B3%95%E7%AF%87/49_hu5445644909604187520.png 480w, https://example.com/p/%E6%8A%A5%E9%94%99%E8%A7%A3%E5%86%B3%E8%AE%B0%E5%BD%95-%E7%AE%97%E6%B3%95%E7%AF%87/49_hu11473364930391772539.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;237&#34;
+		data-flex-basis=&#34;570px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;b&gt;数据问题1：UnicodeDecodeError: &amp;lsquo;gbk&amp;rsquo; codec can&amp;rsquo;t decode byte 0x93 in position 2980: illegal multibyte sequence&lt;/b&gt;&lt;br&gt;
+已解决：增加encoding=&amp;lsquo;utf-8&amp;rsquo;&lt;br&gt;
+代码示例：&lt;br&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;with&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;open&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;file.txt&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;encoding&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;utf-8&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;as&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;f&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 处理文件内容&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;b&gt;数据问题2：TypeError: cannot unpack non-iterable NoneType object&lt;/b&gt;&lt;br&gt;
+已解决：&lt;br&gt;
+数据中存在空行和空格，或者存在字段缺失的情况，需要编写python脚本查看是否存在空行空格和字段缺失的情况，如果存在就去掉。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;b&gt;关于导入的问题：出现“non-default parameter follows default parameter”这样的错误&lt;/b&gt;&lt;br&gt;
+已解决：需要在实例化时保证参数的顺序正确&lt;br&gt;
+在函数或类的构造函数中，没有默认值的参数（non-default parameter）跟在了有默认值的参数（default parameter）之后。在Python的函数定义中，所有带有默认值的参数必须位于没有默认值的参数之后。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;b&gt;查看CUDA情况：nvidia-smi&lt;/b&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;b&gt;出现IndexError：&lt;/b&gt;&lt;br&gt;
+写一个异常处理，因为是索引错误，一般是数据集的问题，没有处理好，或者数据某一条出现超过最大索引的情况&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;（——待更新——）&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>Doccano工具安装 &#43; 使用</title>
+        <link>https://example.com/p/doccano%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85--%E4%BD%BF%E7%94%A8/</link>
+        <pubDate>Fri, 15 Dec 2023 23:27:15 +0800</pubDate>
+        
+        <guid>https://example.com/p/doccano%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85--%E4%BD%BF%E7%94%A8/</guid>
+        <description>&lt;img src="https://example.com/p/doccano%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85--%E4%BD%BF%E7%94%A8/VCG211313809225.jpg" alt="Featured image of post Doccano工具安装 &#43; 使用" /&gt;&lt;h2 id=&#34;安装教程&#34;&gt;安装教程
+&lt;/h2&gt;&lt;p&gt;（✅这里是第一次安装时，整体的安装以及进入doccano界面的教程）&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;下载Anaconda，点击Next至安装完成（最好不要安装到C盘）&lt;/li&gt;
+&lt;li&gt;打开Anaconda Prompt，如果前面有base字样就是安装成功了
+&lt;img src=&#34;https://example.com/p/doccano%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85--%E4%BD%BF%E7%94%A8/25.png&#34;
+	width=&#34;1061&#34;
+	height=&#34;135&#34;
+	srcset=&#34;https://example.com/p/doccano%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85--%E4%BD%BF%E7%94%A8/25_hu13450442953949174020.png 480w, https://example.com/p/doccano%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85--%E4%BD%BF%E7%94%A8/25_hu16480522235904522265.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;25&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;785&#34;
+		data-flex-basis=&#34;1886px&#34;
+	
+&gt;&lt;/li&gt;
+&lt;li&gt;在命令行中创建一个新的环境，输入： conda create -n XXX python=XX （注意这里XXX表示环境名称，XX表示python的版本号，比如我要创建一个环境名为doccano且python版本为3.8的新环境： conda create -n doccano python=3.8 ）&lt;/li&gt;
+&lt;li&gt;创建好以后激活新环境： conda activate XXX （这里XXX仍然是你的环境名，要和创建时一致）
+&lt;img src=&#34;https://example.com/p/doccano%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85--%E4%BD%BF%E7%94%A8/26.png&#34;
+	width=&#34;793&#34;
+	height=&#34;218&#34;
+	srcset=&#34;https://example.com/p/doccano%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85--%E4%BD%BF%E7%94%A8/26_hu12289346121770200384.png 480w, https://example.com/p/doccano%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85--%E4%BD%BF%E7%94%A8/26_hu14178346348257811368.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;26&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;363&#34;
+		data-flex-basis=&#34;873px&#34;
+	
+&gt;&lt;/li&gt;
+&lt;li&gt;进入新的环境后，输入pip install doccano 安装Doccano标注工具，安装后可以通过 pip list 查看安装列表中是否有Doccano确定是否安装成功&lt;/li&gt;
+&lt;li&gt;安装好后可以通过以下命令在命令行中初始化数据库，并创建用户：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# 初始化数据库
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;doccano init
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# 创建一个用户：admin和pass改成你特定的账号和密码
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;doccano createuser --username admin --password pass
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ol start=&#34;7&#34;&gt;
+&lt;li&gt;创建用户后就可以开启服务，我们先在一个命令行中运行如下命令：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# 启动webserver，port后是端口号
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;doccano webserver --port 8000
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ol start=&#34;8&#34;&gt;
+&lt;li&gt;然后打开另一个终端或命令行，输入以下命令启动任务队列：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# 启动任务队列
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;doccano task
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ol start=&#34;9&#34;&gt;
+&lt;li&gt;最后在浏览器中访问地址 &lt;u&gt;http://127.0.0.1:8000&lt;/u&gt; 就可以打开Doccano工具进行标注了。Doccano初始界面：
+&lt;img src=&#34;https://example.com/p/doccano%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85--%E4%BD%BF%E7%94%A8/27.png&#34;
+	width=&#34;1269&#34;
+	height=&#34;744&#34;
+	srcset=&#34;https://example.com/p/doccano%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85--%E4%BD%BF%E7%94%A8/27_hu6929126823335485425.png 480w, https://example.com/p/doccano%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85--%E4%BD%BF%E7%94%A8/27_hu711066409166720429.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;27&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;170&#34;
+		data-flex-basis=&#34;409px&#34;
+	
+&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;使用教程&#34;&gt;使用教程
+&lt;/h2&gt;&lt;p&gt;（✅这里是在安装好之后，后续再打开doccano继续使用的教程）&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;激活环境：conda activate XXX （这里XXX仍然是你的环境名，要和创建时一致）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;conda activate doccano
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;进入相应的doccano环境之后，就可以开启服务，我们先在一个命令行中运行如下命令：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;doccano webserver --port 8000
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;然后打开另一个终端或命令行，先输入：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;conda activate doccano
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;进入doccano环境后，再输入以下命令启动任务队列：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;doccano task
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;最后在浏览器中访问地址 &lt;u&gt;http://127.0.0.1:8000&lt;/u&gt;  就可以打开Doccano工具进行标注了。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;doccano标注操作&#34;&gt;doccano标注操作
+&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;输入创建用户时的用户名和密码后进入界面：
+&lt;img src=&#34;https://example.com/p/doccano%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85--%E4%BD%BF%E7%94%A8/28.png&#34;
+	width=&#34;1143&#34;
+	height=&#34;285&#34;
+	srcset=&#34;https://example.com/p/doccano%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85--%E4%BD%BF%E7%94%A8/28_hu15272187948930789513.png 480w, https://example.com/p/doccano%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85--%E4%BD%BF%E7%94%A8/28_hu15769903166043529101.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;28&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;401&#34;
+		data-flex-basis=&#34;962px&#34;
+	
+&gt;&lt;/li&gt;
+&lt;li&gt;创建一个标注任务。点击Create，进入到如下界面：
+&lt;img src=&#34;https://example.com/p/doccano%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85--%E4%BD%BF%E7%94%A8/29.png&#34;
+	width=&#34;1099&#34;
+	height=&#34;642&#34;
+	srcset=&#34;https://example.com/p/doccano%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85--%E4%BD%BF%E7%94%A8/29_hu18094399364581437600.png 480w, https://example.com/p/doccano%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85--%E4%BD%BF%E7%94%A8/29_hu11074268148655233195.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;29&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;171&#34;
+		data-flex-basis=&#34;410px&#34;
+	
+&gt;&lt;/li&gt;
+&lt;li&gt;选择序列标注（Sequence Labeling）任务进行实体标注，并填好项目名称等：
+&lt;img src=&#34;https://example.com/p/doccano%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85--%E4%BD%BF%E7%94%A8/30.png&#34;
+	width=&#34;1114&#34;
+	height=&#34;623&#34;
+	srcset=&#34;https://example.com/p/doccano%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85--%E4%BD%BF%E7%94%A8/30_hu9456997147722726075.png 480w, https://example.com/p/doccano%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85--%E4%BD%BF%E7%94%A8/30_hu10224565297877333348.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;30&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;178&#34;
+		data-flex-basis=&#34;429px&#34;
+	
+&gt;&lt;br&gt;
+然后进入项目主界面：
+&lt;img src=&#34;https://example.com/p/doccano%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85--%E4%BD%BF%E7%94%A8/31.png&#34;
+	width=&#34;1123&#34;
+	height=&#34;375&#34;
+	srcset=&#34;https://example.com/p/doccano%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85--%E4%BD%BF%E7%94%A8/31_hu5884960023714726802.png 480w, https://example.com/p/doccano%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85--%E4%BD%BF%E7%94%A8/31_hu9045742444039670251.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;31&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;299&#34;
+		data-flex-basis=&#34;718px&#34;
+	
+&gt;&lt;/li&gt;
+&lt;li&gt;导入数据，点击Dataset选择导入数据，填好要导入的数据的格式，然后将数据拖到Drop files here处导入：
+&lt;img src=&#34;https://example.com/p/doccano%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85--%E4%BD%BF%E7%94%A8/32.png&#34;
+	width=&#34;1236&#34;
+	height=&#34;508&#34;
+	srcset=&#34;https://example.com/p/doccano%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85--%E4%BD%BF%E7%94%A8/32_hu15693862175531204623.png 480w, https://example.com/p/doccano%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85--%E4%BD%BF%E7%94%A8/32_hu1318032709345507549.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;32&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;243&#34;
+		data-flex-basis=&#34;583px&#34;
+	
+&gt;&lt;br&gt;
+导入成功的界面如下：
+&lt;img src=&#34;https://example.com/p/doccano%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85--%E4%BD%BF%E7%94%A8/33.png&#34;
+	width=&#34;1227&#34;
+	height=&#34;414&#34;
+	srcset=&#34;https://example.com/p/doccano%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85--%E4%BD%BF%E7%94%A8/33_hu10658250803579114343.png 480w, https://example.com/p/doccano%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85--%E4%BD%BF%E7%94%A8/33_hu3280691631776013242.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;33&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;296&#34;
+		data-flex-basis=&#34;711px&#34;
+	
+&gt;&lt;/li&gt;
+&lt;li&gt;设置标签，在Labels一栏点击Actions，Create Label手动设置或者Import Labels从文件导入（这里选手动创建标签）：
+&lt;img src=&#34;https://example.com/p/doccano%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85--%E4%BD%BF%E7%94%A8/34.png&#34;
+	width=&#34;1227&#34;
+	height=&#34;456&#34;
+	srcset=&#34;https://example.com/p/doccano%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85--%E4%BD%BF%E7%94%A8/34_hu10188015820643398043.png 480w, https://example.com/p/doccano%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85--%E4%BD%BF%E7%94%A8/34_hu16948808293285025151.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;34&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;269&#34;
+		data-flex-basis=&#34;645px&#34;
+	
+&gt;&lt;br&gt;
+设置完成：
+&lt;img src=&#34;https://example.com/p/doccano%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85--%E4%BD%BF%E7%94%A8/35.png&#34;
+	width=&#34;1228&#34;
+	height=&#34;425&#34;
+	srcset=&#34;https://example.com/p/doccano%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85--%E4%BD%BF%E7%94%A8/35_hu1315906837938368175.png 480w, https://example.com/p/doccano%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85--%E4%BD%BF%E7%94%A8/35_hu8128782427962619804.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;35&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;288&#34;
+		data-flex-basis=&#34;693px&#34;
+	
+&gt;&lt;/li&gt;
+&lt;li&gt;点左侧Start Annotation开始标注，直接用鼠标选取文本即可标注实体：
+&lt;img src=&#34;https://example.com/p/doccano%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85--%E4%BD%BF%E7%94%A8/36.png&#34;
+	width=&#34;1185&#34;
+	height=&#34;473&#34;
+	srcset=&#34;https://example.com/p/doccano%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85--%E4%BD%BF%E7%94%A8/36_hu14310309027946644081.png 480w, https://example.com/p/doccano%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85--%E4%BD%BF%E7%94%A8/36_hu6567955920749066993.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;36&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;250&#34;
+		data-flex-basis=&#34;601px&#34;
+	
+&gt;&lt;/li&gt;
+&lt;li&gt;标注好后导出数据，在Datasets一栏点击Actions → Export Dataset导出已标注的数据：
+&lt;img src=&#34;https://example.com/p/doccano%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85--%E4%BD%BF%E7%94%A8/37.png&#34;
+	width=&#34;1182&#34;
+	height=&#34;383&#34;
+	srcset=&#34;https://example.com/p/doccano%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85--%E4%BD%BF%E7%94%A8/37_hu17002765647989189843.png 480w, https://example.com/p/doccano%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85--%E4%BD%BF%E7%94%A8/37_hu9265819876222516946.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;37&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;308&#34;
+		data-flex-basis=&#34;740px&#34;
+	
+&gt;&lt;br&gt;
+填好导出的格式，点Export：
+&lt;img src=&#34;https://example.com/p/doccano%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85--%E4%BD%BF%E7%94%A8/38.png&#34;
+	width=&#34;1156&#34;
+	height=&#34;382&#34;
+	srcset=&#34;https://example.com/p/doccano%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85--%E4%BD%BF%E7%94%A8/38_hu53935363184742249.png 480w, https://example.com/p/doccano%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85--%E4%BD%BF%E7%94%A8/38_hu17655186423227561912.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;38&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;302&#34;
+		data-flex-basis=&#34;726px&#34;
+	
+&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        </item>
+        <item>
+        <title>Learning &#34;O&#34; Helps for Learning More: Handling the Unlabeled Entity Problem for Class-incremental NER</title>
+        <link>https://example.com/p/learning-o-helps-for-learning-more-handling-the-unlabeled-entity-problem-for-class-incremental-ner/</link>
+        <pubDate>Thu, 14 Dec 2023 23:39:13 +0800</pubDate>
+        
+        <guid>https://example.com/p/learning-o-helps-for-learning-more-handling-the-unlabeled-entity-problem-for-class-incremental-ner/</guid>
+        <description>&lt;img src="https://example.com/p/learning-o-helps-for-learning-more-handling-the-unlabeled-entity-problem-for-class-incremental-ner/VCG211385587308.jpg" alt="Featured image of post Learning &#34;O&#34; Helps for Learning More: Handling the Unlabeled Entity Problem for Class-incremental NER" /&gt;&lt;p&gt;题目：《学习&amp;rsquo; O &amp;lsquo;更有助于学习：处理Class - Incremental NER的未标记实体问题》&lt;br&gt;
+代码地址：https://github.com/rtmaww/O_CILNER&lt;/p&gt;
+&lt;h2 id=&#34;总体概述&#34;&gt;总体概述
+&lt;/h2&gt;&lt;p&gt;在这项工作中，作者对&amp;quot;未标记实体问题&amp;quot;进行了实证研究，发现它导致了&amp;quot; O &amp;ldquo;和实体之间的严重混淆，降低了旧类的类区分度，并降低了模型学习新类的能力。为了解决未标注实体问题，作者提出了一种新颖的表示学习方法来学习实体类和&amp;rdquo; O &amp;ldquo;的判别性表示。具体来说，作者提出了一种实体感知的对比学习方法，自适应地检测&amp;rsquo; O &amp;lsquo;中的实体簇。此外，为了更好地学习旧类，作者提出了两种有效的基于距离的重标记策略。我们为类别增量NER引入了一个更加真实和具有挑战性的基准测试集，所提出的方法在基准测试集上取得了高达10.62 %的提升&lt;/p&gt;
+&lt;h2 id=&#34;主要方法&#34;&gt;主要方法
+&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://example.com/p/learning-o-helps-for-learning-more-handling-the-unlabeled-entity-problem-for-class-incremental-ner/15.png&#34;
+	width=&#34;840&#34;
+	height=&#34;542&#34;
+	srcset=&#34;https://example.com/p/learning-o-helps-for-learning-more-handling-the-unlabeled-entity-problem-for-class-incremental-ner/15_hu11888703943542220739.png 480w, https://example.com/p/learning-o-helps-for-learning-more-handling-the-unlabeled-entity-problem-for-class-incremental-ner/15_hu13796361688763332190.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;154&#34;
+		data-flex-basis=&#34;371px&#34;
+	
+&gt;&lt;br&gt;
+使用Supcon Loss（一种对比损失的变体）来学习面向实体的特征空间。对比损失通常用于通过在特征空间中将相似的实体拉近、不同的实体推远来学习表示；非线性映射和阈值计算：实体被映射到一个非线性的特征空间，在这个空间中，计算一个新的实体阈值用于选择锚点（参考点）和正样本（相似点）。通过这样的方法来学习实体类和“O”类以判别同一实体类型内的变化中区分不同的实体&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>GLiNER: Generalist Model for Named Entity Recognition using Bidirectional Transformer</title>
+        <link>https://example.com/p/gliner-generalist-model-for-named-entity-recognition-using-bidirectional-transformer/</link>
+        <pubDate>Thu, 07 Dec 2023 00:05:45 +0800</pubDate>
+        
+        <guid>https://example.com/p/gliner-generalist-model-for-named-entity-recognition-using-bidirectional-transformer/</guid>
+        <description>&lt;img src="https://example.com/p/gliner-generalist-model-for-named-entity-recognition-using-bidirectional-transformer/VCG41N1525576843.jpg" alt="Featured image of post GLiNER: Generalist Model for Named Entity Recognition using Bidirectional Transformer" /&gt;&lt;p&gt;题目：《GLiNER：使用双向转换器进行命名实体识别的通用模型》（zero-shot NER）&lt;br&gt;
+代码地址：https://github.com/urchade/GLiNER&lt;/p&gt;
+&lt;h2 id=&#34;现有研究存在的问题&#34;&gt;现有研究存在的问题
+&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;使用自回归语言模型，逐词生成，使效率变慢&lt;/li&gt;
+&lt;li&gt;参数过多，在计算量受限的场景中使用会有限制&lt;/li&gt;
+&lt;li&gt;NER的任务是在几个解码步骤中完成的，没法并行执行多个实体类型的预测&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;目标--方法&#34;&gt;目标 &amp;amp; 方法
+&lt;/h2&gt;&lt;p&gt;不依赖大型自回归模型，将NER任务视为实体类型嵌入与潜在空间中的文本跨度表示进行匹配，而不是作为生成任务。既解决了自回归模型的可扩展性问题，并且允许双向的上下文处理，从而能够实现更丰富的表示
+&lt;img src=&#34;https://example.com/p/gliner-generalist-model-for-named-entity-recognition-using-bidirectional-transformer/16.png&#34;
+	width=&#34;1691&#34;
+	height=&#34;953&#34;
+	srcset=&#34;https://example.com/p/gliner-generalist-model-for-named-entity-recognition-using-bidirectional-transformer/16_hu3674570611075328208.png 480w, https://example.com/p/gliner-generalist-model-for-named-entity-recognition-using-bidirectional-transformer/16_hu17613325407629053948.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;177&#34;
+		data-flex-basis=&#34;425px&#34;
+	
+&gt;&lt;br&gt;
+使用实体类型prompt（每个实体被一个学习到的标记 [ENT] 分隔开） + 文本作为输入，通过BiLM，输出每个token的表示，然后将表示传递到FFN中，同时将输入的token表示传递到span representation层，来计算每个span的表示。最后计算实体表示和span表示之间的匹配分数（使用点积和sigmoid激活函数）&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>Hero-Gang Neural Model For Named Entity Recognition</title>
+        <link>https://example.com/p/hero-gang-neural-model-for-named-entity-recognition/</link>
+        <pubDate>Thu, 30 Nov 2023 23:56:39 +0800</pubDate>
+        
+        <guid>https://example.com/p/hero-gang-neural-model-for-named-entity-recognition/</guid>
+        <description>&lt;img src="https://example.com/p/hero-gang-neural-model-for-named-entity-recognition/VCG211440693101.jpg" alt="Featured image of post Hero-Gang Neural Model For Named Entity Recognition" /&gt;&lt;p&gt;双模块Hero-Gang model&lt;/p&gt;
+&lt;h2 id=&#34;具体概述&#34;&gt;具体概述
+&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;命名实体识别（NER）是NLP中一项基础而重要的任务，旨在从自由文本中识别命名实体（NEs）。近年来，由于Transformer模型中应用的多头注意力机制可以有效地捕获更长的上下文信息，基于Transformer的模型已成为主流方法，并在该任务中取得了显著的性能。不幸的是，尽管这些模型可以捕获有效的全局上下文信息，但它们在局部特征和位置信息提取方面仍然受到限制，这在NER中至关重要。为了解决这一局限性，我们提出了一种新的Hero-Gang神经结构（HGN），包括Hero和Gang模块，以利用全局和局部信息来促进NER。&lt;/li&gt;
+&lt;li&gt;具体来说，Hero 模块由基于 Transformer 的编码器组成，以保持自注意力机制的优势，而 Gang 模块则利用多窗口循环模块在 Hero 模块的指导下提取局部特征和位置信息。然后，所提出的多窗口注意力有效地结合了全局信息和多个局部特征来预测实体标签。在几个基准数据集上的实验结果验证了所提模型的有效性。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;方法&#34;&gt;方法
+&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://example.com/p/hero-gang-neural-model-for-named-entity-recognition/17.png&#34;
+	width=&#34;1839&#34;
+	height=&#34;710&#34;
+	srcset=&#34;https://example.com/p/hero-gang-neural-model-for-named-entity-recognition/17_hu8464161276402777211.png 480w, https://example.com/p/hero-gang-neural-model-for-named-entity-recognition/17_hu16676292123468102744.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;259&#34;
+		data-flex-basis=&#34;621px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;hero-模块&#34;&gt;Hero 模块：
+&lt;/h3&gt;&lt;p&gt;muti-head self-Attention 使用的就是基于Transformer的序列Encoder，比如说BERT、BioBERT等；然后将特征输入到Gang模块，提取局部上下文特征及其对应的位置信息&lt;/p&gt;
+&lt;h3 id=&#34;gang模块&#34;&gt;Gang模块：
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;LSTM、GRU、RNN从序列中提取局部和相对位置信息（RS&amp;ndash;循环结构）&lt;/li&gt;
+&lt;li&gt;为了强调单个单词的局部特征，保证不受到长距离的影响&amp;mdash;&amp;gt;构造可一个固定长度的滑动窗口，生成较短的子序列，这样更容易被RS建模&lt;/li&gt;
+&lt;li&gt;利用多个不同窗口大小的滑动窗口，来提取更丰富的局部特征&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;muti-windows-attention&#34;&gt;Muti-windows Attention：
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;应用多窗口注意力，将来自Hero模块的全局上下文信息和来自Gang模块的局部特征进行结合&lt;/li&gt;
+&lt;li&gt;提出两种注意力：MLP-Attention、DOT-Attention&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        </item>
+        <item>
+        <title>DABERT: Dual Attention Enhanced BERT for Semantic Matching</title>
+        <link>https://example.com/p/dabert-dual-attention-enhanced-bert-for-semantic-matching/</link>
+        <pubDate>Sat, 25 Nov 2023 23:47:24 +0800</pubDate>
+        
+        <guid>https://example.com/p/dabert-dual-attention-enhanced-bert-for-semantic-matching/</guid>
+        <description>&lt;img src="https://picsum.photos/800/600.webp?random=847d5f0a" alt="Featured image of post DABERT: Dual Attention Enhanced BERT for Semantic Matching" /&gt;&lt;p&gt;（略读）&lt;/p&gt;
+&lt;h2 id=&#34;摘要&#34;&gt;摘要
+&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;基于Transformer的预训练语言模型（如 BERT）在语义句子匹配方面取得了显著的成果。然而，现有模型仍存在捕捉细微差别能力不足的问题。句子的增删和修改等细微噪声可能会导致预测结果的翻转。为了缓解这一问题，提出了一种新颖的双注意力增强 BERT（DABERT），以增强 BERT 捕捉句对细微差别的能力。&lt;/li&gt;
+&lt;li&gt;DABERT 包括：&lt;br&gt;
+（1）双注意模块Dual Attention，该模块通过引入新的双通道对齐机制来模拟亲和性和差异注意，从而测量软单词匹配。&lt;br&gt;
+（2）自适应融合模块，该模块利用注意力学习 affinity 和 difference 特征的聚合，并生成描述句对匹配细节的向量。最终在经过充分研究的语义匹配和鲁棒性测试数据集上进行了大量实验，实验结果表明了我们提出的方法的有效性。
+&lt;img src=&#34;https://example.com/p/dabert-dual-attention-enhanced-bert-for-semantic-matching/19.png&#34;
+	width=&#34;1674&#34;
+	height=&#34;640&#34;
+	srcset=&#34;https://example.com/p/dabert-dual-attention-enhanced-bert-for-semantic-matching/19_hu7460073766767862339.png 480w, https://example.com/p/dabert-dual-attention-enhanced-bert-for-semantic-matching/19_hu6741046045521661187.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;261&#34;
+		data-flex-basis=&#34;627px&#34;
+	
+&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;贡献三方面&#34;&gt;贡献（三方面）
+&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;作者指出，对句子对之间的细粒度差异语义进行明确建模可以有效地有利于句子语义匹配任务，我们还提出了一种基于 BERT 的新型双通道注意力增强机制。&lt;/li&gt;
+&lt;li&gt;作者提出的 DABERT 模型使用双通道注意力分别关注句子对中的亲和性和差异性特征，并采用软集成调节机制自适应地聚合这两种特征。因此，生成的向量能更好地描述句对的匹配细节。&lt;/li&gt;
+&lt;li&gt;为了验证 DABERT 的有效性，作者在 10 个语义匹配数据集和几个数据噪声数据集上进行了实验，以测试模型的鲁棒性。结果表明，与纯 BERT 相比，DABERT 的绝对值提高了 2% 以上，并且优于其他采用更先进技术和使用外部数据的基于 BERT 的模型。&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        </item>
+        <item>
+        <title>Nested Named Entity Recognition with Span-level Graphs</title>
+        <link>https://example.com/p/nested-named-entity-recognition-with-span-level-graphs/</link>
+        <pubDate>Sat, 25 Nov 2023 23:37:45 +0800</pubDate>
+        
+        <guid>https://example.com/p/nested-named-entity-recognition-with-span-level-graphs/</guid>
+        <description>&lt;img src="https://example.com/p/nested-named-entity-recognition-with-span-level-graphs/VCG211357088085.jpg" alt="Featured image of post Nested Named Entity Recognition with Span-level Graphs" /&gt;&lt;p&gt;题目：《具有span级图的嵌套命名实体识别》&lt;br&gt;
+来自：https://zhuanlan.zhihu.com/p/569232453&lt;/p&gt;
+&lt;h2 id=&#34;目标&#34;&gt;目标
+&lt;/h2&gt;&lt;p&gt;解决嵌套NER中存在正负样本大量重叠时基于span-based、以及大多数实体在进行推理时从未出现在训练集等情况&lt;/p&gt;
+&lt;h2 id=&#34;创新点&#34;&gt;创新点
+&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;首先在嵌套NER中引入基于检索的跨度级别图来建模候选跨度和当前句子之外实体之间的词汇相关性。&lt;/li&gt;
+&lt;li&gt;与GCNs进行消息传递并进行多任务学习，以有效地从候选跨度的实体邻居中提取丰富的信息。&lt;/li&gt;
+&lt;li&gt;在三个常见的嵌套NER数据集( ACE2004、ACE 2005、GENIA)上进行实验。实证结果和广泛的分析表明，我们的方法在所有三个基准上都优于强基线，并且在长和低频跨度上具有特殊的优势。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;方法概述&#34;&gt;方法概述
+&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://example.com/p/nested-named-entity-recognition-with-span-level-graphs/18.png&#34;
+	width=&#34;1595&#34;
+	height=&#34;966&#34;
+	srcset=&#34;https://example.com/p/nested-named-entity-recognition-with-span-level-graphs/18_hu3821766876840479683.png 480w, https://example.com/p/nested-named-entity-recognition-with-span-level-graphs/18_hu5687866599120710697.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;165&#34;
+		data-flex-basis=&#34;396px&#34;
+	
+&gt;&lt;br&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;作者根据n-gram特征，构建了基于检索的图来改进span表示。该方法中使用了两个span级别图：实体-实体图 和 span-实体图 。如果将每个实体提及或原始span视为多个相邻标记的span，则这两个图都对span之间的关系进行建模。&lt;/li&gt;
+&lt;li&gt;对于初始span和实体提及，作者使用了char embeddings, word embeddings 和 pre-trained LM 。句子和实体提及都被视为标记序列并分别编码。首先，char embeddings嵌入输入双向LSTM中，以捕获单词的正字法和形态学特征。然后，预训练的语言模型（如BERT）用于上下文化表示。这些表示是最后一层中的平均BPE嵌入。最后，将char隐藏状态，上下文化嵌入和词嵌入连接起来，输入另一个双向LSMT（Word-Char BiLSTM），用于词的编码表示。对于span级别的表示，作者使用最大池化来对span内的单词进行编码表示。&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        </item>
+        <item>
+        <title>Representation iterative fusion based on heterogeneous graph neural network for joint entity and relation extraction</title>
+        <link>https://example.com/p/representation-iterative-fusion-based-on-heterogeneous-graph-neural-network-for-joint-entity-and-relation-extraction/</link>
+        <pubDate>Wed, 16 Aug 2023 22:09:39 +0800</pubDate>
+        
+        <guid>https://example.com/p/representation-iterative-fusion-based-on-heterogeneous-graph-neural-network-for-joint-entity-and-relation-extraction/</guid>
+        <description>&lt;img src="https://picsum.photos/800/600.webp?random=f7a0aaba" alt="Featured image of post Representation iterative fusion based on heterogeneous graph neural network for joint entity and relation extraction" /&gt;&lt;p&gt;题目：《基于异构图神经网络的表示迭代融合进行联合实体和关系抽取》&lt;br&gt;
+代码地址：https://github.com/zhao9797/RIFRE&lt;/p&gt;
+&lt;h2 id=&#34;创新点&#34;&gt;创新点
+&lt;/h2&gt;&lt;p&gt;提出了一种基于异构图神经网络的表示迭代融合关系抽取算法( RIFRE )：将关系和词语建模为图上的节点，通过消息传递机制将两类语义节点进行迭代融合，得到更适合关系抽取任务的节点表示；模型在节点表示更新后进行关系抽取。&lt;/p&gt;
+&lt;h2 id=&#34;方法概述&#34;&gt;方法概述
+&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://example.com/p/representation-iterative-fusion-based-on-heterogeneous-graph-neural-network-for-joint-entity-and-relation-extraction/14.png&#34;
+	width=&#34;1690&#34;
+	height=&#34;694&#34;
+	srcset=&#34;https://example.com/p/representation-iterative-fusion-based-on-heterogeneous-graph-neural-network-for-joint-entity-and-relation-extraction/14_hu1281641376923266687.png 480w, https://example.com/p/representation-iterative-fusion-based-on-heterogeneous-graph-neural-network-for-joint-entity-and-relation-extraction/14_hu18118901510974435528.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;243&#34;
+		data-flex-basis=&#34;584px&#34;
+	
+&gt;&lt;br&gt;
+本文提出了一种基于异构图神经网络的表示迭代融合，用于联合实体和关系抽取。将关系和单词建模为图上的节点，并通过消息传递机制更新节点。模型在节点更新后进行关系抽取。首先使用主题标注器来检测单词节点上所有可能的主题；然后将每个单词节点与候选主语和关系进行组合，并使用对象标记器在新的单词节点上对对象进行标记。&lt;/p&gt;
+&lt;h3 id=&#34;异构图方法优点&#34;&gt;异构图方法优点
+&lt;/h3&gt;&lt;p&gt;（1）将关系视为节点，每个词节点在标注了主题后，综合特定的关系和主题信息对对象进行标注，这使得处理重叠三元组变得容易&lt;br&gt;
+（2）不同节点可以通过多个消息传递过程充分利用彼此的信息。在抽取实体之前，每个单词都融合了可能与其相关联的关系节点的语义信息。之后，标注者可以很容易地抽取出形成有效关系的实体。&lt;/p&gt;
+&lt;h3 id=&#34;方法细节&#34;&gt;方法细节
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;节点的向量表示给定一个句子和一个预定义的关系类型，我们通过将句子中的单词编码成向量并将每个关系作为向量嵌入来构建图模型的输入&lt;/li&gt;
+&lt;li&gt;异构图层我们提出了一个异构图神经网络来迭代融合单词节点和关系节点的表示&lt;/li&gt;
+&lt;li&gt;关系抽取在得到单词节点和关系节点的表示后执行具体的关系抽取步骤。&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        </item>
+        <item>
+        <title>论文阅读：Enrel</title>
+        <link>https://example.com/p/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BBenrel/</link>
+        <pubDate>Mon, 14 Aug 2023 23:41:38 +0800</pubDate>
+        
+        <guid>https://example.com/p/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BBenrel/</guid>
+        <description>&lt;img src="https://example.com/p/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BBenrel/V.jpg" alt="Featured image of post 论文阅读：Enrel" /&gt;&lt;p&gt;Explicitly Capturing Relations between Entity Mentions via Graph Neural Networks for Domain-specific Named Entity Recognition&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;题目：《通过图神经网络显式地捕获实体项之间的关系，用于特定领域命名实体识别》
+&lt;br&gt;&lt;br&gt;
+使用图注意力网络：（首先将同一个实体的重复提及连接起来，将文档中反复出现的提及连接起来，既可以整合上下文线索，也可以对其实体类型进行一致的预测；然后基于句子级别的依存关系连接实体指称，以有效识别语义相关的实体。针对标注不足的情况，通过制定一个学习曲线，确定在有限的标注可用的情况下使用该轻量级方法学习到特征。）&lt;/p&gt;
+&lt;h2 id=&#34;方法概述&#34;&gt;方法概述
+&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://example.com/p/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BBenrel/12.png&#34;
+	width=&#34;917&#34;
+	height=&#34;674&#34;
+	srcset=&#34;https://example.com/p/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BBenrel/12_hu8441693705501296198.png 480w, https://example.com/p/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BBenrel/12_hu3472650061968581426.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;136&#34;
+		data-flex-basis=&#34;326px&#34;
+	
+&gt;&lt;br&gt;
+框架主要包含5层：嵌入层、编码层、GNNs层、融合层和解码层&lt;/p&gt;
+&lt;h2 id=&#34;embedding-layer&#34;&gt;Embedding Layer
+&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;选择基于BERT的LM作为嵌入层。对于特定领域的数据集，使用BioBERT 用于生物医学领域，SciBERT用于行星科学领域&lt;/li&gt;
+&lt;li&gt;对一个文档：D=[w1, w2, … , wn] (n个词)：BERT输出一个上下文词嵌入矩阵E=[w1, w2, … , wn]&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;encoding-layer&#34;&gt;Encoding Layer
+&lt;/h2&gt;&lt;p&gt;BiLSTM对BERT的词嵌入进行编码，将前向和后向LSTM隐藏状态concate为编码表示，为每个词获得一个d2维向量的嵌入矩阵&lt;/p&gt;
+&lt;h2 id=&#34;graph-neural-networks-layer&#34;&gt;Graph Neural Networks Layer
+&lt;/h2&gt;&lt;p&gt;利用实体间的全局共指关系（共指图, C -图）和局部依赖关系（依赖图, D-图）构建实体关系图，然后GNN将它们融入到单词表示中。
+&lt;img src=&#34;https://example.com/p/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BBenrel/13.png&#34;
+	width=&#34;1925&#34;
+	height=&#34;1275&#34;
+	srcset=&#34;https://example.com/p/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BBenrel/13_hu16516309781423203807.png 480w, https://example.com/p/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BBenrel/13_hu18236172353398751944.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;150&#34;
+		data-flex-basis=&#34;362px&#34;
+	
+&gt;&lt;br&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>Graph Neural Networks and Representation Embedding for Table Extraction in PDF Documents</title>
+        <link>https://example.com/p/graph-neural-networks-and-representation-embedding-for-table-extraction-in-pdf-documents/</link>
+        <pubDate>Sat, 22 Apr 2023 22:10:08 +0800</pubDate>
+        
+        <guid>https://example.com/p/graph-neural-networks-and-representation-embedding-for-table-extraction-in-pdf-documents/</guid>
+        <description>&lt;img src="https://picsum.photos/800/600.webp?random=9bdc33ec" alt="Featured image of post Graph Neural Networks and Representation Embedding for Table Extraction in PDF Documents" /&gt;&lt;p&gt;题目：《用于PDF文档中表格抽取的图神经网络和表示嵌入》&lt;/p&gt;
+&lt;h2 id=&#34;主要贡献&#34;&gt;主要贡献
+&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;利用GNN解决表格提取问题。通过适当设计的表示嵌入来丰富节点特征。这些表示不仅有助于更好地将表格与论文的其他部分区分开来，还有助于将表格单元格与表格头区分开来&lt;/li&gt;
+&lt;li&gt;Table Extraction被重新定义为一个节点分类任务，由一个GNN来处理。图节点由基本PDF对象组成，边则根据节点之间的关系和相互距离计算。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;方法概述&#34;&gt;方法概述
+&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://example.com/p/graph-neural-networks-and-representation-embedding-for-table-extraction-in-pdf-documents/10.png&#34;
+	width=&#34;1953&#34;
+	height=&#34;451&#34;
+	srcset=&#34;https://example.com/p/graph-neural-networks-and-representation-embedding-for-table-extraction-in-pdf-documents/10_hu5204314192909303516.png 480w, https://example.com/p/graph-neural-networks-and-representation-embedding-for-table-extraction-in-pdf-documents/10_hu15039559811594825285.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;433&#34;
+		data-flex-basis=&#34;1039px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;将数据集进行合并去构建新的数据集&lt;/li&gt;
+&lt;li&gt;将PDF页面转换为图：&lt;br&gt;
+（1） 使用PyMuPDF提取PDF中基本项的信息&lt;br&gt;
+（2） 将每个节点与其最近的可见节点相连&lt;br&gt;
+（3） 为每个节点和边添加特征：用位置和文本特征丰富图节点；引入表示嵌入特征来将表单元格和表头与其他单元格区分开来，定义bounding box的距离edge(u, v)
+&lt;img src=&#34;https://example.com/p/graph-neural-networks-and-representation-embedding-for-table-extraction-in-pdf-documents/11.png&#34;
+	width=&#34;1646&#34;
+	height=&#34;1340&#34;
+	srcset=&#34;https://example.com/p/graph-neural-networks-and-representation-embedding-for-table-extraction-in-pdf-documents/11_hu16476723440268996055.png 480w, https://example.com/p/graph-neural-networks-and-representation-embedding-for-table-extraction-in-pdf-documents/11_hu10275619225260169370.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;122&#34;
+		data-flex-basis=&#34;294px&#34;
+	
+&gt;&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;使用GNN 对于结构信息的构建比较有帮助&lt;br&gt;
+（1）在这里采用的是GNN的一个归纳扩展——GraphSAGE-GCN；并通过消息传递的方法，通过图聚集对节点进行更新：对于G=（V,E），每个V从邻居节点N(V)中收集信息（消息），可以通过计算边权重来衡量它们&lt;br&gt;
+（2）在训练过程中，我们通过排除没有表格的页面和舍弃剩余页面中的一些&amp;quot;文本&amp;quot;节点来处理这种类别不平衡问题。如果在原图中存在一条从v到任意具有不同标签的节点u的边数大于k的路径，则丢弃&amp;quot;文本&amp;quot;节点v。废弃的节点被称为&amp;quot;岛屿&amp;quot;。通过去除岛屿，可以减少被同类其他节点包围的节点数量。通过这种方式，消息传递算法聚合了更多来自不同来源的消息，帮助方法区分对象。&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        </item>
+        <item>
+        <title>代码阅读《Text-to-Table: A New Way of Information Extraction</title>
+        <link>https://example.com/p/%E4%BB%A3%E7%A0%81%E9%98%85%E8%AF%BBtext-to-table-a-new-way-of-information-extraction/</link>
+        <pubDate>Sun, 16 Apr 2023 20:37:46 +0800</pubDate>
+        
+        <guid>https://example.com/p/%E4%BB%A3%E7%A0%81%E9%98%85%E8%AF%BBtext-to-table-a-new-way-of-information-extraction/</guid>
+        <description>&lt;img src="https://example.com/p/%E4%BB%A3%E7%A0%81%E9%98%85%E8%AF%BBtext-to-table-a-new-way-of-information-extraction/VCG211375786999.jpg" alt="Featured image of post 代码阅读《Text-to-Table: A New Way of Information Extraction" /&gt;&lt;p&gt;&lt;img src=&#34;https://example.com/p/%E4%BB%A3%E7%A0%81%E9%98%85%E8%AF%BBtext-to-table-a-new-way-of-information-extraction/24.jpg&#34;
+	width=&#34;1317&#34;
+	height=&#34;854&#34;
+	srcset=&#34;https://example.com/p/%E4%BB%A3%E7%A0%81%E9%98%85%E8%AF%BBtext-to-table-a-new-way-of-information-extraction/24_hu8883742009380889468.jpg 480w, https://example.com/p/%E4%BB%A3%E7%A0%81%E9%98%85%E8%AF%BBtext-to-table-a-new-way-of-information-extraction/24_hu8830115649994794633.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;154&#34;
+		data-flex-basis=&#34;370px&#34;
+	
+&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>LiLT: A Simple yet Effective Language-Independent Layout Transformer for Structured Document Understanding</title>
+        <link>https://example.com/p/lilt-a-simple-yet-effective-language-independent-layout-transformer-for-structured-document-understanding/</link>
+        <pubDate>Mon, 10 Apr 2023 23:10:53 +0800</pubDate>
+        
+        <guid>https://example.com/p/lilt-a-simple-yet-effective-language-independent-layout-transformer-for-structured-document-understanding/</guid>
+        <description>&lt;img src="https://picsum.photos/800/600.webp?random=914143eb" alt="Featured image of post LiLT: A Simple yet Effective Language-Independent Layout Transformer for Structured Document Understanding" /&gt;&lt;p&gt;题目：《LiLT：一个简单而有效的用于结构化文档理解的语言无关布局转换器》&lt;br&gt;
+代码开源：https://github.com/jpWang/LiLT
+&lt;br&gt;&lt;br&gt;
+提出一个适用于结构化文档和多语言文档的预训练模型，可以在单一语言上进行预训练，在其他语言上进行微调。&lt;br&gt;
+只使用文本和布局两者模态进行训练，文本部分可以使用RoBERTa/XLM-R/InfoXLM等进行文本特征的抽取；布局部分的模态，主要是使用本文提出的LiLT进行布局模态特征的提取。&lt;/p&gt;
+&lt;h2 id=&#34;创新点&#34;&gt;创新点
+&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;提出了一个用于单语言/多语言进行结构化文档理解的模型LiLT&lt;/li&gt;
+&lt;li&gt;在模型中提出双向注意互补机制BiACM来进行文本与布局双模态之间的跨模态交互，以及两种新的预测任务来保证充分交互：关键点定位KPL和跨模态对齐识别CAI&lt;/li&gt;
+&lt;li&gt;在benchmarks上的实验证明了有效性。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;算法流程&#34;&gt;算法流程
+&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://example.com/p/lilt-a-simple-yet-effective-language-independent-layout-transformer-for-structured-document-understanding/9.png&#34;
+	width=&#34;1975&#34;
+	height=&#34;854&#34;
+	srcset=&#34;https://example.com/p/lilt-a-simple-yet-effective-language-independent-layout-transformer-for-structured-document-understanding/9_hu1169522785108402670.png 480w, https://example.com/p/lilt-a-simple-yet-effective-language-independent-layout-transformer-for-structured-document-understanding/9_hu14822613366203435990.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;231&#34;
+		data-flex-basis=&#34;555px&#34;
+	
+&gt;
+&lt;b&gt;算法整体概述：&lt;/b&gt;&lt;br&gt;
+整体可以看作为是一个并行的双Transformer结构。首先，通过OCR工具获取文本的bounding box和内容的文本token，然后将文本和布局信息分别送入到对应的基于Transformer的架构来获得增强的特征，然后引入BiACM来进行文本与布局之间的跨模态交互，最终将编码好的文本和布局特征进行拼接，添加额外的头，最终进行自监督预训练或者下游任务微调。&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>BROS: A Pre-trained Language Model Focusing on Text and Layout for Better Key Information Extraction from Documents</title>
+        <link>https://example.com/p/bros-a-pre-trained-language-model-focusing-on-text-and-layout-for-better-key-information-extraction-from-documents/</link>
+        <pubDate>Sat, 08 Apr 2023 21:07:46 +0800</pubDate>
+        
+        <guid>https://example.com/p/bros-a-pre-trained-language-model-focusing-on-text-and-layout-for-better-key-information-extraction-from-documents/</guid>
+        <description>&lt;img src="https://example.com/p/bros-a-pre-trained-language-model-focusing-on-text-and-layout-for-better-key-information-extraction-from-documents/VCG211510875856.jpg" alt="Featured image of post BROS: A Pre-trained Language Model Focusing on Text and Layout for Better Key Information Extraction from Documents" /&gt;&lt;p&gt;论文题目：《BROS：一种专注于文本和版面信息的预训练语言模型，用于更好地抽取文档关键信息》&lt;/p&gt;
+&lt;h2 id=&#34;概述&#34;&gt;概述
+&lt;/h2&gt;&lt;p&gt;本文提出了一个预训练语言模型 BROS，它专注于对文本和布局特征进行建模，以有效地从文档中提取关键信息。通过对文本在二维空间的相对位置进行编码，并使用区域策略掩码对模型进行预训练，BROS 在不依赖任何其它视觉特征的情况下展示出优越的性能。此外，BROS与其它预训练模型相比，对不同单词排序具有更好的鲁棒性。&lt;/p&gt;
+&lt;h2 id=&#34;整体框架&#34;&gt;整体框架
+&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://example.com/p/bros-a-pre-trained-language-model-focusing-on-text-and-layout-for-better-key-information-extraction-from-documents/1.png&#34;
+	width=&#34;1643&#34;
+	height=&#34;581&#34;
+	srcset=&#34;https://example.com/p/bros-a-pre-trained-language-model-focusing-on-text-and-layout-for-better-key-information-extraction-from-documents/1_hu12476032029494546082.png 480w, https://example.com/p/bros-a-pre-trained-language-model-focusing-on-text-and-layout-for-better-key-information-extraction-from-documents/1_hu5542442909901762705.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;282&#34;
+		data-flex-basis=&#34;678px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;实验--结果&#34;&gt;实验 &amp;amp; 结果
+&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://example.com/p/bros-a-pre-trained-language-model-focusing-on-text-and-layout-for-better-key-information-extraction-from-documents/2.png&#34;
+	width=&#34;1645&#34;
+	height=&#34;706&#34;
+	srcset=&#34;https://example.com/p/bros-a-pre-trained-language-model-focusing-on-text-and-layout-for-better-key-information-extraction-from-documents/2_hu11709501695227477370.png 480w, https://example.com/p/bros-a-pre-trained-language-model-focusing-on-text-and-layout-for-better-key-information-extraction-from-documents/2_hu44088242572454925.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;233&#34;
+		data-flex-basis=&#34;559px&#34;
+	
+&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>Automated pipeline for superalloy data by text mining</title>
+        <link>https://example.com/p/automated-pipeline-for-superalloy-data-by-text-mining/</link>
+        <pubDate>Tue, 04 Apr 2023 21:39:16 +0800</pubDate>
+        
+        <guid>https://example.com/p/automated-pipeline-for-superalloy-data-by-text-mining/</guid>
+        <description>&lt;img src="https://example.com/p/automated-pipeline-for-superalloy-data-by-text-mining/VCG211418403645.jpg" alt="Featured image of post Automated pipeline for superalloy data by text mining" /&gt;&lt;p&gt;题目：《通过文本挖掘实现提取高温合金数据的自动化方法》&lt;br&gt;
+代码地址： &lt;a class=&#34;link&#34; href=&#34;https://github.com/MGEdata/SuperalloyDigger&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://github.com/MGEdata/SuperalloyDigger&lt;/a&gt; &lt;br&gt;
+期刊 &amp;amp; 年份：npj Computational Materials (2022)&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;文献中包括大量可靠的数据，这篇论文主要是通过从一万多篇文献中提取两千多条的成分和性能数据，进行对高温合金的预测。&lt;/b&gt;&lt;/p&gt;
+&lt;h2 id=&#34;motivation--contribution&#34;&gt;Motivation &amp;amp; Contribution
+&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;提出了一个自动化的NLP方法，将高温合金的化学成分和性能数据捕获到单个数据集中，然后使用从文献中的14425篇期刊文章中提取数据对高温合金进行分析。&lt;/li&gt;
+&lt;li&gt;针对小型语料库，开发了一种基于规则的NER方法和一种启发式文本多关系提取距离算法，该方法无需标记样本。&lt;/li&gt;
+&lt;li&gt;对于表处理需求，开发了一种通用的表解析和关系提取算法。&lt;/li&gt;
+&lt;li&gt;为了衡量提取数据的预测性，我们建立了一个数据驱动的 ML 模型来预测和比较 15 种高温合金的 γ 溶剂温度。（预测的相对误差在2.27%）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;methodology-review&#34;&gt;Methodology Review
+&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://example.com/p/automated-pipeline-for-superalloy-data-by-text-mining/6.png&#34;
+	width=&#34;1815&#34;
+	height=&#34;979&#34;
+	srcset=&#34;https://example.com/p/automated-pipeline-for-superalloy-data-by-text-mining/6_hu3133087080245772520.png 480w, https://example.com/p/automated-pipeline-for-superalloy-data-by-text-mining/6_hu10566686555148158267.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;185&#34;
+		data-flex-basis=&#34;444px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;流程&#34;&gt;流程:
+&lt;/h3&gt;&lt;p&gt;（1）科学文献下载和预处理：从HTML、XML和TXT文本中，对原始的语料进行预处理&lt;br&gt;
+（2）表格解析：将表的完整标题和正文转化为结构化的形式，然后分类哪些表包含需要抽取的化学成分和目标属性信息&lt;br&gt;
+（3）文本分类：确定哪些句子中包含待抽取的目标属性信息&lt;br&gt;
+（4）NER：从文本和表格中识别合金实体、属性指定符和属性值，然后进行关系抽取&lt;br&gt;
+（5）表格、文本关系抽取：给出了元素内容和属性的具体元组关系，以及相互依赖关系的解析&lt;br&gt;
+（6）依赖关系解析&lt;br&gt;
+（7）将提取的包含物品数字对象标识符（DOI）、合金命名实体、化学元素、内容、属性说明符、属性值的元组实体自动编译成高度结构化的格式，形成材料数据库。&lt;/p&gt;
+&lt;h3 id=&#34;ner----生成一个6元组&#34;&gt;NER &amp;ndash;&amp;gt; 生成一个6元组
+&lt;/h3&gt;&lt;p&gt;（1）6元组由文章DOI、合金命名实体、化学元素、内容、属性说明符和属性值组成&lt;br&gt;
+（2）合金命名实体通常以元素成分(例如Co - 9Al - 9.8 W和8Al1W2Mo)、高温合金名称(例如, ERBOCo - 0和U720Li)或代名词(例如,该合金)的形式描述。化学元素可以根据元素周期表进行识别，其组成以at . %或wt . %的形式表示。属性描述符是指目标属性名称，如γ′溶剂温度或密度&lt;br&gt;
+（3）通过正则表达式，来对高温合金的书写形式进行表示。
+&lt;img src=&#34;https://example.com/p/automated-pipeline-for-superalloy-data-by-text-mining/7.png&#34;
+	width=&#34;1264&#34;
+	height=&#34;716&#34;
+	srcset=&#34;https://example.com/p/automated-pipeline-for-superalloy-data-by-text-mining/7_hu10458513480314316141.png 480w, https://example.com/p/automated-pipeline-for-superalloy-data-by-text-mining/7_hu4848792601854785724.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;176&#34;
+		data-flex-basis=&#34;423px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;文本关系抽取----4元组&#34;&gt;文本关系抽取 &amp;ndash;&amp;gt; 4元组
+&lt;/h3&gt;&lt;p&gt;基于距离的算法 &amp;ndash;&amp;gt; 无需标记样本来处理多重关系抽取&lt;br&gt;
+最短距离算法&lt;br&gt;
+顺序匹配算法&lt;/p&gt;
+&lt;h3 id=&#34;表关系抽取&#34;&gt;表关系抽取
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;https://example.com/p/automated-pipeline-for-superalloy-data-by-text-mining/8.png&#34;
+	width=&#34;1643&#34;
+	height=&#34;752&#34;
+	srcset=&#34;https://example.com/p/automated-pipeline-for-superalloy-data-by-text-mining/8_hu2056810668877571928.png 480w, https://example.com/p/automated-pipeline-for-superalloy-data-by-text-mining/8_hu13122061566307318027.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;218&#34;
+		data-flex-basis=&#34;524px&#34;
+	
+&gt;
+（1）表方向( &amp;ldquo;按行&amp;quot;或&amp;quot;按列&amp;rdquo;)首先通过估计表体中目标信息的行或列位置来检测，例如化学元素&lt;br&gt;
+（2）绿色单元格中的合金命名实体和橙色单元格中的元素分别通过对应序列中每个表单元格的行和列索引进行连接，最后写成四元组&lt;br&gt;
+（3）表解析将完整的表信息，包括表标题和正文，转化为嵌套的表单元格列表的结构格式，然后分类哪个表包含待提取的化学成分和目标属性信息&lt;br&gt;
+（4）以成分提取为例，在表关系提取时，首先通过估计表体中化学元素的行或列位置来检测表方向( &amp;ldquo;按行&amp;quot;或&amp;quot;按列&amp;rdquo;)。然后检查表标题，看是否存在合金命名实体&lt;/p&gt;
+&lt;h3 id=&#34;数据相互依赖性关系&#34;&gt;数据相互依赖性关系
+&lt;/h3&gt;&lt;p&gt;（1）相互依赖性解析旨在解决特定材料的化学成分和属性数据片段的关联。文本和表格关系抽取后，化学成分元组从表格中获取，属性元组从文本和表格中获取&lt;br&gt;
+（2）采用分治策略&lt;/p&gt;
+&lt;h2 id=&#34;discussion&#34;&gt;Discussion
+&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;合金命名实体的F1 score达到92.07%&lt;/li&gt;
+&lt;li&gt;使用启发式多关系抽取算法来克服语料标签有限的情况&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        </item>
+        <item>
+        <title>Graph Convolution for Multimodal Information Extraction from Visually Rich Documents</title>
+        <link>https://example.com/p/graph-convolution-for-multimodal-information-extraction-from-visually-rich-documents/</link>
+        <pubDate>Sun, 02 Apr 2023 22:57:18 +0800</pubDate>
+        
+        <guid>https://example.com/p/graph-convolution-for-multimodal-information-extraction-from-visually-rich-documents/</guid>
+        <description>&lt;img src="https://picsum.photos/800/600.webp?random=cb101659" alt="Featured image of post Graph Convolution for Multimodal Information Extraction from Visually Rich Documents" /&gt;&lt;p&gt;题目：《利用图卷积网络从富文档中提取多模态信息》&lt;br&gt;
+代码未开源，论文地址：https://arxiv.org/abs/1903.11279&lt;/p&gt;
+&lt;h2 id=&#34;motivation&#34;&gt;Motivation
+&lt;/h2&gt;&lt;p&gt;在VRDs中，视觉和布局信息对于文档理解至关重要，这类文档中的文本无法序列化为一维序列而不丢失信息。经典的信息抽取模型如BiLSTM - CRF通常针对文本序列进行操作，并没有融入视觉特征。&lt;/p&gt;
+&lt;h2 id=&#34;contribution&#34;&gt;Contribution
+&lt;/h2&gt;&lt;p&gt;本文提出了一种从VRD中提取IE的新方法：利用图卷积计算文档中每个文本段的图嵌入。图嵌入表示当前文本段的上下文，其中卷积操作结合了上下文的文本和视觉特征。然后将图嵌入和文本嵌入结合，输入到一个标准的BiLSTM中进行信息提取。&lt;br&gt;&lt;br&gt;
+&lt;b&gt;⭐ 创新点：&lt;br&gt;
+利用图卷积网络整合文档的文本语义信息和视觉语义信息；这里的视觉语义信息，主要指文档版面以及文本相对位置，而非图像信息&lt;/b&gt;&lt;/p&gt;
+&lt;h2 id=&#34;methodology&#34;&gt;Methodology
+&lt;/h2&gt;&lt;h3 id=&#34;文档建模&#34;&gt;文档建模
+&lt;/h3&gt;&lt;p&gt;将每个文档建模为一个文本段图，其中每个文本段由段的位置和段内的文本组成。图由表示文本片段的节点和表示两个节点之间的相对形状和距离等视觉依赖关系的边组成，使用内部的OCR系统生成文本片段&lt;br&gt;
+&lt;img src=&#34;https://example.com/p/graph-convolution-for-multimodal-information-extraction-from-visually-rich-documents/39.png&#34;
+	width=&#34;850&#34;
+	height=&#34;461&#34;
+	srcset=&#34;https://example.com/p/graph-convolution-for-multimodal-information-extraction-from-visually-rich-documents/39_hu1956294676248767859.png 480w, https://example.com/p/graph-convolution-for-multimodal-information-extraction-from-visually-rich-documents/39_hu404682418094514282.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;184&#34;
+		data-flex-basis=&#34;442px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;特征提取&#34;&gt;特征提取
+&lt;/h3&gt;&lt;p&gt;使用单层的BiLSTM计算嵌入，从段内文本内容中提取特征；另外，使用边缘嵌入来编码两个片段之间的视觉距离、源节点的形状和目的节点的相对大小等信息。&lt;br&gt;
+即：节点嵌入编码文本特征，而边嵌入主要表示视觉特征。&lt;/p&gt;
+&lt;h3 id=&#34;图卷积方法&#34;&gt;图卷积方法
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;https://example.com/p/graph-convolution-for-multimodal-information-extraction-from-visually-rich-documents/40.png&#34;
+	width=&#34;1626&#34;
+	height=&#34;487&#34;
+	srcset=&#34;https://example.com/p/graph-convolution-for-multimodal-information-extraction-from-visually-rich-documents/40_hu1236093426820472538.png 480w, https://example.com/p/graph-convolution-for-multimodal-information-extraction-from-visually-rich-documents/40_hu5886048448569495752.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;333&#34;
+		data-flex-basis=&#34;801px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;使用三元组的优点：首先，它将视觉特征直接融合到近邻表示中。此外，当前节点的信息被跨邻居复制。因此，邻居特征可以潜在地学习给定当前节点的位置&lt;/li&gt;
+&lt;li&gt;图卷积是基于自注意力机制定义的，其思想是通过关注每个节点的邻居来计算每个节点的输出隐藏表示&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;bilstm-crf方法&#34;&gt;BiLSTM-CRF方法
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;https://example.com/p/graph-convolution-for-multimodal-information-extraction-from-visually-rich-documents/41.png&#34;
+	width=&#34;769&#34;
+	height=&#34;549&#34;
+	srcset=&#34;https://example.com/p/graph-convolution-for-multimodal-information-extraction-from-visually-rich-documents/41_hu7660808700964054886.png 480w, https://example.com/p/graph-convolution-for-multimodal-information-extraction-from-visually-rich-documents/41_hu8130534163623320145.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;140&#34;
+		data-flex-basis=&#34;336px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;experiment&#34;&gt;Experiment
+&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://example.com/p/graph-convolution-for-multimodal-information-extraction-from-visually-rich-documents/42.png&#34;
+	width=&#34;1207&#34;
+	height=&#34;243&#34;
+	srcset=&#34;https://example.com/p/graph-convolution-for-multimodal-information-extraction-from-visually-rich-documents/42_hu10703313606841073731.png 480w, https://example.com/p/graph-convolution-for-multimodal-information-extraction-from-visually-rich-documents/42_hu3744726491714662153.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;496&#34;
+		data-flex-basis=&#34;1192px&#34;
+	
+&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>Automated knowledge extraction from polymer literature using natural language processing</title>
+        <link>https://example.com/p/automated-knowledge-extraction-from-polymer-literature-using-natural-language-processing/</link>
+        <pubDate>Fri, 24 Mar 2023 21:38:55 +0800</pubDate>
+        
+        <guid>https://example.com/p/automated-knowledge-extraction-from-polymer-literature-using-natural-language-processing/</guid>
+        <description>&lt;img src="https://example.com/p/automated-knowledge-extraction-from-polymer-literature-using-natural-language-processing/VCG211336575720.jpg" alt="Featured image of post Automated knowledge extraction from polymer literature using natural language processing" /&gt;&lt;p&gt;题目：使用NLP的方法从聚合物文献中自动提取知识&lt;/p&gt;
+&lt;h2 id=&#34;方法&#34;&gt;方法
+&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://example.com/p/automated-knowledge-extraction-from-polymer-literature-using-natural-language-processing/5.png&#34;
+	width=&#34;1450&#34;
+	height=&#34;592&#34;
+	srcset=&#34;https://example.com/p/automated-knowledge-extraction-from-polymer-literature-using-natural-language-processing/5_hu18098571316966100325.png 480w, https://example.com/p/automated-knowledge-extraction-from-polymer-literature-using-natural-language-processing/5_hu1330419124482635420.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;244&#34;
+		data-flex-basis=&#34;587px&#34;
+	
+&gt;&lt;br&gt;
+开发了一种文本挖掘的工具，收集了50万篇聚合物相关论文作为语料库，从这些文本中可以得到聚合物的信息，比如最常提到哪些聚合物和哪些应用，以及受欢迎程度的变化趋势。通过对corpus中的数据进行清洗和解析，去训练词向量模型（Word2Vec、fastText）。通过这种方法可以捕获到一些材料科学关系，比如聚合物和官能团的名称、相应的化学物种类等等。最后通过在数据集上进行训练词向量模型，发现词向量不仅可以捕获到现有的领域知识，还可以外推出一些先前未知的关系。&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>Masked Autoencoders Are Scalable Vision Learners</title>
+        <link>https://example.com/p/masked-autoencoders-are-scalable-vision-learners/</link>
+        <pubDate>Sun, 27 Nov 2022 22:52:19 +0800</pubDate>
+        
+        <guid>https://example.com/p/masked-autoencoders-are-scalable-vision-learners/</guid>
+        <description>&lt;img src="https://picsum.photos/800/600.webp?random=42d1ce69" alt="Featured image of post Masked Autoencoders Are Scalable Vision Learners" /&gt;&lt;p&gt;mask：掩码&lt;br&gt;
+token：在NLP中每一个单词是token，在CV中把图像分割成不重叠的patch就是token&lt;/p&gt;
+&lt;h2 id=&#34;方法&#34;&gt;方法
+&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://example.com/p/masked-autoencoders-are-scalable-vision-learners/3.png&#34;
+	width=&#34;702&#34;
+	height=&#34;384&#34;
+	srcset=&#34;https://example.com/p/masked-autoencoders-are-scalable-vision-learners/3_hu4574213539034302562.png 480w, https://example.com/p/masked-autoencoders-are-scalable-vision-learners/3_hu116496488672021211.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;182&#34;
+		data-flex-basis=&#34;438px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;算法流程&#34;&gt;算法流程
+&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;对图片切分 patch， 随机挑选少部分（比如文中25%）作为网络输入；&lt;/li&gt;
+&lt;li&gt;输入通过 encoder 得到对应编码后的 encoded patch；&lt;/li&gt;
+&lt;li&gt;将 encoded patch 还原到对应的原始位置，并在缺失的部分补上 masked patches；&lt;/li&gt;
+&lt;li&gt;送入 decoder， 每个 decoder 预测对应 patch 的图像像素点；&lt;/li&gt;
+&lt;li&gt;计算预测的像素和原始图片的像素之间 MSE 作为 loss;&lt;/li&gt;
+&lt;li&gt;取训练完的模型的 encoder 部分作为下游任务的 basemodel 并在下游任务下 finetune。&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        </item>
+        <item>
+        <title>When Counting Meets HMER: Counting-Aware Network for Handwritten Mathematical Expression Recognition</title>
+        <link>https://example.com/p/when-counting-meets-hmer-counting-aware-network-for-handwritten-mathematical-expression-recognition/</link>
+        <pubDate>Thu, 10 Nov 2022 22:30:36 +0800</pubDate>
+        
+        <guid>https://example.com/p/when-counting-meets-hmer-counting-aware-network-for-handwritten-mathematical-expression-recognition/</guid>
+        <description>&lt;img src="https://picsum.photos/800/600.webp?random=5b352853" alt="Featured image of post When Counting Meets HMER: Counting-Aware Network for Handwritten Mathematical Expression Recognition" /&gt;&lt;p&gt;题目：《针对手写的数学公式识别》&lt;/p&gt;
+&lt;h2 id=&#34;overview&#34;&gt;Overview
+&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://example.com/p/when-counting-meets-hmer-counting-aware-network-for-handwritten-mathematical-expression-recognition/21.png&#34;
+	width=&#34;1193&#34;
+	height=&#34;552&#34;
+	srcset=&#34;https://example.com/p/when-counting-meets-hmer-counting-aware-network-for-handwritten-mathematical-expression-recognition/21_hu15374188952493318653.png 480w, https://example.com/p/when-counting-meets-hmer-counting-aware-network-for-handwritten-mathematical-expression-recognition/21_hu13084509663238944517.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;216&#34;
+		data-flex-basis=&#34;518px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;multi-scale-counting-modulemscm&#34;&gt;Multi-Scale Counting Module(MSCM)
+&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://example.com/p/when-counting-meets-hmer-counting-aware-network-for-handwritten-mathematical-expression-recognition/22.png&#34;
+	width=&#34;1241&#34;
+	height=&#34;446&#34;
+	srcset=&#34;https://example.com/p/when-counting-meets-hmer-counting-aware-network-for-handwritten-mathematical-expression-recognition/22_hu11255096885303293151.png 480w, https://example.com/p/when-counting-meets-hmer-counting-aware-network-for-handwritten-mathematical-expression-recognition/22_hu8747195276474207078.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;278&#34;
+		data-flex-basis=&#34;667px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;counting-combined-attentional-decoderccad&#34;&gt;Counting-Combined Attentional Decoder(CCAD)
+&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://example.com/p/when-counting-meets-hmer-counting-aware-network-for-handwritten-mathematical-expression-recognition/23.png&#34;
+	width=&#34;1016&#34;
+	height=&#34;604&#34;
+	srcset=&#34;https://example.com/p/when-counting-meets-hmer-counting-aware-network-for-handwritten-mathematical-expression-recognition/23_hu8722460731077893185.png 480w, https://example.com/p/when-counting-meets-hmer-counting-aware-network-for-handwritten-mathematical-expression-recognition/23_hu4398265997498964521.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;168&#34;
+		data-flex-basis=&#34;403px&#34;
+	
+&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>Rethinking Semantic Segmentation from a Sequence-to-Sequence Perspective with Transformers</title>
+        <link>https://example.com/p/rethinking-semantic-segmentation-from-a-sequence-to-sequence-perspective-with-transformers/</link>
+        <pubDate>Sat, 29 Oct 2022 22:41:19 +0800</pubDate>
+        
+        <guid>https://example.com/p/rethinking-semantic-segmentation-from-a-sequence-to-sequence-perspective-with-transformers/</guid>
+        <description>&lt;img src="https://picsum.photos/800/600.webp?random=5ac20191" alt="Featured image of post Rethinking Semantic Segmentation from a Sequence-to-Sequence Perspective with Transformers" /&gt;&lt;p&gt;题目：《用Transformer从序列到序列的角度重新思考语义分割》&lt;br&gt;
+&lt;b&gt;[ CVPR2021，Semantic Segmentation]&lt;/b&gt;&lt;/p&gt;
+&lt;h2 id=&#34;摘要&#34;&gt;摘要
+&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;使用Transformer，将输入的图像作为一组序列的patch进行编码，然后从Transformer的每一层中获取全局上下文。&lt;/li&gt;
+&lt;li&gt;SEgmentation TRansformer (SETR)&lt;br&gt;
+将语义分割任务视为一个Sequence-to-Sequence的预测任务，使用没有卷积和下采样过程的Transformer将一张输入的图像作为一组patch进行编码，通过Transformer中每一层所建模的全局上下文，Encoder即可接上一个简单的decoder，从而组合为一个强大的语义分割模型，该模型称为SETR。&lt;/li&gt;
+&lt;li&gt;实验表明提升：（数据集）ADE20K（50.28%mIoU）、Pascal Context（55.83%mIoU）、Cityscapes&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;总体介绍&#34;&gt;总体介绍
+&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://example.com/p/rethinking-semantic-segmentation-from-a-sequence-to-sequence-perspective-with-transformers/4.png&#34;
+	width=&#34;1749&#34;
+	height=&#34;766&#34;
+	srcset=&#34;https://example.com/p/rethinking-semantic-segmentation-from-a-sequence-to-sequence-perspective-with-transformers/4_hu8309063963379631699.png 480w, https://example.com/p/rethinking-semantic-segmentation-from-a-sequence-to-sequence-perspective-with-transformers/4_hu14348047758007210430.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;228&#34;
+		data-flex-basis=&#34;547px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;基于fcn的模型一个标准的fcn分割模具有encoder-decoder架构&#34;&gt;基于FCN的模型：一个标准的FCN分割模具有Encoder-Decoder架构
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;Encoder：由大量卷积层堆叠而成，作用是提取更丰富的语义特征，通过降低特征图的分辨率来实现更大的感受野&lt;/li&gt;
+&lt;li&gt;Decoder：对Encoder提取到的特征进行分类（通过上采样到原始的输入分辨率）&lt;/li&gt;
+&lt;li&gt;结构的优缺点：具有一定的泛化能力，跨空间共享参数可以降低模型的复杂度；但CNNs难以学习长距离依赖关系&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;解决方法&#34;&gt;解决方法
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;直接修改卷积操作：大卷积核、空洞卷积、图像/特征金字塔等；&lt;/li&gt;
+&lt;li&gt;引入注意力模块，对feature map中各个像素建模全局上下文信息。&lt;br&gt;
+上述两种方式的结构仍然属于Encoder-Decoder的FCN，没有本质上的结构变化。&lt;br&gt;
+Transformer 的一个特性便是能够保持输入和输出的空间分辨率不变，同时还能够有效的捕获全局的上下文信息。因此，作者这里便采用了类似ViT的结构来进行特征提取同时结合Decoder来恢复分辨率。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;本文工作提出setrsegmentation-transformer&#34;&gt;本文工作：提出SETR（SEgmentation TRansformer）
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;使用仅包含transformer的Encoder，替代原来的堆叠卷积进行特征提取的方式，这种方式称之为 SEgmentation TRansformer (SETR)。&lt;/li&gt;
+&lt;li&gt;SETR的Encoder通过学习patch embedding将一副图片视为一个包含了一组image patches的序列，并利用全局自注意力对这个序列进行学习。&lt;/li&gt;
+&lt;li&gt;具体来说：&lt;br&gt;
+（1）首先，将图像分解成一个由固定大小的patch组成的网格，形成一系列的patches；&lt;br&gt;
+（2）然后，对每个patch拉直后使用一个线性embedding层进行学习，即可获得一个特征嵌入向量的序列，并将该序列作为transformers的输入；&lt;br&gt;
+（3）接着，经过transformers Encoder之后，得到学习后的高度抽象feature maps；&lt;br&gt;
+（4） 最后，使用一个简单的decoder获得原始分辨率大小的分割map。&lt;br&gt;
+&lt;b&gt;&lt;u&gt;SETR的整个过程中，很关键的一点就是没有下采样过程，这和传统基于卷积的backbone进行特征提取的方式是不同的！&lt;/u&gt;&lt;/b&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;创新点&#34;&gt;创新点
+&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;对语义分割任务重新进行了定义，将其视为Sequence-to-Sequence的问题，这是除了基于Encoder-decoder结构的FCN模型的另一个选择；&lt;/li&gt;
+&lt;li&gt;使用纯Transformer作为Encoder，对序列化的图片进行特征表示；&lt;/li&gt;
+&lt;li&gt;设计了三种decoder，来对自注意力进行深入研究。&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        </item>
+        <item>
+        <title>归档</title>
+        <link>https://example.com/archives/</link>
+        <pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate>
+        
+        <guid>https://example.com/archives/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>链接</title>
+        <link>https://example.com/%E9%93%BE%E6%8E%A5/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://example.com/%E9%93%BE%E6%8E%A5/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>搜索</title>
+        <link>https://example.com/search/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://example.com/search/</guid>
+        <description></description>
+        </item>
+        
+    </channel>
+</rss>
